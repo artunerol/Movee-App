@@ -7,23 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8352F8322785E7D700A24BF7 /* DynamicStringNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8352F8312785E7D700A24BF7 /* DynamicStringNames.swift */; };
 		83BA215827859543009F22FF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BA215727859543009F22FF /* AppDelegate.swift */; };
 		83BA215A27859543009F22FF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BA215927859543009F22FF /* SceneDelegate.swift */; };
 		83BA215C27859543009F22FF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BA215B27859543009F22FF /* ViewController.swift */; };
-		83BA215F27859543009F22FF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83BA215D27859543009F22FF /* Main.storyboard */; };
+		83BA215F27859543009F22FF /* PopularMovies.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83BA215D27859543009F22FF /* PopularMovies.storyboard */; };
 		83BA21612785954B009F22FF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83BA21602785954B009F22FF /* Assets.xcassets */; };
-		83BA21642785954B009F22FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83BA21622785954B009F22FF /* LaunchScreen.storyboard */; };
+		83BA216D2785B7FF009F22FF /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 83BA216C2785B7FF009F22FF /* Alamofire */; };
+		83BA21702785B875009F22FF /* SplashScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83BA216F2785B875009F22FF /* SplashScreen.storyboard */; };
+		83BA21812785C675009F22FF /* PopularMoviesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BA21802785C675009F22FF /* PopularMoviesCollectionViewCell.swift */; };
+		83BA21892785D6BD009F22FF /* PopularMoviesHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BA21882785D6BD009F22FF /* PopularMoviesHeaderCollectionReusableView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8352F8312785E7D700A24BF7 /* DynamicStringNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicStringNames.swift; sourceTree = "<group>"; };
 		83BA215427859543009F22FF /* Movee-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Movee-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		83BA215727859543009F22FF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		83BA215927859543009F22FF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		83BA215B27859543009F22FF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		83BA215E27859543009F22FF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		83BA215E27859543009F22FF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/PopularMovies.storyboard; sourceTree = "<group>"; };
 		83BA21602785954B009F22FF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		83BA21632785954B009F22FF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		83BA21652785954B009F22FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		83BA216F2785B875009F22FF /* SplashScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SplashScreen.storyboard; sourceTree = "<group>"; };
+		83BA21802785C675009F22FF /* PopularMoviesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularMoviesCollectionViewCell.swift; sourceTree = "<group>"; };
+		83BA21882785D6BD009F22FF /* PopularMoviesHeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularMoviesHeaderCollectionReusableView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,12 +38,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83BA216D2785B7FF009F22FF /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8352F8302785E7CB00A24BF7 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				8352F8312785E7D700A24BF7 /* DynamicStringNames.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		83BA214B27859543009F22FF = {
 			isa = PBXGroup;
 			children = (
@@ -56,15 +72,98 @@
 		83BA215627859543009F22FF /* Movee-App */ = {
 			isa = PBXGroup;
 			children = (
-				83BA215727859543009F22FF /* AppDelegate.swift */,
-				83BA215927859543009F22FF /* SceneDelegate.swift */,
-				83BA215B27859543009F22FF /* ViewController.swift */,
-				83BA215D27859543009F22FF /* Main.storyboard */,
-				83BA21602785954B009F22FF /* Assets.xcassets */,
-				83BA21622785954B009F22FF /* LaunchScreen.storyboard */,
 				83BA21652785954B009F22FF /* Info.plist */,
+				83BA21732785C2A7009F22FF /* PopularMovies */,
+				83BA21772785C595009F22FF /* Components */,
+				8352F8302785E7CB00A24BF7 /* Utils */,
+				83BA21712785C1B4009F22FF /* App&SceneDelegate */,
+				83BA216E2785B863009F22FF /* SplashScreen */,
+				83BA21722785C1C5009F22FF /* Others */,
 			);
 			path = "Movee-App";
+			sourceTree = "<group>";
+		};
+		83BA216E2785B863009F22FF /* SplashScreen */ = {
+			isa = PBXGroup;
+			children = (
+				83BA216F2785B875009F22FF /* SplashScreen.storyboard */,
+			);
+			path = SplashScreen;
+			sourceTree = "<group>";
+		};
+		83BA21712785C1B4009F22FF /* App&SceneDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				83BA215727859543009F22FF /* AppDelegate.swift */,
+				83BA215927859543009F22FF /* SceneDelegate.swift */,
+			);
+			path = "App&SceneDelegate";
+			sourceTree = "<group>";
+		};
+		83BA21722785C1C5009F22FF /* Others */ = {
+			isa = PBXGroup;
+			children = (
+				83BA21602785954B009F22FF /* Assets.xcassets */,
+			);
+			path = Others;
+			sourceTree = "<group>";
+		};
+		83BA21732785C2A7009F22FF /* PopularMovies */ = {
+			isa = PBXGroup;
+			children = (
+				83BA21742785C2B5009F22FF /* ViewController */,
+				83BA21752785C2CD009F22FF /* PopularMoviesStoryBoard */,
+			);
+			path = PopularMovies;
+			sourceTree = "<group>";
+		};
+		83BA21742785C2B5009F22FF /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				83BA215B27859543009F22FF /* ViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		83BA21752785C2CD009F22FF /* PopularMoviesStoryBoard */ = {
+			isa = PBXGroup;
+			children = (
+				83BA215D27859543009F22FF /* PopularMovies.storyboard */,
+			);
+			path = PopularMoviesStoryBoard;
+			sourceTree = "<group>";
+		};
+		83BA21772785C595009F22FF /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				83BA21782785C5CC009F22FF /* PopularMoviesCollectionView */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		83BA21782785C5CC009F22FF /* PopularMoviesCollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				83BA21852785D664009F22FF /* PopularMoviesHeaderReuseable */,
+				83BA217F2785C635009F22FF /* PopularMoviesCollectionViewCell */,
+			);
+			path = PopularMoviesCollectionView;
+			sourceTree = "<group>";
+		};
+		83BA217F2785C635009F22FF /* PopularMoviesCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				83BA21802785C675009F22FF /* PopularMoviesCollectionViewCell.swift */,
+			);
+			path = PopularMoviesCollectionViewCell;
+			sourceTree = "<group>";
+		};
+		83BA21852785D664009F22FF /* PopularMoviesHeaderReuseable */ = {
+			isa = PBXGroup;
+			children = (
+				83BA21882785D6BD009F22FF /* PopularMoviesHeaderCollectionReusableView.swift */,
+			);
+			path = PopularMoviesHeaderReuseable;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +182,9 @@
 			dependencies = (
 			);
 			name = "Movee-App";
+			packageProductDependencies = (
+				83BA216C2785B7FF009F22FF /* Alamofire */,
+			);
 			productName = "Movee-App";
 			productReference = 83BA215427859543009F22FF /* Movee-App.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +213,9 @@
 				Base,
 			);
 			mainGroup = 83BA214B27859543009F22FF;
+			packageReferences = (
+				83BA216B2785B7FF009F22FF /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = 83BA215527859543009F22FF /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -125,9 +230,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				83BA21642785954B009F22FF /* LaunchScreen.storyboard in Resources */,
+				83BA21702785B875009F22FF /* SplashScreen.storyboard in Resources */,
 				83BA21612785954B009F22FF /* Assets.xcassets in Resources */,
-				83BA215F27859543009F22FF /* Main.storyboard in Resources */,
+				83BA215F27859543009F22FF /* PopularMovies.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,29 +243,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83BA21812785C675009F22FF /* PopularMoviesCollectionViewCell.swift in Sources */,
 				83BA215C27859543009F22FF /* ViewController.swift in Sources */,
+				83BA21892785D6BD009F22FF /* PopularMoviesHeaderCollectionReusableView.swift in Sources */,
 				83BA215827859543009F22FF /* AppDelegate.swift in Sources */,
 				83BA215A27859543009F22FF /* SceneDelegate.swift in Sources */,
+				8352F8322785E7D700A24BF7 /* DynamicStringNames.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		83BA215D27859543009F22FF /* Main.storyboard */ = {
+		83BA215D27859543009F22FF /* PopularMovies.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				83BA215E27859543009F22FF /* Base */,
 			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		83BA21622785954B009F22FF /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				83BA21632785954B009F22FF /* Base */,
-			);
-			name = LaunchScreen.storyboard;
+			name = PopularMovies.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -293,8 +393,8 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Movee-App/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UILaunchStoryboardName = SplashScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = PopularMovies;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -321,8 +421,8 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Movee-App/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UILaunchStoryboardName = SplashScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = PopularMovies;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -360,6 +460,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		83BA216B2785B7FF009F22FF /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		83BA216C2785B7FF009F22FF /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 83BA216B2785B7FF009F22FF /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 83BA214C27859543009F22FF /* Project object */;
 }
