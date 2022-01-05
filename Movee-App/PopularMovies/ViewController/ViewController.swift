@@ -10,10 +10,12 @@ import UIKit
 class ViewController: UIViewController {
     
     @IBOutlet weak var PopularMoviesCollectionView: UICollectionView!
+    private let networkManager = NetworkManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollectionView()
+        networkManager.fetchData()
     }
     
     //MARK: - Private func
@@ -27,7 +29,7 @@ class ViewController: UIViewController {
     }
     
     private func addHeaderToCollectionView() {
-        PopularMoviesCollectionView.register(PopularMoviesHeaderCollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: DynamicStringNames.popularMoviesReusableHeader)
+        PopularMoviesCollectionView.register(PopularMoviesHeaderCollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: StaticStringsList.popularMoviesReusableHeader)
     }
     
     private func addCellToCollectionView() {
@@ -52,7 +54,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     //MARK: - Header
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: DynamicStringNames.popularMoviesReusableHeader, for: indexPath)
+        let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: StaticStringsList.popularMoviesReusableHeader, for: indexPath)
         header.backgroundColor = .blue //Header ile ilgili renk vs UI configurationları kod yazarak yapıyorsak storyboardda header'ı renkli yapmam ne işe yarıyor?
         header.frame.size.height = 100
         
