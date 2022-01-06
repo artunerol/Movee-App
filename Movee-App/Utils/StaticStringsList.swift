@@ -12,6 +12,7 @@ struct StaticStringsList {
     //MARK: - CollectionView
     
     static let popularMoviesReusableHeader = "PopularMoviesHeader"
+    static let popularMoviesCollectionViewCellIdentifier = "PopularMoviesCollectionViewCell"
     
     //MARK: - NetworkManager
     

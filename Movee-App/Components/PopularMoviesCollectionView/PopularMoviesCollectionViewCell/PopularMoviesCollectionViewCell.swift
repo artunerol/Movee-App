@@ -9,8 +9,6 @@ import UIKit
 
 class PopularMoviesCollectionViewCell: UICollectionViewCell {
     
-    public static let identifier = "PopularMoviesCollectionViewCell"
-    
     private lazy var containerView: UIView = {
         let containerView = UIView()
         containerView.translatesAutoresizingMaskIntoConstraints = false
@@ -19,7 +17,7 @@ class PopularMoviesCollectionViewCell: UICollectionViewCell {
         containerView.clipsToBounds = true
         
         containerView.layer.shadowColor = UIColor.black.cgColor
-        containerView.layer.shadowOpacity = 0.2
+        containerView.layer.shadowOpacity = 0.4
         containerView.layer.shadowOffset = CGSize(width: 0, height: 8)
         
         return containerView
@@ -31,6 +29,8 @@ class PopularMoviesCollectionViewCell: UICollectionViewCell {
         label.text = "This is a cell"
         return label
     }()
+    
+    //MARK: - Init
     
     override init(frame: CGRect) {
         super.init(frame: frame)

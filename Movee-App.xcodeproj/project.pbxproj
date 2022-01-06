@@ -95,7 +95,7 @@
 				8352F8302785E7CB00A24BF7 /* Utils */,
 				83BA21712785C1B4009F22FF /* App&SceneDelegate */,
 				83BA216E2785B863009F22FF /* SplashScreen */,
-				83BA21722785C1C5009F22FF /* Others */,
+				83BA21722785C1C5009F22FF /* Assets */,
 			);
 			path = "Movee-App";
 			sourceTree = "<group>";
@@ -117,12 +117,12 @@
 			path = "App&SceneDelegate";
 			sourceTree = "<group>";
 		};
-		83BA21722785C1C5009F22FF /* Others */ = {
+		83BA21722785C1C5009F22FF /* Assets */ = {
 			isa = PBXGroup;
 			children = (
 				83BA21602785954B009F22FF /* Assets.xcassets */,
 			);
-			path = Others;
+			path = Assets;
 			sourceTree = "<group>";
 		};
 		83BA21732785C2A7009F22FF /* PopularMovies */ = {

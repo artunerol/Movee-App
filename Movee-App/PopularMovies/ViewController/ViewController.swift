@@ -9,8 +9,14 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    //MARK: - IBOutlets
     @IBOutlet weak var PopularMoviesCollectionView: UICollectionView!
+        
+    //MARK: - Properties
+    
     private let networkManager = NetworkManager()
+    
+    //MARK: - Lifce Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +29,6 @@ class ViewController: UIViewController {
     private func setupCollectionView() {
         PopularMoviesCollectionView.delegate = self
         PopularMoviesCollectionView.dataSource = self
-        PopularMoviesCollectionView.backgroundColor = .lightGray
         addHeaderToCollectionView()
         addCellToCollectionView()
     }
@@ -33,7 +38,7 @@ class ViewController: UIViewController {
     }
     
     private func addCellToCollectionView() {
-        PopularMoviesCollectionView.register(PopularMoviesCollectionViewCell.self, forCellWithReuseIdentifier: PopularMoviesCollectionViewCell.identifier)
+        PopularMoviesCollectionView.register(PopularMoviesCollectionViewCell.self, forCellWithReuseIdentifier: StaticStringsList.popularMoviesCollectionViewCellIdentifier)
     }
     
 }
@@ -46,7 +51,8 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PopularMoviesCollectionViewCell.identifier, for: indexPath) as? PopularMoviesCollectionViewCell else { return UICollectionViewCell() }
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StaticStringsList.popularMoviesCollectionViewCellIdentifier, for: indexPath) as? PopularMoviesCollectionViewCell else { return UICollectionViewCell() }
+        //Cell Configure Below
         
         return cell
     }

@@ -18,13 +18,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
         
-        window?.rootViewController = UIStoryboard(name: "SplashScreen", bundle: nil).instantiateInitialViewController()
-        window?.makeKeyAndVisible()
+//        window?.rootViewController = UIStoryboard(name: "SplashScreen", bundle: nil).instantiateInitialViewController()
+//        window?.makeKeyAndVisible()
 
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) { [weak self] in
-            self?.window?.rootViewController = UIStoryboard(name: "PopularMovies", bundle: nil).instantiateInitialViewController()
-            self?.window?.makeKeyAndVisible()
-        }
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 2) { [weak self] in
+//            self?.window?.rootViewController = UIStoryboard(name: "PopularMovies", bundle: nil).instantiateInitialViewController()
+//            self?.window?.makeKeyAndVisible()
+//        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
