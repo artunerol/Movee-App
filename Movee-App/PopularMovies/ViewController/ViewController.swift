@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollectionView()
-        networkManager.fetchData()
+        networkManager.fetchData(as: APIData.self)
     }
     
     //MARK: - Private func

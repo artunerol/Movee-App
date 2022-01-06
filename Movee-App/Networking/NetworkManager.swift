@@ -10,9 +10,9 @@ import Alamofire
 
 class NetworkManager {
     
-    func fetchData() {
+    func fetchData<T: Codable>(as: T.Type) {
         let request = AF.request(StaticStringsList.myURL)
-        request.responseDecodable(of: APIData.self) { response in
+        request.responseDecodable(of: T.self) { response in
             print("Response is \(response)")
         }
     }
