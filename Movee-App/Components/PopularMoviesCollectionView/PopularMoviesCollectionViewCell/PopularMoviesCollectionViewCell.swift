@@ -27,6 +27,9 @@ class PopularMoviesCollectionViewCell: UICollectionViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "This is a cell"
+        label.lineBreakMode = .byWordWrapping
+        label.clipsToBounds = true
+        
         return label
     }()
     
@@ -55,6 +58,14 @@ class PopularMoviesCollectionViewCell: UICollectionViewCell {
             
             label.centerXAnchor.constraint(equalTo: centerXAnchor),
             label.centerYAnchor.constraint(equalTo: centerYAnchor),
+            label.leadingAnchor.constraint(greaterThanOrEqualTo: leadingAnchor, constant: 10),
+            label.trailingAnchor.constraint(lessThanOrEqualTo: trailingAnchor, constant: -10)
         ])
+    }
+    
+    //MARK: - Public funcs
+    
+    func configureCell(with data: APIResult) {
+        label.text = data.title
     }
 }

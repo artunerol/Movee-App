@@ -14,16 +14,32 @@ class ViewController: UIViewController {
         
     //MARK: - Properties
     
-    private let networkManager = NetworkManager()
+    var viewModel: ViewControllerViewModel? = nil
     
     //MARK: - Lifce Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollectionView()
-        networkManager.fetchData(as: APIData.self)
+        apiDataObserver()
     }
     
+//    //MARK: - Init
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: StaticStringsList.apiDataObserver), object: nil)
+    }
+//
+//    init(with viewModel: ViewControllerViewModel) { //Init bu şekilde yapılsa, aşağıdaki gibi designated init yeterli olur mu yoksa designated init'i override ederek mi çağırmak gerekir? Bu yapıyı dependency injection yapıp viewModel'i çağırabilmek için kuruyorum.
+//        self.viewModel = viewModel
+//        super.init(nibName: nil, bundle: nil)
+//    }
+//
+//    required init?(coder: NSCoder) {
+//        super.init(coder: coder)
+//    }
+
+
     //MARK: - Private func
     
     private func setupCollectionView() {
@@ -41,18 +57,31 @@ class ViewController: UIViewController {
         PopularMoviesCollectionView.register(PopularMoviesCollectionViewCell.self, forCellWithReuseIdentifier: StaticStringsList.popularMoviesCollectionViewCellIdentifier)
     }
     
+    //MARK: - Observer
+    
+    private func apiDataObserver() {
+        NotificationCenter.default.addObserver(self, selector: #selector(apiDataReceived), name: .apiDataObserver(), object: nil)
+    }
+    
+    @objc private func apiDataReceived() {
+        self.PopularMoviesCollectionView.reloadData()
+    }
+    
 }
 
 //MARK: - Extensions
 
 extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        guard let viewModel = viewModel else { return 0 }
+        return viewModel.movieResultArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let viewModel = viewModel else { return UICollectionViewCell() }
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StaticStringsList.popularMoviesCollectionViewCellIdentifier, for: indexPath) as? PopularMoviesCollectionViewCell else { return UICollectionViewCell() }
         //Cell Configure Below
+        cell.configureCell(with: viewModel.movieResultArray[indexPath.row])
         
         return cell
     }

@@ -14,6 +14,10 @@ struct StaticStringsList {
     static let popularMoviesReusableHeader = "PopularMoviesHeader"
     static let popularMoviesCollectionViewCellIdentifier = "PopularMoviesCollectionViewCell"
     
+    //MARK: - NotificationCenter
+    
+    static let apiDataObserver = "DataReceived"
+    
     //MARK: - NetworkManager
     
     static private let myAPIKey = "d9887848cba0ebdfebd5a3088a951f3b"

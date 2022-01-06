@@ -39,6 +39,7 @@
                                 <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="PopularMoviesHeader" id="sdt-mA-8or" customClass="PopularMoviesHeaderCollectionReusableView" customModule="Movee_App" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" red="0.0" green="0.23921568630000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </collectionReusableView>
                             </collectionView>
                         </subviews>
