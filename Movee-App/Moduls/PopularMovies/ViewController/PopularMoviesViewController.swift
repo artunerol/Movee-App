@@ -56,7 +56,7 @@ class PopularMoviesViewController: UIViewController {
     }
 
     private func addCellToCollectionView() {
-        PopularMoviesCollectionView.register(PopularMoviesCollectionViewCell.self, forCellWithReuseIdentifier: PopularMoviesCollectionViewCell.nameOfClass)
+        PopularMoviesCollectionView.register(UINib(nibName: PopularMoviesCollectionViewCell.nameOfClass, bundle: nil), forCellWithReuseIdentifier: PopularMoviesCollectionViewCell.nameOfClass)
     }
 }
 
