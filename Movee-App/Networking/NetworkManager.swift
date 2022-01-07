@@ -9,17 +9,30 @@ import Foundation
 import Alamofire
 
 class NetworkManager {
+    typealias OnSuccess<T: Codable> = ((T?) -> Void)?
+    static var shared = NetworkManager()
     
-    //Fetch data func'ı kontrol edelim
-    
-    func fetchData<T: Codable>(as: T.Type, with completion: @escaping (T) -> Void) {
-        let request = AF.request(StaticStringsList.myURL)
-        request.responseDecodable(of: T.self) { response in
+    func request<T: Decodable>(url: ServiceURL,
+                             method: HTTPMethod,
+                             parameters: Parameters?,
+                             encoding: ParameterEncoding,
+                             responseObjectType: T.Type,
+                             success: @escaping (T) -> Void,
+                             failure: @escaping (AFError) -> Void) {
+        let requestURL = StaticStringsList.baseURL + url.rawValue + "?" + StaticStringsList.apiKeyParam
+        let request = AF.request(requestURL,
+                                 method: method,
+                                 parameters: parameters,
+                                 encoding: encoding,
+                                 headers: nil)
+        request
+            .validate()
+            .responseDecodable(of: T.self) { response in
             switch response.result {
             case .success(let data):
-                completion(data)
-            case .failure(_):
-                print("AF cant get any Result out of JSON")
+                success(data)
+            case .failure(let error):
+                failure(error)
             }
             
         }

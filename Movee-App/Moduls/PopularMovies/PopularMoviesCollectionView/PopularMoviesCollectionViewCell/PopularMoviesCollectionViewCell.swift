@@ -65,7 +65,7 @@ class PopularMoviesCollectionViewCell: UICollectionViewCell {
     
     //MARK: - Public funcs
     
-    func configureCell(with data: APIResult) {
-        label.text = data.title
+    func configureCell(title: String) {
+        label.text = title
     }
 }

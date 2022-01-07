@@ -11,8 +11,7 @@ struct StaticStringsList {
     
     //MARK: - CollectionView
     
-    static let popularMoviesReusableHeader = "PopularMoviesHeader"
-    static let popularMoviesCollectionViewCellIdentifier = "PopularMoviesCollectionViewCell"
+    static let popularMoviesReusableHeader = "PopularMoviesHeader" 
     
     //MARK: - NotificationCenter
     
@@ -21,7 +20,13 @@ struct StaticStringsList {
     //MARK: - NetworkManager
     
     static private let myAPIKey = "d9887848cba0ebdfebd5a3088a951f3b"
+    static let baseURL = "https://api.themoviedb.org"
+
+
+    static let apiKeyParam = "api_key=\(myAPIKey)&language=en-US&page=1"
     
-    static let myURL = "https://api.themoviedb.org/3/movie/popular?api_key=\(myAPIKey)&language=en-US&page=1"
-    
+}
+
+enum ServiceURL: String {
+    case populerMoviesURL = "/3/movie/popular"
 }

@@ -10,7 +10,7 @@ import UIKit
 class PopularMoviesViewController: UIViewController {
 
     //MARK: - IBOutlets
-    @IBOutlet weak var PopularMoviesCollectionView: UICollectionView!
+    @IBOutlet private weak var PopularMoviesCollectionView: UICollectionView!
 
     //MARK: - Properties
 
@@ -20,25 +20,24 @@ class PopularMoviesViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupBindings()
+
         setupCollectionView()
-        apiDataObserver()
+        viewModel?.preparePopuperMovies()
     }
 
-    //    //MARK: - Init
+    //    //MARK: - Bindings
+    func setupBindings() {
+        viewModel?.populerMoviesSuccessClosure = { [weak self] _ in
+            self?.PopularMoviesCollectionView.reloadData()
+        }
 
-    deinit {
-        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: StaticStringsList.apiDataObserver), object: nil)
+        viewModel?.populerMoviesFailedClosure = { [weak self] errorMessage in
+            guard let self = self else { return }
+            let alert = UIAlertController(title: "Hata", message: errorMessage, preferredStyle: .actionSheet)
+            alert.show(self, sender: nil)
+        }
     }
-    //
-    //    init(with viewModel: ViewControllerViewModel) { //Init bu şekilde yapılsa, aşağıdaki gibi designated init yeterli olur mu yoksa designated init'i override ederek mi çağırmak gerekir? Bu yapıyı dependency injection yapıp viewModel'i çağırabilmek için kuruyorum.
-    //        self.viewModel = viewModel
-    //        super.init(nibName: nil, bundle: nil)
-    //    }
-    //
-    //    required init?(coder: NSCoder) {
-    //        super.init(coder: coder)
-    //    }
-
 
     //MARK: - Private func
 
@@ -50,27 +49,18 @@ class PopularMoviesViewController: UIViewController {
     }
 
     private func addHeaderToCollectionView() {
-        PopularMoviesCollectionView.register(PopularMoviesHeaderCollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: StaticStringsList.popularMoviesReusableHeader)
+        PopularMoviesCollectionView.register(
+            PopularMoviesHeaderCollectionReusableView.self,
+            forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+            withReuseIdentifier: StaticStringsList.popularMoviesReusableHeader)
     }
 
     private func addCellToCollectionView() {
-        PopularMoviesCollectionView.register(PopularMoviesCollectionViewCell.self, forCellWithReuseIdentifier: StaticStringsList.popularMoviesCollectionViewCellIdentifier)
+        PopularMoviesCollectionView.register(PopularMoviesCollectionViewCell.self, forCellWithReuseIdentifier: PopularMoviesCollectionViewCell.nameOfClass)
     }
-
-    //MARK: - Observer
-
-    private func apiDataObserver() {
-        NotificationCenter.default.addObserver(self, selector: #selector(apiDataReceived), name: .apiDataObserver(), object: nil)
-    }
-
-    @objc private func apiDataReceived() {
-        self.PopularMoviesCollectionView.reloadData()
-    }
-
 }
 
 //MARK: - Extensions
-
 extension PopularMoviesViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         guard let viewModel = viewModel else { return 0 }
@@ -79,9 +69,12 @@ extension PopularMoviesViewController: UICollectionViewDelegate, UICollectionVie
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let viewModel = viewModel else { return UICollectionViewCell() }
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StaticStringsList.popularMoviesCollectionViewCellIdentifier, for: indexPath) as? PopularMoviesCollectionViewCell else { return UICollectionViewCell() }
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PopularMoviesCollectionViewCell.nameOfClass, for: indexPath) as? PopularMoviesCollectionViewCell else { return UICollectionViewCell() }
         //Cell Configure Below
-        cell.configureCell(with: viewModel.movieResultArray[indexPath.row])
+
+        if let title = viewModel.movieResultArray[indexPath.row].title {
+            cell.configureCell(title: title)
+        }
 
         return cell
     }

@@ -6,16 +6,27 @@
 //
 
 import Foundation
+import Alamofire
 
 class PopularMoviesViewModel {
+ 
 
-    private let networkManager = NetworkManager()
-    var movieResultArray = [APIResult]()
+    var movieResultArray: [PopulerMoviesResultResponse] = []
+    var populerMoviesSuccessClosure: (([PopulerMoviesResultResponse]) -> Void)?
+    var populerMoviesFailedClosure: ((String) -> Void)?
 
-    init() {
-        networkManager.fetchData(as: APIData.self) { [weak self] result in
-            self?.movieResultArray = result.results
-            NotificationCenter.default.post(name: .apiDataObserver(), object: nil)
-        }
+    func preparePopuperMovies() {
+        NetworkManager.shared.request(
+            url: .populerMoviesURL,
+            method: .get,
+            parameters: nil,
+            encoding: URLEncoding.default,
+            responseObjectType: PopulerMoviesResponse.self,
+            success: { [weak self] response in
+                self?.movieResultArray = response.results ?? []
+                self?.populerMoviesSuccessClosure?(response.results ?? [])
+            }, failure: { [weak self] error in
+                self?.populerMoviesFailedClosure?("Popüler filmler alınamadı")
+            })
     }
 }
