@@ -17,7 +17,6 @@ class NetworkManager {
         request.responseDecodable(of: T.self) { response in
             switch response.result {
             case .success(let data):
-                print(data)
                 completion(data)
             case .failure(_):
                 print("AF cant get any Result out of JSON")

@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8303EAF42786DC7000EA05CF /* ViewControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8303EAF32786DC6F00EA05CF /* ViewControllerViewModel.swift */; };
 		8303EAF72787077600EA05CF /* Notification.Name+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8303EAF62787077600EA05CF /* Notification.Name+Extension.swift */; };
 		8352F8322785E7D700A24BF7 /* StaticStringsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8352F8312785E7D700A24BF7 /* StaticStringsList.swift */; };
 		8352F8352785F50500A24BF7 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8352F8342785F50500A24BF7 /* NetworkManager.swift */; };
 		8352F8382785FA7C00A24BF7 /* APIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8352F8372785FA7C00A24BF7 /* APIData.swift */; };
 		8352F83A2786009000A24BF7 /* APIResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8352F8392786009000A24BF7 /* APIResult.swift */; };
+		83803B41278832C8008BBD0B /* ViewControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83803B40278832C8008BBD0B /* ViewControllerViewModel.swift */; };
 		83BA215827859543009F22FF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BA215727859543009F22FF /* AppDelegate.swift */; };
 		83BA215A27859543009F22FF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BA215927859543009F22FF /* SceneDelegate.swift */; };
 		83BA215C27859543009F22FF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BA215B27859543009F22FF /* ViewController.swift */; };
@@ -25,12 +25,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		8303EAF32786DC6F00EA05CF /* ViewControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewControllerViewModel.swift; path = ../../../../../../../Documents/ViewControllerViewModel.swift; sourceTree = "<group>"; };
 		8303EAF62787077600EA05CF /* Notification.Name+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification.Name+Extension.swift"; sourceTree = "<group>"; };
 		8352F8312785E7D700A24BF7 /* StaticStringsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticStringsList.swift; sourceTree = "<group>"; };
 		8352F8342785F50500A24BF7 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		8352F8372785FA7C00A24BF7 /* APIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIData.swift; sourceTree = "<group>"; };
 		8352F8392786009000A24BF7 /* APIResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResult.swift; sourceTree = "<group>"; };
+		83803B40278832C8008BBD0B /* ViewControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerViewModel.swift; sourceTree = "<group>"; };
 		83BA215427859543009F22FF /* Movee-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Movee-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		83BA215727859543009F22FF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		83BA215927859543009F22FF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -151,7 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				83BA215B27859543009F22FF /* ViewController.swift */,
-				8303EAF32786DC6F00EA05CF /* ViewControllerViewModel.swift */,
+				83803B40278832C8008BBD0B /* ViewControllerViewModel.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -276,13 +276,13 @@
 			files = (
 				8352F83A2786009000A24BF7 /* APIResult.swift in Sources */,
 				83BA21812785C675009F22FF /* PopularMoviesCollectionViewCell.swift in Sources */,
+				83803B41278832C8008BBD0B /* ViewControllerViewModel.swift in Sources */,
 				8303EAF72787077600EA05CF /* Notification.Name+Extension.swift in Sources */,
 				83BA215C27859543009F22FF /* ViewController.swift in Sources */,
 				83BA21892785D6BD009F22FF /* PopularMoviesHeaderCollectionReusableView.swift in Sources */,
 				8352F8352785F50500A24BF7 /* NetworkManager.swift in Sources */,
 				8352F8382785FA7C00A24BF7 /* APIData.swift in Sources */,
 				83BA215827859543009F22FF /* AppDelegate.swift in Sources */,
-				8303EAF42786DC7000EA05CF /* ViewControllerViewModel.swift in Sources */,
 				83BA215A27859543009F22FF /* SceneDelegate.swift in Sources */,
 				8352F8322785E7D700A24BF7 /* StaticStringsList.swift in Sources */,
 			);
