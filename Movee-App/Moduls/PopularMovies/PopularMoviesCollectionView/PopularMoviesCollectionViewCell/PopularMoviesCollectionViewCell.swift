@@ -23,7 +23,7 @@ class PopularMoviesCollectionViewCell: UICollectionViewCell {
         guard let posterPath = apiResult.posterPath else { return }
         guard let voteAverage = apiResult.voteAverage else { return }
         
-        configureCellImage(imagePath: posterPath) { [weak self] posterImage in
+        configureCellImage(imagePath: posterPath, imageSize: .popularMoviesW500Poster) { [weak self] posterImage in
             guard let posterImage = posterImage else { return }
             self?.movieTitle.text = title
             self?.movieImage.image = posterImage
@@ -39,10 +39,10 @@ class PopularMoviesCollectionViewCell: UICollectionViewCell {
     }
     //MARK: - Configure Cell Image
     
-    private func configureCellImage(imagePath: String?, posterImage: @escaping (UIImage?) -> Void) {
+    private func configureCellImage(imagePath: String?, imageSize: ServiceURL,posterImage: @escaping (UIImage?) -> Void) {
         guard let imagePath = imagePath else { return }
         
-        let urlString = StaticStringsList.imageBaseURL + StaticStringsList.popularMoviesW500Poster + imagePath
+        let urlString = StaticStringsList.imageBaseURL + imageSize.rawValue + imagePath
         print(urlString)
         guard let url = URL(string: urlString) else { return }
         
