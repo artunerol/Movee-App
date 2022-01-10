@@ -12,26 +12,30 @@ class PopularMoviesViewController: UIViewController {
     //MARK: - IBOutlets
     @IBOutlet private weak var PopularMoviesCollectionView: UICollectionView!
 
-    //MARK: - Properties
-
+    //MARK: - Public Properties
     var viewModel: PopularMoviesViewModel? = nil
+    
+    //MARK: - Private Properties
+    private var apiResult: [PopulerMoviesResultResponse] = []
 
     //MARK: - Lifce Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupBindings()
+        handleAPIResult()
 
         setupCollectionView()
-        viewModel?.preparePopuperMovies()
+        viewModel?.preparePopulerMovies()
     }
-
-    //    //MARK: - Bindings
-    func setupBindings() {
-        viewModel?.populerMoviesSuccessClosure = { [weak self] _ in
+    
+    //MARK: - API Result Handling
+    
+    private func handleAPIResult() {
+        viewModel?.populerMoviesSuccessClosure = { [weak self] result in
+            self?.apiResult = result
             self?.PopularMoviesCollectionView.reloadData()
         }
-
+        
         viewModel?.populerMoviesFailedClosure = { [weak self] errorMessage in
             guard let self = self else { return }
             let alert = UIAlertController(title: "Hata", message: errorMessage, preferredStyle: .actionSheet)
@@ -71,10 +75,7 @@ extension PopularMoviesViewController: UICollectionViewDelegate, UICollectionVie
         guard let viewModel = viewModel else { return UICollectionViewCell() }
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PopularMoviesCollectionViewCell.nameOfClass, for: indexPath) as? PopularMoviesCollectionViewCell else { return UICollectionViewCell() }
         //Cell Configure Below
-
-        if let title = viewModel.movieResultArray[indexPath.row].title {
-            cell.configureCell(title: title)
-        }
+        cell.configureCell(apiResult: viewModel.movieResultArray[indexPath.row])
 
         return cell
     }

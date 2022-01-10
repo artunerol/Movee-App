@@ -21,12 +21,16 @@ struct StaticStringsList {
     
     static private let myAPIKey = "d9887848cba0ebdfebd5a3088a951f3b"
     static let baseURL = "https://api.themoviedb.org"
-
+    static let imageBaseURL = "https://image.tmdb.org"
+    
+    static let popularMoviesOriginalPoster = "/t/p/original"
+    static let popularMoviesW500Poster = "/t/p/w500"
 
     static let apiKeyParam = "api_key=\(myAPIKey)&language=en-US&page=1"
-    
 }
 
 enum ServiceURL: String {
+    //URL = "https://api.themoviedb.org/3/movie/popular?api_key=d9887848cba0ebdfebd5a3088a951f3b&language=en-US&page=1"
+    
     case populerMoviesURL = "/3/movie/popular"
 }

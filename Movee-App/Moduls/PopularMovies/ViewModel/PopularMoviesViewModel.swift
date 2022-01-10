@@ -15,7 +15,7 @@ class PopularMoviesViewModel {
     var populerMoviesSuccessClosure: (([PopulerMoviesResultResponse]) -> Void)?
     var populerMoviesFailedClosure: ((String) -> Void)?
 
-    func preparePopuperMovies() {
+    func preparePopulerMovies() {
         NetworkManager.shared.request(
             url: .populerMoviesURL,
             method: .get,
