@@ -14,6 +14,8 @@ class PopularMoviesCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var movieGenre: UILabel!
     @IBOutlet weak var movieImage: UIImageView!
     @IBOutlet weak var releaseDate: UILabel!
+    @IBOutlet weak var ratingContainerView: UIView!
+    @IBOutlet weak var ratingLabel: UILabel!
     
     //MARK: - Public funcs
     
@@ -27,6 +29,7 @@ class PopularMoviesCollectionViewCell: UICollectionViewCell {
             guard let posterImage = posterImage else { return }
             self?.movieTitle.text = title
             self?.movieImage.image = posterImage
+            self?.ratingLabel.text = String(voteAverage)
         }
     }
     
@@ -34,10 +37,9 @@ class PopularMoviesCollectionViewCell: UICollectionViewCell {
     
     private func configureCellContainerView() {
         cellContainerView.layer.cornerRadius = 10
-        
         movieTitle.numberOfLines = 0
+        ratingContainerView.layer.cornerRadius = 10
     }
-    //MARK: - Configure Cell Image
     
     private func configureCellImage(imagePath: String?, imageSize: ServiceURL,posterImage: @escaping (UIImage?) -> Void) {
         guard let imagePath = imagePath else { return }
