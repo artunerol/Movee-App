@@ -29,7 +29,7 @@ class PopularMoviesHeaderCollectionReusableView: UICollectionReusableView {
         
         NSLayoutConstraint.activate([
             label.leadingAnchor.constraint(equalTo: leadingAnchor,constant: 20),
-            label.topAnchor.constraint(equalTo: topAnchor,constant: 40)
+            label.topAnchor.constraint(equalTo: topAnchor,constant: 20)
         ])
     }
     
