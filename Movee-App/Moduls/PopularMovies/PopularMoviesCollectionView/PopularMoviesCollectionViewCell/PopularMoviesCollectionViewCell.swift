@@ -35,22 +35,20 @@ class PopularMoviesCollectionViewCell: UICollectionViewCell {
     
     private func configureCellContainerView() {
         configureSubLayers()
-        movieTitle.numberOfLines = 0
-        movieImage.contentMode = .scaleAspectFill
     }
     
     private func configureSubLayers() {
         cellContainerView.layer.cornerRadius = 10
         ratingContainerView.layer.cornerRadius = 10
-        movieImage.layer.cornerRadius = 10
+       // movieImage.layer.cornerRadius = 10
     }
-//    
+//
 //    private func configureCellImage(imagePath: String?, imageSize: ServiceURL, posterImage: @escaping (UIImage?) -> Void) {
 //        guard let imagePath = imagePath else { return }
-//        
+//
 //        let urlString = StaticStringsList.imageBaseURL + imageSize.rawValue + imagePath
 //        guard let url = URL(string: urlString) else { return }
-//        
+//
 //        do {
 //            let imageData = try Data(contentsOf: url)
 //            let image = UIImage(data: imageData)

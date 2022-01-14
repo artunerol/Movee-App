@@ -73,6 +73,10 @@ class PopularMoviesViewController: UIViewController {
         PopularMoviesCollectionView.dataSource = self
         addHeaderToCollectionView()
         addCellToCollectionView()
+        
+//        if let flowLayout = PopularMoviesCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+//            flowLayout.estimatedItemSize = .init(width: PopularMoviesCollectionView.frame.width, height: 100)
+//        }
     }
 
     private func addHeaderToCollectionView() {
@@ -102,7 +106,14 @@ extension PopularMoviesViewController: UICollectionViewDelegate, UICollectionVie
 
         return cell
     }
-
+    
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let flowayout = collectionViewLayout as? UICollectionViewFlowLayout
+        let space: CGFloat = (flowayout?.minimumInteritemSpacing ?? 0.0) + (flowayout?.sectionInset.left ?? 0.0) + (flowayout?.sectionInset.right ?? 0.0)
+        let size: CGFloat = (collectionView.frame.size.width - space)
+        return CGSize(width: size, height: 100)
+    }
     //MARK: - Header
 
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
