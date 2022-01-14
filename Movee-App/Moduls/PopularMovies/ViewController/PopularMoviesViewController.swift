@@ -65,7 +65,7 @@ class PopularMoviesViewController: UIViewController {
 }
 
 //MARK: - Extensions
-extension PopularMoviesViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension PopularMoviesViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         guard let viewModel = viewModel else { return 0 }
         return viewModel.movieResultArray.count
@@ -87,5 +87,9 @@ extension PopularMoviesViewController: UICollectionViewDelegate, UICollectionVie
                 header.backgroundColor = .blue //Header ile ilgili renk vs UI configurationları kod yazarak yapıyorsak storyboardda header'ı renkli yapmam ne işe yarıyor?
 
         return header
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSize(width: collectionView.frame.width, height: 250)
     }
 }

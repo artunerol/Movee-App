@@ -24,28 +24,35 @@ class PopularMoviesCollectionViewCell: UICollectionViewCell {
         guard let title = apiResult.title else { return }
         guard let posterPath = apiResult.posterPath else { return }
         guard let voteAverage = apiResult.voteAverage else { return }
+        guard let releaseDate = apiResult.releaseDate else { return }
         
         configureCellImage(imagePath: posterPath, imageSize: .popularMoviesW500Poster) { [weak self] posterImage in
             guard let posterImage = posterImage else { return }
             self?.movieTitle.text = title
             self?.movieImage.image = posterImage
             self?.ratingLabel.text = String(voteAverage)
+            self?.releaseDate.text = releaseDate
         }
     }
     
     //MARK: - Private Funcs
     
     private func configureCellContainerView() {
-        cellContainerView.layer.cornerRadius = 10
+        configureSubLayers()
         movieTitle.numberOfLines = 0
+        movieImage.contentMode = .scaleAspectFill
+    }
+    
+    private func configureSubLayers() {
+        cellContainerView.layer.cornerRadius = 10
         ratingContainerView.layer.cornerRadius = 10
+        movieImage.layer.cornerRadius = 10
     }
     
     private func configureCellImage(imagePath: String?, imageSize: ServiceURL,posterImage: @escaping (UIImage?) -> Void) {
         guard let imagePath = imagePath else { return }
         
         let urlString = StaticStringsList.imageBaseURL + imageSize.rawValue + imagePath
-        print(urlString)
         guard let url = URL(string: urlString) else { return }
         
         do {
