@@ -37,7 +37,9 @@ class PopularMoviesCollectionViewCell: UICollectionViewCell {
     
     private func configureCellContainerView() {
         cellContainerView.layer.cornerRadius = 10
-        movieTitle.numberOfLines = 0
+        movieImage.layer.cornerRadius = 10
+        movieImage.contentMode = .scaleAspectFill
+        
         ratingContainerView.layer.cornerRadius = 10
     }
     
@@ -45,7 +47,6 @@ class PopularMoviesCollectionViewCell: UICollectionViewCell {
         guard let imagePath = imagePath else { return }
         
         let urlString = StaticStringsList.imageBaseURL + imageSize.rawValue + imagePath
-        print(urlString)
         guard let url = URL(string: urlString) else { return }
         
         do {
