@@ -16,14 +16,15 @@ class PopularMoviesViewController: UIViewController {
     var viewModel: PopularMoviesViewModel? = nil
     
     //MARK: - Private Properties
-    private var apiResult: [PopulerMoviesResultResponse] = []
-
+    private var apiResult: [PopularMoviesResultResponse] = []
+    private var apiPosterImagesArray: [UIImage] = []
+    
     //MARK: - Lifce Cycle
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         handleAPIResult()
-
+        
         setupCollectionView()
         viewModel?.preparePopulerMovies()
     }
@@ -33,6 +34,7 @@ class PopularMoviesViewController: UIViewController {
     private func handleAPIResult() {
         viewModel?.populerMoviesSuccessClosure = { [weak self] result in
             self?.apiResult = result
+            self?.handleCellImageConvertingToData(imagePath: result, imageSize: .popularMoviesW500Poster)
             self?.PopularMoviesCollectionView.reloadData()
         }
         
@@ -40,6 +42,27 @@ class PopularMoviesViewController: UIViewController {
             guard let self = self else { return }
             let alert = UIAlertController(title: "Hata", message: errorMessage, preferredStyle: .actionSheet)
             alert.show(self, sender: nil)
+        }
+    }
+    
+    //MARK: - Converting Image String to UIImage
+    
+    private func handleCellImageConvertingToData(imagePath: [PopularMoviesResultResponse], imageSize: ServiceURL) {
+        let imageStringPathArray = imagePath.compactMap { $0.posterPath }
+        
+        for imageStringPath in imageStringPathArray {
+            let urlString = StaticStringsList.imageBaseURL + imageSize.rawValue + imageStringPath
+            print("image url String is \(urlString)")
+            
+            guard let url = URL(string: urlString) else { return }
+            do {
+                let data = try Data(contentsOf: url)
+                guard let image = UIImage(data: data) else { return }
+                self.apiPosterImagesArray.append(image)
+            }
+            catch {
+                print("Cant Convert imageURLString to UIImage")
+            }
         }
     }
 
@@ -75,7 +98,7 @@ extension PopularMoviesViewController: UICollectionViewDelegate, UICollectionVie
         guard let viewModel = viewModel else { return UICollectionViewCell() }
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PopularMoviesCollectionViewCell.nameOfClass, for: indexPath) as? PopularMoviesCollectionViewCell else { return UICollectionViewCell() }
         //Cell Configure Below
-        cell.configureCell(apiResult: viewModel.movieResultArray[indexPath.row])
+        cell.configureCell(apiResult: viewModel.movieResultArray[indexPath.row], posterImage: apiPosterImagesArray[indexPath.row])
 
         return cell
     }

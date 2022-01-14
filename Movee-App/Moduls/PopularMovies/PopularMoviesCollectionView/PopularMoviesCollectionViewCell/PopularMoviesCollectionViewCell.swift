@@ -19,20 +19,16 @@ class PopularMoviesCollectionViewCell: UICollectionViewCell {
     
     //MARK: - Public funcs
     
-    func configureCell(apiResult: PopulerMoviesResultResponse) { // conifugring the cell with response due to having multiple sections to configure
+    func configureCell(apiResult: PopularMoviesResultResponse, posterImage: UIImage) { // conifugring the cell with response due to having multiple sections to configure
         configureCellContainerView()
         guard let title = apiResult.title else { return }
-        guard let posterPath = apiResult.posterPath else { return }
         guard let voteAverage = apiResult.voteAverage else { return }
         guard let releaseDate = apiResult.releaseDate else { return }
         
-        configureCellImage(imagePath: posterPath, imageSize: .popularMoviesW500Poster) { [weak self] posterImage in
-            guard let posterImage = posterImage else { return }
-            self?.movieTitle.text = title
-            self?.movieImage.image = posterImage
-            self?.ratingLabel.text = String(voteAverage)
-            self?.releaseDate.text = releaseDate
-        }
+        self.movieImage.image = posterImage
+        self.movieTitle.text = title
+        self.ratingLabel.text = String(voteAverage)
+        self.releaseDate.text = releaseDate
     }
     
     //MARK: - Private Funcs
@@ -48,20 +44,20 @@ class PopularMoviesCollectionViewCell: UICollectionViewCell {
         ratingContainerView.layer.cornerRadius = 10
         movieImage.layer.cornerRadius = 10
     }
-    
-    private func configureCellImage(imagePath: String?, imageSize: ServiceURL,posterImage: @escaping (UIImage?) -> Void) {
-        guard let imagePath = imagePath else { return }
-        
-        let urlString = StaticStringsList.imageBaseURL + imageSize.rawValue + imagePath
-        guard let url = URL(string: urlString) else { return }
-        
-        do {
-            let imageData = try Data(contentsOf: url)
-            let image = UIImage(data: imageData)
-            posterImage(image)
-        }
-        catch {
-            print("Cant Convert Image URL to Data")
-        }
-    }
+//    
+//    private func configureCellImage(imagePath: String?, imageSize: ServiceURL, posterImage: @escaping (UIImage?) -> Void) {
+//        guard let imagePath = imagePath else { return }
+//        
+//        let urlString = StaticStringsList.imageBaseURL + imageSize.rawValue + imagePath
+//        guard let url = URL(string: urlString) else { return }
+//        
+//        do {
+//            let imageData = try Data(contentsOf: url)
+//            let image = UIImage(data: imageData)
+//            posterImage(image)
+//        }
+//        catch {
+//            print("Cant Convert Image URL to Data")
+//        }
+//    }
 }
