@@ -11,8 +11,8 @@ import Alamofire
 class PopularMoviesViewModel {
  
 
-    var movieResultArray: [PopulerMoviesResultResponse] = []
-    var populerMoviesSuccessClosure: (([PopulerMoviesResultResponse]) -> Void)?
+    var movieResultArray: [PopularMoviesResultResponse] = []
+    var populerMoviesSuccessClosure: (([PopularMoviesResultResponse]) -> Void)?
     var populerMoviesFailedClosure: ((String) -> Void)?
 
     func preparePopulerMovies() {
