@@ -23,8 +23,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [weak self] in
 
-            let viewController = PopularMoviesViewController.init(nibName: "PopularMoviesViewController", bundle: nil)
-            let viewModel = PopularMoviesViewModel()
+            let viewController = MoviesTabMainViewController.init(nibName: "MoviesTabMainViewController", bundle: nil)
+            let viewModel = MoviesTabMainViewModel()
             viewController.viewModel = viewModel
             
             self?.window?.rootViewController = viewController

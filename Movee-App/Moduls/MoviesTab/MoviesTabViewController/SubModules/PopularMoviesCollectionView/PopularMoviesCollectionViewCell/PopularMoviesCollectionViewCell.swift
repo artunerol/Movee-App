@@ -40,7 +40,7 @@ class PopularMoviesCollectionViewCell: UICollectionViewCell {
     private func configureSubLayers() {
         cellContainerView.layer.cornerRadius = 10
         ratingContainerView.layer.cornerRadius = 10
-       // movieImage.layer.cornerRadius = 10
+        movieImage.layer.cornerRadius = 10
     }
 //
 //    private func configureCellImage(imagePath: String?, imageSize: ServiceURL, posterImage: @escaping (UIImage?) -> Void) {
