@@ -22,15 +22,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.makeKeyAndVisible()
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [weak self] in
-
-            let viewController = MoviesTabMainViewController.init(nibName: "MoviesTabMainViewController", bundle: nil)
-            let viewModel = MoviesTabMainViewModel()
-            viewController.viewModel = viewModel
+            let tabBarViewController = TabBarBuilder.shared.build()
             
-            self?.window?.rootViewController = viewController
+            self?.window?.rootViewController = tabBarViewController
             self?.window?.makeKeyAndVisible()
         }
-        
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

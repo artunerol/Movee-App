@@ -75,8 +75,8 @@ class MoviesTabMainViewController: UIViewController {
         horizontolCollectionView.dataSource = self
         
         horizontolCollectionView.backgroundColor = .clear
-        horizontolCollectionView.showsVerticalScrollIndicator = false
-        popularMoviesCollectionView.showsHorizontalScrollIndicator = false
+        horizontolCollectionView.showsHorizontalScrollIndicator = false
+        popularMoviesCollectionView.showsVerticalScrollIndicator = false
     
         registerCellToCollectionView()
     }
@@ -120,12 +120,10 @@ extension MoviesTabMainViewController: UICollectionViewDelegate, UICollectionVie
         
         if collectionView == horizontolCollectionView {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HorizontalCollectionViewCell.nameOfClass, for: indexPath) as? HorizontalCollectionViewCell else { return UICollectionViewCell() }
-            print("item index is \(indexPath.row)")
             cell.configureCell(posterImage: apiPosterImagesArray[indexPath.row])
             
             return cell
         }
-        
         return UICollectionViewCell()
     }
     
@@ -141,7 +139,6 @@ extension MoviesTabMainViewController: UICollectionViewDelegate, UICollectionVie
         if collectionView == horizontolCollectionView {
             return CGSize(width: 260, height: collectionView.frame.height)
         }
-        
         return CGSize(width: 0, height: 0)
     }
     //MARK: - ScrollView
