@@ -13,12 +13,12 @@ class NetworkManager {
     static var shared = NetworkManager()
     
     func request<T: Decodable>(url: ServiceURL,
-                             method: HTTPMethod,
-                             parameters: Parameters?,
-                             encoding: ParameterEncoding,
-                             responseObjectType: T.Type,
-                             success: @escaping (T) -> Void,
-                             failure: @escaping (AFError) -> Void) {
+                               method: HTTPMethod,
+                               parameters: Parameters?,
+                               encoding: ParameterEncoding,
+                               responseObjectType: T.Type,
+                               success: @escaping (T) -> Void,
+                               failure: @escaping (AFError) -> Void) {
         let requestURL = StaticStringsList.baseURL + url.rawValue + "?" + StaticStringsList.apiKeyParam
         let request = AF.request(requestURL,
                                  method: method,
@@ -28,13 +28,12 @@ class NetworkManager {
         request
             .validate()
             .responseDecodable(of: T.self) { response in
-            switch response.result {
-            case .success(let data):
-                success(data)
-            case .failure(let error):
-                failure(error)
+                switch response.result {
+                case .success(let data):
+                    success(data)
+                case .failure(let error):
+                    failure(error)
+                }
             }
-            
-        }
     }
 }
