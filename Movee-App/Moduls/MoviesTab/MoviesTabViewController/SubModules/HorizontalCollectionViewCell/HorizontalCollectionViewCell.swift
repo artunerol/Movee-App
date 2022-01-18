@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class HorizontalCollectionViewCell: UICollectionViewCell {
     
@@ -18,8 +19,13 @@ class HorizontalCollectionViewCell: UICollectionViewCell {
         moviePoster.contentMode = .scaleAspectFill
         // Initialization code
     }
-    
-    func configureCell(posterImage: UIImage) {
-        moviePoster.image = posterImage
+
+    func configureCell(apiResult: PopularMoviesResultResponse, imageSize: ServiceURL) {
+        guard let posterPath = apiResult.posterPath else { return }
+
+        let imageURLString = StaticStringsList.imageBaseURL + imageSize.rawValue + posterPath
+        let imageURL = URL(string: imageURLString)
+
+        self.moviePoster.kf.setImage(with: imageURL)
     }
 }

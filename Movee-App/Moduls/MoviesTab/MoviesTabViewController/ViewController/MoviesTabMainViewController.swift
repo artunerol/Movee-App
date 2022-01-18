@@ -6,22 +6,20 @@
 //
 
 import UIKit
+import Kingfisher
 
 class MoviesTabMainViewController: UIViewController {
     
     //MARK: - IBOutlets
     @IBOutlet private weak var popularMoviesCollectionView: UICollectionView!
-    @IBOutlet weak var horizontolCollectionView: UICollectionView!
+    @IBOutlet private weak var horizontolCollectionView: UICollectionView!
     
-    @IBOutlet weak var ratingContainerView: UIView!
-    @IBOutlet weak var moviePosterMainLabel: UILabel!
+    @IBOutlet private weak var ratingContainerView: UIView!
+    @IBOutlet private weak var moviePosterMainLabel: UILabel!
     //MARK: - Public Properties
     var viewModel: MoviesTabMainViewModel? = nil
-    
     //MARK: - Private Properties
     private var apiResult: [PopularMoviesResultResponse] = []
-    private var apiPosterImagesArray: [UIImage] = []
-    
     //MARK: - Lifce Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,8 +33,6 @@ class MoviesTabMainViewController: UIViewController {
     private func handleAPIResult() {
         viewModel?.populerMoviesSuccessClosure = { [weak self] result in
             self?.apiResult = result
-            self?.handleCellImageConvertingToData(imagePath: result, imageSize: .popularMoviesW500Poster)
-            
             self?.popularMoviesCollectionView.reloadData()
             self?.horizontolCollectionView.reloadData()
         }
@@ -45,22 +41,6 @@ class MoviesTabMainViewController: UIViewController {
             guard let self = self else { return }
             let alert = UIAlertController(title: "Hata", message: errorMessage, preferredStyle: .actionSheet)
             alert.show(self, sender: nil)
-        }
-    }
-    //MARK: - Converting Image String to UIImage
-    
-    private func handleCellImageConvertingToData(imagePath: [PopularMoviesResultResponse], imageSize: ServiceURL) {
-        let imageStringPathArray = imagePath.compactMap { $0.posterPath }
-        
-        for imageStringPath in imageStringPathArray {
-            let urlString = StaticStringsList.imageBaseURL + imageSize.rawValue + imageStringPath
-            
-            guard let url = URL(string: urlString),
-                  let data = try? Data(contentsOf: url) else { return }
-            
-            guard let image = UIImage(data: data) else { return }
-            self.apiPosterImagesArray.append(image)
-            
         }
     }
     //MARK: - Private func
@@ -110,14 +90,14 @@ extension MoviesTabMainViewController: UICollectionViewDelegate, UICollectionVie
         if collectionView == popularMoviesCollectionView {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PopularMoviesCollectionViewCell.nameOfClass, for: indexPath) as? PopularMoviesCollectionViewCell else { return UICollectionViewCell() }
             //Cell Configure Below
-            cell.configureCell(apiResult: viewModel.movieResultArray[indexPath.row], posterImage: apiPosterImagesArray[indexPath.row])
+            cell.configureCell(apiResult: viewModel.movieResultArray[indexPath.row], imageSize: .popularMoviesW500Poster)
             
             return cell
         }
         
         if collectionView == horizontolCollectionView {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HorizontalCollectionViewCell.nameOfClass, for: indexPath) as? HorizontalCollectionViewCell else { return UICollectionViewCell() }
-            cell.configureCell(posterImage: apiPosterImagesArray[indexPath.row])
+            cell.configureCell(apiResult: viewModel.movieResultArray[indexPath.row], imageSize: .popularMoviesW500Poster)
             
             return cell
         }

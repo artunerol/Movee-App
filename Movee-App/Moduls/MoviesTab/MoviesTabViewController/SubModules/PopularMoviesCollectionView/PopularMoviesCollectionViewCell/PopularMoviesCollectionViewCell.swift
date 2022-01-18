@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class PopularMoviesCollectionViewCell: UICollectionViewCell {
     
@@ -19,18 +20,21 @@ class PopularMoviesCollectionViewCell: UICollectionViewCell {
     
     //MARK: - Public funcs
     
-    func configureCell(apiResult: PopularMoviesResultResponse, posterImage: UIImage) { // conifugring the cell with response due to having multiple sections to configure
+    func configureCell(apiResult: PopularMoviesResultResponse, imageSize: ServiceURL) { // conifugring the cell with response due to having multiple sections to configure
         configureCellContainerView()
         guard let title = apiResult.title else { return }
         guard let voteAverage = apiResult.voteAverage else { return }
         guard let releaseDate = apiResult.releaseDate else { return }
-        
-        self.movieImage.image = posterImage
+        guard let posterPath = apiResult.posterPath else { return }
+
+        let imageURLString = StaticStringsList.imageBaseURL + imageSize.rawValue + posterPath
+        let imageURL = URL(string: imageURLString)
+
+        self.movieImage.kf.setImage(with: imageURL)
         self.movieTitle.text = title
         self.ratingLabel.text = String(voteAverage)
         self.releaseDate.text = releaseDate
     }
-    
     //MARK: - Private Funcs
     
     private func configureCellContainerView() {
