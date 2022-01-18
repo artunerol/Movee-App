@@ -1,20 +1,24 @@
 PODS:
   - Alamofire (5.5.0)
   - CocoaDebug (1.7.2)
+  - Kingfisher (7.1.2)
 
 DEPENDENCIES:
   - Alamofire (~> 5.5)
   - CocoaDebug
+  - Kingfisher (~> 7.0)
 
 SPEC REPOS:
   trunk:
     - Alamofire
     - CocoaDebug
+    - Kingfisher
 
 SPEC CHECKSUMS:
   Alamofire: 1c4fb5369c3fe93d2857c780d8bbe09f06f97e7c
   CocoaDebug: 61cf93ada6ce8f3407507dc01f9b874d91ac1d5c
+  Kingfisher: 44ed6a8504763f27bab46163adfac83f5deb240c
 
-PODFILE CHECKSUM: eef74e25808aecf0ae99f7f0b605c731699ba2c6
+PODFILE CHECKSUM: 1973d64a034cbfb920b0984a03c824a37ba7d8b1
 
 COCOAPODS: 1.11.2
