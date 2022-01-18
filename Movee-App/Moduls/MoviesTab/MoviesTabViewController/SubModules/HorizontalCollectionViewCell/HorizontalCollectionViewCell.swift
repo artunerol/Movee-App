@@ -9,7 +9,7 @@ import UIKit
 
 class HorizontalCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var moviePoster: UIImageView!
+    @IBOutlet private weak var moviePoster: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -22,5 +22,4 @@ class HorizontalCollectionViewCell: UICollectionViewCell {
     func configureCell(posterImage: UIImage) {
         moviePoster.image = posterImage
     }
-
 }

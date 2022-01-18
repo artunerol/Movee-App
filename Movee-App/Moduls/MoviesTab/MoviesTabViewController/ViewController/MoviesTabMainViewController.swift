@@ -55,15 +55,12 @@ class MoviesTabMainViewController: UIViewController {
         for imageStringPath in imageStringPathArray {
             let urlString = StaticStringsList.imageBaseURL + imageSize.rawValue + imageStringPath
             
-            guard let url = URL(string: urlString) else { return }
-            do {
-                let data = try Data(contentsOf: url)
-                guard let image = UIImage(data: data) else { return }
-                self.apiPosterImagesArray.append(image)
-            }
-            catch {
-                print("Cant Convert imageURLString to UIImage")
-            }
+            guard let url = URL(string: urlString),
+                  let data = try? Data(contentsOf: url) else { return }
+            
+            guard let image = UIImage(data: data) else { return }
+            self.apiPosterImagesArray.append(image)
+            
         }
     }
     //MARK: - Private func
