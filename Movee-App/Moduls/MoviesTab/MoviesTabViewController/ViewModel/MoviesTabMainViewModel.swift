@@ -1,5 +1,5 @@
 //
-//  PopularMoviesViewModel.swift
+//  MoviesTabMainViewModel.swift
 //  Movee-App
 //
 //  Created by Ismail Kilic on 7.01.2022.
@@ -8,9 +8,8 @@
 import Foundation
 import Alamofire
 
-class PopularMoviesViewModel {
- 
-
+class MoviesTabMainViewModel {
+    
     var movieResultArray: [PopularMoviesResultResponse] = []
     var populerMoviesSuccessClosure: (([PopularMoviesResultResponse]) -> Void)?
     var populerMoviesFailedClosure: ((String) -> Void)?
