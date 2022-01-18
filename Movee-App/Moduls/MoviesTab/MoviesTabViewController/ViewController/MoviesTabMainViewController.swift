@@ -13,9 +13,6 @@ class MoviesTabMainViewController: UIViewController {
     //MARK: - IBOutlets
     @IBOutlet private weak var popularMoviesCollectionView: UICollectionView!
     @IBOutlet private weak var horizontolCollectionView: UICollectionView!
-    
-    @IBOutlet private weak var ratingContainerView: UIView!
-    @IBOutlet private weak var moviePosterMainLabel: UILabel!
     //MARK: - Public Properties
     var viewModel: MoviesTabMainViewModel? = nil
     //MARK: - Private Properties
@@ -26,7 +23,6 @@ class MoviesTabMainViewController: UIViewController {
         handleAPIResult()
         
         setupCollectionView()
-        setupCustomViews()
         viewModel?.preparePopulerMovies()
     }
     //MARK: - API Result Handling
@@ -57,11 +53,7 @@ class MoviesTabMainViewController: UIViewController {
     
         registerCellToCollectionView()
     }
-    
-    private func setupCustomViews() {
-        ratingContainerView.layer.cornerRadius = 10
-    }
-    
+
     private func registerCellToCollectionView() {
         popularMoviesCollectionView.register(UINib(nibName: PopularMoviesCollectionViewCell.nameOfClass, bundle: nil), forCellWithReuseIdentifier: PopularMoviesCollectionViewCell.nameOfClass)
         horizontolCollectionView.register(UINib(nibName: HorizontalCollectionViewCell.nameOfClass, bundle: nil), forCellWithReuseIdentifier: HorizontalCollectionViewCell.nameOfClass)
