@@ -8,9 +8,15 @@
 import UIKit
 import Kingfisher
 
+struct HorizontalCollectionViewCellUIModel {
+    let posterPath: String
+    let title: String
+    let rating: Double
+}
+
 enum HorizontalCellConfigureType {
-    case tvSeries
-    case movies
+    case tvSeries(title: String, posterPath: String, rating: String)
+    case movies(title: String, posterPath: String, rating: String)
 }
 
 class HorizontalCollectionViewCell: UICollectionViewCell {
@@ -25,43 +31,17 @@ class HorizontalCollectionViewCell: UICollectionViewCell {
         setupCustomViews()
     }
 
-    func configureCell<T: Decodable>(apiResult: T, imageSize: ServiceURL, configureType: HorizontalCellConfigureType) {
-        switch configureType {
-        case .tvSeries:
-            configureTVSeries(apiResult: apiResult as! TopRatedResultResponse, imageSize: imageSize)
-        case .movies:
-            configureMovies(apiResult: apiResult as! PopularAPIResultResponse, imageSize: imageSize)
-        }
+    func configureCell(model: HorizontalCollectionViewCellUIModel) {
+        let imageURLString = StaticStringsList.imageBaseURL + ServiceURL.popularMoviesW500Poster.rawValue + model.posterPath
+
+        let imageURL = URL(string: imageURLString)
+
+        self.posterImage.kf.setImage(with: imageURL)
+        self.ratingLabel.text = String(model.rating)
+        self.titleLabel.text = model.title
     }
 
     //MARK: - Private funcs
-
-    private func configureMovies(apiResult: PopularAPIResultResponse, imageSize: ServiceURL) {
-        guard let posterPath = apiResult.posterPath else { return }
-        guard let movieTitle = apiResult.title else { return }
-        guard let rating = apiResult.voteAverage else { return }
-
-        let imageURLString = StaticStringsList.imageBaseURL + imageSize.rawValue + posterPath
-        let imageURL = URL(string: imageURLString)
-
-        self.posterImage.kf.setImage(with: imageURL)
-        self.ratingLabel.text = String(rating)
-        self.titleLabel.text = movieTitle
-    }
-
-    private func configureTVSeries(apiResult: TopRatedResultResponse, imageSize: ServiceURL) {
-        guard let posterPath = apiResult.posterPath else { return }
-        guard let movieTitle = apiResult.name else { return }
-        guard let rating = apiResult.voteAverage else { return }
-
-        let imageURLString = StaticStringsList.imageBaseURL + imageSize.rawValue + posterPath
-        let imageURL = URL(string: imageURLString)
-
-        self.posterImage.kf.setImage(with: imageURL)
-        self.ratingLabel.text = String(rating)
-        self.titleLabel.text = movieTitle
-    }
-
     private func setupCustomViews() {
         posterImage.backgroundColor = .brown
         posterImage.contentMode = .scaleToFill

@@ -75,7 +75,14 @@ extension TVSeriesMainTabViewController: UICollectionViewDelegate, UICollectionV
 
         if collectionView == horizontalCollectionView {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HorizontalCollectionViewCell.nameOfClass, for: indexPath) as? HorizontalCollectionViewCell else { return UICollectionViewCell() }
-            cell.configureCell(apiResult: viewModel.tvSeriesResultArray[indexPath.row], imageSize: .popularMoviesW500Poster, configureType: .tvSeries)
+
+            let item = viewModel.tvSeriesResultArray[indexPath.row]
+            let model = HorizontalCollectionViewCellUIModel(
+                posterPath: item.posterPath ?? "",
+                title: item.name ?? "",
+                rating: item.voteAverage ?? 0)
+
+            cell.configureCell(model: model)
 
             return cell
         }

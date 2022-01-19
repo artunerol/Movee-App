@@ -89,7 +89,14 @@ extension MoviesTabMainViewController: UICollectionViewDelegate, UICollectionVie
         
         if collectionView == horizontolCollectionView {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HorizontalCollectionViewCell.nameOfClass, for: indexPath) as? HorizontalCollectionViewCell else { return UICollectionViewCell() }
-            cell.configureCell(apiResult: viewModel.movieResultArray[indexPath.row], imageSize: .popularMoviesW500Poster, configureType: .movies)
+
+            let item = viewModel.movieResultArray[indexPath.row]
+            let model = HorizontalCollectionViewCellUIModel(
+                posterPath: item.posterPath ?? "",
+                title: item.title ?? "",
+                rating: item.voteAverage ?? 0)
+
+            cell.configureCell(model: model)
             
             return cell
         }
