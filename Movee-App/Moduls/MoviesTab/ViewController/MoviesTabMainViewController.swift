@@ -16,7 +16,7 @@ class MoviesTabMainViewController: UIViewController {
     //MARK: - Public Properties
     var viewModel: MoviesTabMainViewModel? = nil
     //MARK: - Private Properties
-    private var apiResult: [PopularMoviesResultResponse] = []
+    private var apiResult: [PopularAPIResultResponse] = []
     //MARK: - Lifce Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -89,7 +89,7 @@ extension MoviesTabMainViewController: UICollectionViewDelegate, UICollectionVie
         
         if collectionView == horizontolCollectionView {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HorizontalCollectionViewCell.nameOfClass, for: indexPath) as? HorizontalCollectionViewCell else { return UICollectionViewCell() }
-            cell.configureCell(apiResult: viewModel.movieResultArray[indexPath.row], imageSize: .popularMoviesW500Poster)
+            cell.configureCell(apiResult: viewModel.movieResultArray[indexPath.row], imageSize: .popularMoviesW500Poster, configureType: .movies)
             
             return cell
         }

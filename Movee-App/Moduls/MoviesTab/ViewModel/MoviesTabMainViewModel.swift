@@ -10,8 +10,8 @@ import Alamofire
 
 class MoviesTabMainViewModel {
     
-    var movieResultArray: [PopularMoviesResultResponse] = []
-    var populerMoviesSuccessClosure: (([PopularMoviesResultResponse]) -> Void)?
+    var movieResultArray: [PopularAPIResultResponse] = []
+    var populerMoviesSuccessClosure: (([PopularAPIResultResponse]) -> Void)?
     var populerMoviesFailedClosure: ((String) -> Void)?
 
     func preparePopulerMovies() {
@@ -20,7 +20,7 @@ class MoviesTabMainViewModel {
             method: .get,
             parameters: nil,
             encoding: URLEncoding.default,
-            responseObjectType: PopulerMoviesResponse.self,
+            responseObjectType: PopularAPIResponse.self,
             success: { [weak self] response in
                 self?.movieResultArray = response.results ?? []
                 self?.populerMoviesSuccessClosure?(response.results ?? [])

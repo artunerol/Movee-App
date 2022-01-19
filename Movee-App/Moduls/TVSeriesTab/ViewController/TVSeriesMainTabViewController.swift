@@ -8,8 +8,81 @@
 import UIKit
 
 class TVSeriesMainTabViewController: UIViewController {
+    //MARK: - IBOutlet
+    @IBOutlet private weak var horizontalCollectionView: UICollectionView!
+    @IBOutlet private weak var topRatedCollectionView: UICollectionView!
 
+    //MARK: - Public Properties
+    var viewModel: TVSeriesViewModel? = nil
+
+    //MARK: - Private Properties
+    private var apiResult: [TopRatedResultResponse] = []
+
+    //MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        handleAPI()
+        setupCollectionView()
+
+        viewModel?.preparePopularTVSeries()
     }
+    //MARK: - Private func
+
+    private func handleAPI() {
+        viewModel?.popularTVSeriesSuccessClosure = { [weak self] result in
+            self?.apiResult = result
+            self?.horizontalCollectionView.reloadData()
+            self?.topRatedCollectionView.reloadData()
+        }
+    }
+
+    private func setupCollectionView() {
+        topRatedCollectionView.delegate = self
+        topRatedCollectionView.dataSource = self
+        horizontalCollectionView.delegate = self
+        horizontalCollectionView.dataSource = self
+
+        horizontalCollectionView.backgroundColor = .clear
+        horizontalCollectionView.showsHorizontalScrollIndicator = false
+        topRatedCollectionView.showsVerticalScrollIndicator = false
+
+        registerCellToCollectionView()
+    }
+
+    private func registerCellToCollectionView() {
+        topRatedCollectionView.register(UINib(nibName: TVSeriesTopRatedCollectionViewCell.nameOfClass, bundle: nil), forCellWithReuseIdentifier: TVSeriesTopRatedCollectionViewCell.nameOfClass)
+        horizontalCollectionView.register(UINib(nibName: HorizontalCollectionViewCell.nameOfClass, bundle: nil), forCellWithReuseIdentifier: HorizontalCollectionViewCell.nameOfClass)
+    }
+}
+
+//MARK: - Extensions
+
+extension TVSeriesMainTabViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return apiResult.count
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let viewModel = viewModel else { return UICollectionViewCell() }
+
+        if collectionView == topRatedCollectionView {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TVSeriesTopRatedCollectionViewCell.nameOfClass, for: indexPath) as? TVSeriesTopRatedCollectionViewCell else { return UICollectionViewCell() }
+            //Cell Configure Below
+            cell.configureCell(apiResult: viewModel.tvSeriesResultArray[indexPath.row], imageSize: .popularMoviesW500Poster)
+
+            return cell
+        }
+
+        if collectionView == horizontalCollectionView {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HorizontalCollectionViewCell.nameOfClass, for: indexPath) as? HorizontalCollectionViewCell else { return UICollectionViewCell() }
+            cell.configureCell(apiResult: viewModel.tvSeriesResultArray[indexPath.row], imageSize: .popularMoviesW500Poster, configureType: .tvSeries)
+
+            return cell
+        }
+        return UICollectionViewCell()
+
+
+    }
+
+
 }

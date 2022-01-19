@@ -78,10 +78,10 @@
             </constraints>
             <size key="customSize" width="389" height="199"/>
             <connections>
-                <outlet property="moviePoster" destination="PzW-kW-S5t" id="pk3-aR-9IJ"/>
-                <outlet property="movieTitle" destination="BPb-FD-f5y" id="xIu-Nv-1Ku"/>
+                <outlet property="posterImage" destination="PzW-kW-S5t" id="pk3-aR-9IJ"/>
                 <outlet property="ratingContainer" destination="f50-Hl-Rxy" id="NCy-WE-47l"/>
                 <outlet property="ratingLabel" destination="YUd-uu-5uW" id="Bqb-Il-KXy"/>
+                <outlet property="titleLabel" destination="BPb-FD-f5y" id="xIu-Nv-1Ku"/>
             </connections>
             <point key="canvasLocation" x="382.60869565217394" y="83.705357142857139"/>
         </collectionViewCell>

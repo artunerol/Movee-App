@@ -21,10 +21,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lmp-Jf-YCv" userLabel="ContainerView">
-                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iEz-sg-gRn" userLabel="customHeaderView">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="220"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="262"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movies" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FSF-CE-q86" userLabel="MoviesLabel">
                                     <rect key="frame" x="20" y="35" width="140" height="42"/>
@@ -38,13 +38,12 @@
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBlueColor"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="220" id="Jgm-PY-Nnh"/>
                                 <constraint firstItem="FSF-CE-q86" firstAttribute="leading" secondItem="iEz-sg-gRn" secondAttribute="leading" constant="20" id="KlW-eG-IpC"/>
                                 <constraint firstItem="FSF-CE-q86" firstAttribute="top" secondItem="iEz-sg-gRn" secondAttribute="top" constant="35" id="vb9-Rf-LTG"/>
                             </constraints>
                         </view>
                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" contentInsetAdjustmentBehavior="never" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="iYU-9s-NGv" userLabel="PopularMoviesCollectionView">
-                            <rect key="frame" x="0.0" y="470" width="414" height="348"/>
+                            <rect key="frame" x="0.0" y="470" width="414" height="392"/>
                             <color key="backgroundColor" red="0.87283848917361384" green="0.87283848917361384" blue="0.87283848917361384" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="HId-gK-7KQ">
                                 <size key="itemSize" width="260" height="100"/>
@@ -78,6 +77,7 @@
                     </subviews>
                     <color key="backgroundColor" red="0.87283848919999996" green="0.87283848919999996" blue="0.87283848919999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <constraints>
+                        <constraint firstAttribute="bottom" secondItem="iEz-sg-gRn" secondAttribute="bottom" constant="600" id="5Wx-k8-5RS"/>
                         <constraint firstItem="iEz-sg-gRn" firstAttribute="top" secondItem="Lmp-Jf-YCv" secondAttribute="top" id="6Dx-kh-Aee"/>
                         <constraint firstItem="iYU-9s-NGv" firstAttribute="leading" secondItem="Lmp-Jf-YCv" secondAttribute="leading" id="895-kI-iXo"/>
                         <constraint firstItem="cRd-Ei-7v7" firstAttribute="top" secondItem="Lmp-Jf-YCv" secondAttribute="top" constant="90" id="AOW-Nm-egT"/>
@@ -98,7 +98,7 @@
             <constraints>
                 <constraint firstItem="Lmp-Jf-YCv" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="4R1-nh-ecY"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Lmp-Jf-YCv" secondAttribute="bottom" id="OSZ-uY-I3y"/>
-                <constraint firstItem="Lmp-Jf-YCv" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="Oat-Ar-KqE"/>
+                <constraint firstItem="Lmp-Jf-YCv" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Oat-Ar-KqE"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Lmp-Jf-YCv" secondAttribute="trailing" id="eDs-vV-EC2"/>
             </constraints>
             <point key="canvasLocation" x="131.8840579710145" y="129.91071428571428"/>

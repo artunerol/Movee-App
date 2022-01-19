@@ -13,12 +13,18 @@ class TabBarBuilder {
     
     func build() -> UITabBarController {
         let tabBar = UITabBarController()
+
         let movieViewController = MoviesTabMainViewController.init(nibName: "MoviesTabMainViewController", bundle: nil)
-        let viewModel = MoviesTabMainViewModel()
-        movieViewController.viewModel = viewModel
+        let movieViewModel = MoviesTabMainViewModel()
+        movieViewController.viewModel = movieViewModel
         movieViewController.tabBarItem.image = UIImage(named: "tabBarMovies")
+
+        let tvSeriesViewController = TVSeriesMainTabViewController(nibName: "TVSeriesMainTabViewController", bundle: nil)
+        let tvSeriesViewModel = TVSeriesViewModel()
+        tvSeriesViewController.viewModel = tvSeriesViewModel
+        tvSeriesViewController.tabBarItem.image = UIImage(named: "tabBarTVSeries")
         
-        tabBar.viewControllers = [movieViewController]
+        tabBar.viewControllers = [movieViewController, tvSeriesViewController]
         return tabBar
     }
 }
