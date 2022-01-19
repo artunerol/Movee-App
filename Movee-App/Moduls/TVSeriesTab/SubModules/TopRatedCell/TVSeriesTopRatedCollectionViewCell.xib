@@ -21,16 +21,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="166" height="290"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VjL-Hr-fzb" userLabel="movieImage">
-                                <rect key="frame" x="0.0" y="0.0" width="166" height="175"/>
+                                <rect key="frame" x="0.0" y="0.0" width="166" height="234"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Movie Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vSp-mV-V2a" userLabel="movieTitle">
-                                <rect key="frame" x="8" y="183" width="93.5" height="21.5"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="TVSeries Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vSp-mV-V2a" userLabel="movieTitle">
+                                <rect key="frame" x="8" y="242" width="150" height="18"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AGb-76-ia9" userLabel="ratingContainerView">
-                                <rect key="frame" x="8" y="214.5" width="45" height="20"/>
+                                <rect key="frame" x="8" y="265" width="45" height="20"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7rf-Lf-rvf">
                                         <rect key="frame" x="22" y="5" width="19" height="12"/>
@@ -64,14 +64,15 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="AGb-76-ia9" firstAttribute="leading" secondItem="Ezn-AE-baT" secondAttribute="leading" constant="8" id="AVK-4X-fd0"/>
-                            <constraint firstAttribute="bottom" relation="lessThanOrEqual" secondItem="AGb-76-ia9" secondAttribute="bottom" constant="56" id="BEb-Om-U9q"/>
+                            <constraint firstAttribute="bottom" secondItem="AGb-76-ia9" secondAttribute="bottom" constant="5" id="BEb-Om-U9q"/>
                             <constraint firstItem="vSp-mV-V2a" firstAttribute="top" secondItem="VjL-Hr-fzb" secondAttribute="bottom" constant="8" id="BLc-sO-aQ1"/>
                             <constraint firstAttribute="trailing" secondItem="VjL-Hr-fzb" secondAttribute="trailing" id="HdM-Rg-6mi"/>
-                            <constraint firstAttribute="bottom" secondItem="VjL-Hr-fzb" secondAttribute="bottom" constant="115" id="Vd4-9M-gL2"/>
+                            <constraint firstItem="AGb-76-ia9" firstAttribute="top" secondItem="vSp-mV-V2a" secondAttribute="bottom" constant="5" id="ba0-Cv-z5I"/>
                             <constraint firstItem="VjL-Hr-fzb" firstAttribute="leading" secondItem="Ezn-AE-baT" secondAttribute="leading" id="eav-Ez-4kp"/>
                             <constraint firstItem="VjL-Hr-fzb" firstAttribute="top" secondItem="Ezn-AE-baT" secondAttribute="top" id="gUv-ir-uZj"/>
                             <constraint firstItem="vSp-mV-V2a" firstAttribute="leading" secondItem="Ezn-AE-baT" secondAttribute="leading" constant="8" id="nWh-Jc-BUS"/>
-                            <constraint firstItem="AGb-76-ia9" firstAttribute="top" secondItem="vSp-mV-V2a" secondAttribute="bottom" constant="10" id="x12-FK-NNd"/>
+                            <constraint firstAttribute="trailing" secondItem="vSp-mV-V2a" secondAttribute="trailing" constant="8" id="ujo-Qq-xtB"/>
+                            <constraint firstItem="AGb-76-ia9" firstAttribute="top" relation="lessThanOrEqual" secondItem="vSp-mV-V2a" secondAttribute="bottom" priority="750" constant="40" id="x12-FK-NNd"/>
                         </constraints>
                     </view>
                 </subviews>

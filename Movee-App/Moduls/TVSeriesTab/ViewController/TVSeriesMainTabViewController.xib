@@ -16,25 +16,25 @@
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="YHz-o9-BU5">
+        <view contentMode="scaleAspectFill" id="YHz-o9-BU5">
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
             <subviews>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" id="MYv-cI-9xV">
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" ambiguous="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" id="MYv-cI-9xV">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                     <subviews>
                         <view contentMode="scaleAspectFill" id="TwL-8s-Yci" userLabel="containerView">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bo8-fe-izp" userLabel="customHeaderView">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="296"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="262"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movies" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R0D-c8-ndq" userLabel="MoviesLabel">
-                                            <rect key="frame" x="20" y="35" width="140" height="42"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TV Series" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R0D-c8-ndq" userLabel="MoviesLabel">
+                                            <rect key="frame" x="20" y="35" width="191" height="42"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="140" id="uKh-2U-jV0"/>
+                                                <constraint firstAttribute="width" constant="191" id="uKh-2U-jV0"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -67,12 +67,12 @@
                                 </view>
                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="EnO-vz-g0V" userLabel="tapRatedCollectionView">
                                     <rect key="frame" x="0.0" y="552" width="414" height="310"/>
-                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <color key="backgroundColor" red="0.92158097029999997" green="0.92154634000000002" blue="0.9215698242" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="IQ2-ii-7VO">
                                         <size key="itemSize" width="128" height="128"/>
                                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <inset key="sectionInset" minX="5" minY="0.0" maxX="5" maxY="0.0"/>
                                     </collectionViewFlowLayout>
                                 </collectionView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Top Rated" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yOO-Yb-7dM">
@@ -86,7 +86,7 @@
                                 </label>
                             </subviews>
                             <viewLayoutGuide key="safeArea" id="OQ2-3f-ka6"/>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <color key="backgroundColor" red="0.92158097029999997" green="0.92154634000000002" blue="0.9215698242" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <constraints>
                                 <constraint firstItem="yOO-Yb-7dM" firstAttribute="leading" secondItem="TwL-8s-Yci" secondAttribute="leading" constant="8" id="2Td-pf-zfI"/>
                                 <constraint firstItem="EnO-vz-g0V" firstAttribute="trailing" secondItem="TwL-8s-Yci" secondAttribute="trailing" id="4Dp-LC-2t5"/>
@@ -101,7 +101,7 @@
                                 <constraint firstAttribute="bottom" secondItem="zN3-1g-fkp" secondAttribute="bottom" constant="400" id="Pi2-XO-uuM"/>
                                 <constraint firstItem="N74-w6-GaP" firstAttribute="centerX" secondItem="TwL-8s-Yci" secondAttribute="centerX" id="e9k-rl-gqs"/>
                                 <constraint firstItem="EnO-vz-g0V" firstAttribute="leading" secondItem="TwL-8s-Yci" secondAttribute="leading" id="ePm-CC-54J"/>
-                                <constraint firstAttribute="bottom" secondItem="bo8-fe-izp" secondAttribute="bottom" constant="600" id="iOm-zr-dsv"/>
+                                <constraint firstItem="OQ2-3f-ka6" firstAttribute="bottom" secondItem="bo8-fe-izp" secondAttribute="bottom" constant="600" id="iOm-zr-dsv"/>
                                 <constraint firstAttribute="trailing" secondItem="zN3-1g-fkp" secondAttribute="trailing" id="saU-g5-zcw"/>
                                 <constraint firstItem="bo8-fe-izp" firstAttribute="trailing" secondItem="TwL-8s-Yci" secondAttribute="trailing" id="xUN-uI-LSO"/>
                             </constraints>

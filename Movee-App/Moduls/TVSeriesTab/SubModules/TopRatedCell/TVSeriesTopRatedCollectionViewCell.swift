@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class TVSeriesTopRatedCollectionViewCell: UICollectionViewCell {
     @IBOutlet private weak var image: UIImageView!
@@ -20,11 +21,11 @@ class TVSeriesTopRatedCollectionViewCell: UICollectionViewCell {
 
     private func configureCellContainerView() {
         ratingContainerView.layer.cornerRadius = 8
+        image.layer.cornerRadius = 10
     }
 
     func configureCell(apiResult: TopRatedResultResponse, imageSize: ServiceURL) { // conifugring the cell with response due to having multiple sections to configure
         configureCellContainerView()
-        print("api result si \(apiResult)")
         guard let title = apiResult.name else { return }
         guard let voteAverage = apiResult.voteAverage else { return }
         guard let posterPath = apiResult.posterPath else { return }

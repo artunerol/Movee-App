@@ -24,7 +24,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iEz-sg-gRn" userLabel="customHeaderView">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="262"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="254"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movies" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FSF-CE-q86" userLabel="MoviesLabel">
                                     <rect key="frame" x="20" y="35" width="140" height="42"/>
@@ -43,22 +43,19 @@
                             </constraints>
                         </view>
                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" contentInsetAdjustmentBehavior="never" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="iYU-9s-NGv" userLabel="PopularMoviesCollectionView">
-                            <rect key="frame" x="0.0" y="470" width="414" height="392"/>
+                            <rect key="frame" x="0.0" y="542" width="414" height="320"/>
                             <color key="backgroundColor" red="0.87283848917361384" green="0.87283848917361384" blue="0.87283848917361384" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                            <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="HId-gK-7KQ">
-                                <size key="itemSize" width="260" height="100"/>
+                            <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="5" minimumInteritemSpacing="5" id="HId-gK-7KQ">
+                                <size key="itemSize" width="128" height="128"/>
                                 <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                 <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                <inset key="sectionInset" minX="50" minY="10" maxX="10" maxY="10"/>
+                                <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
                             </collectionViewFlowLayout>
                             <cells/>
                         </collectionView>
                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="cRd-Ei-7v7" userLabel="horizontalCollectionView">
-                            <rect key="frame" x="0.0" y="90" width="414" height="350"/>
+                            <rect key="frame" x="0.0" y="90" width="414" height="422"/>
                             <color key="backgroundColor" red="0.87283848919999996" green="0.87283848919999996" blue="0.87283848919999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="350" id="eZg-U1-Ldb"/>
-                            </constraints>
                             <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="5" id="tgc-zb-gJl">
                                 <size key="itemSize" width="128" height="128"/>
                                 <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -67,7 +64,7 @@
                             </collectionViewFlowLayout>
                         </collectionView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PMe-jz-SoX" userLabel="seperator">
-                            <rect key="frame" x="72" y="462" width="270" height="1"/>
+                            <rect key="frame" x="72" y="534" width="270" height="1"/>
                             <color key="backgroundColor" red="0.78290389432120566" green="0.78290389432120566" blue="0.78290389432120566" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="1" id="41d-aA-Yx4"/>
@@ -77,7 +74,7 @@
                     </subviews>
                     <color key="backgroundColor" red="0.87283848919999996" green="0.87283848919999996" blue="0.87283848919999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <constraints>
-                        <constraint firstAttribute="bottom" secondItem="iEz-sg-gRn" secondAttribute="bottom" constant="600" id="5Wx-k8-5RS"/>
+                        <constraint firstAttribute="bottomMargin" secondItem="iEz-sg-gRn" secondAttribute="bottom" constant="600" id="5Wx-k8-5RS"/>
                         <constraint firstItem="iEz-sg-gRn" firstAttribute="top" secondItem="Lmp-Jf-YCv" secondAttribute="top" id="6Dx-kh-Aee"/>
                         <constraint firstItem="iYU-9s-NGv" firstAttribute="leading" secondItem="Lmp-Jf-YCv" secondAttribute="leading" id="895-kI-iXo"/>
                         <constraint firstItem="cRd-Ei-7v7" firstAttribute="top" secondItem="Lmp-Jf-YCv" secondAttribute="top" constant="90" id="AOW-Nm-egT"/>
@@ -87,6 +84,7 @@
                         <constraint firstAttribute="trailing" secondItem="cRd-Ei-7v7" secondAttribute="trailing" id="VD2-0H-7Lx"/>
                         <constraint firstItem="iEz-sg-gRn" firstAttribute="leading" secondItem="Lmp-Jf-YCv" secondAttribute="leading" id="VhK-HU-Qbg"/>
                         <constraint firstItem="iYU-9s-NGv" firstAttribute="top" secondItem="cRd-Ei-7v7" secondAttribute="bottom" constant="30" id="Wdy-zo-ESw"/>
+                        <constraint firstAttribute="bottom" secondItem="cRd-Ei-7v7" secondAttribute="bottom" constant="350" id="eAg-IZ-iBb"/>
                         <constraint firstAttribute="trailing" secondItem="iEz-sg-gRn" secondAttribute="trailing" id="g30-5k-CLs"/>
                         <constraint firstItem="PMe-jz-SoX" firstAttribute="centerX" secondItem="Lmp-Jf-YCv" secondAttribute="centerX" id="kxc-sO-h4s"/>
                         <constraint firstAttribute="bottom" secondItem="iYU-9s-NGv" secondAttribute="bottom" id="sjG-Ep-Xyx"/>

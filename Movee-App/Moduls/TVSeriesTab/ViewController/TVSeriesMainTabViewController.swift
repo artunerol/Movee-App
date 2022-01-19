@@ -80,8 +80,19 @@ extension TVSeriesMainTabViewController: UICollectionViewDelegate, UICollectionV
             return cell
         }
         return UICollectionViewCell()
+    }
 
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if collectionView == topRatedCollectionView {
+            let width: CGFloat = ((collectionView.frame.size.width)/2 - 20)
+            let height: CGFloat = (collectionView.frame.size.height) - 40
+            return CGSize(width: width, height: height)
+        }
 
+        if collectionView == horizontalCollectionView {
+            return CGSize(width: 260, height: collectionView.frame.height)
+        }
+        return CGSize(width: 0, height: 0)
     }
 
 
