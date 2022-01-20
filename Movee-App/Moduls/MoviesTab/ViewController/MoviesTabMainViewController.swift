@@ -91,7 +91,7 @@ extension MoviesTabMainViewController: UICollectionViewDelegate, UICollectionVie
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HorizontalCollectionViewCell.nameOfClass, for: indexPath) as? HorizontalCollectionViewCell else { return UICollectionViewCell() }
 
             let item = viewModel.movieResultArray[indexPath.row]
-            let model = HorizontalCollectionViewCellUIModel(
+            let model = CollectionViewCellDataModel(
                 posterPath: item.posterPath ?? "",
                 title: item.title ?? "",
                 rating: item.voteAverage ?? 0)
@@ -102,7 +102,20 @@ extension MoviesTabMainViewController: UICollectionViewDelegate, UICollectionVie
         }
         return UICollectionViewCell()
     }
-    
+
+    //MARK: - Cell DidSelect
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let item = apiResult[indexPath.row]
+        let viewModel = DetailViewModel(titleLabel: item.title ?? "",
+                                        releaseDate: item.releaseDate ?? "",
+                                        overView: item.overview ?? "",
+                                        posterImage: item.posterPath ?? "")
+        let viewController = DetailViewController(nibName: DetailViewController.nameOfClass, bundle: nil)
+        viewController.viewModel = viewModel
+
+        present(viewController, animated: true)
+    }
+    //MARK: - FloywLayout
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == popularMoviesCollectionView {

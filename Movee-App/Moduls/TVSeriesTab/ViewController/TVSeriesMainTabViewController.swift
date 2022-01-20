@@ -80,7 +80,7 @@ extension TVSeriesMainTabViewController: UICollectionViewDelegate, UICollectionV
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HorizontalCollectionViewCell.nameOfClass, for: indexPath) as? HorizontalCollectionViewCell else { return UICollectionViewCell() }
 
             let item = viewModel.tvSeriesResultArray[indexPath.row]
-            let model = HorizontalCollectionViewCellUIModel(
+            let model = CollectionViewCellDataModel(
                 posterPath: item.posterPath ?? "",
                 title: item.name ?? "",
                 rating: item.voteAverage ?? 0)
@@ -91,6 +91,22 @@ extension TVSeriesMainTabViewController: UICollectionViewDelegate, UICollectionV
         }
         return UICollectionViewCell()
     }
+
+    //MARK: - Cell Pressed
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let item = apiResult[indexPath.row]
+        let viewModel = DetailViewModel(titleLabel: item.name ?? "",
+                                        releaseDate: item.firstAirDate ?? "",
+                                        overView: item.overview ?? "",
+                                        posterImage: item.posterPath ?? "")
+        let viewController = DetailViewController(nibName: DetailViewController.nameOfClass, bundle: nil)
+        viewController.viewModel = viewModel
+
+        present(viewController, animated: true)
+    }
+
+    //MARK: - Cell Layout
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == topRatedCollectionView {

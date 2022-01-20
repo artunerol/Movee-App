@@ -8,17 +8,6 @@
 import UIKit
 import Kingfisher
 
-struct HorizontalCollectionViewCellUIModel {
-    let posterPath: String
-    let title: String
-    let rating: Double
-}
-
-enum HorizontalCellConfigureType {
-    case tvSeries(title: String, posterPath: String, rating: String)
-    case movies(title: String, posterPath: String, rating: String)
-}
-
 class HorizontalCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet private weak var posterImage: UIImageView!
@@ -31,7 +20,7 @@ class HorizontalCollectionViewCell: UICollectionViewCell {
         setupCustomViews()
     }
 
-    func configureCell(model: HorizontalCollectionViewCellUIModel) {
+    func configureCell(model: CollectionViewCellDataModel) {
         let imageURLString = StaticStringsList.imageBaseURL + ServiceURL.popularMoviesW500Poster.rawValue + model.posterPath
         let imageURL = URL(string: imageURLString)
 
