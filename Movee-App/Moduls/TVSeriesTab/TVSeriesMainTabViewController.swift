@@ -34,6 +34,9 @@ class TVSeriesMainTabViewController: UIViewController {
             self?.horizontalCollectionView.reloadData()
             self?.topRatedCollectionView.reloadData()
         }
+        viewModel?.popularTVSeriesFailedClosure = { error in
+            print("error is \(error)")
+        }
     }
 
     private func setupCollectionView() {
@@ -101,6 +104,4 @@ extension TVSeriesMainTabViewController: UICollectionViewDelegate, UICollectionV
         }
         return CGSize(width: 0, height: 0)
     }
-
-
 }

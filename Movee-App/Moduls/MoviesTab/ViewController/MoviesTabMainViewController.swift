@@ -117,27 +117,4 @@ extension MoviesTabMainViewController: UICollectionViewDelegate, UICollectionVie
         }
         return CGSize(width: 0, height: 0)
     }
-    //MARK: - ScrollView
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        
-    }
-    
-    //    //MARK: - Footer
-//
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
-//        return CGSize(width: 50, height: 30)
-//    }
-//    //MARK: - Header
-//
-//    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-//        let footer = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: "", for: indexPath)
-//        footer.backgroundColor = .black
-//
-//        return footer
-//    }
-    //
-    //    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-    //        return CGSize(width: collectionView.frame.width, height: 250)
-    //    }
 }
