@@ -21,7 +21,7 @@ class HorizontalCollectionViewCell: UICollectionViewCell {
     }
 
     func configureCell(model: CollectionViewCellDataModel) {
-        let imageURLString = StaticStringsList.imageBaseURL + ServiceURL.popularMoviesW500Poster.rawValue + model.posterPath
+        let imageURLString = StaticStringsList.imageBaseURL + ServiceURL.popularMoviesW500Poster.description + model.posterPath
         let imageURL = URL(string: imageURLString)
 
         self.posterImage.kf.setImage(with: imageURL)
@@ -31,7 +31,7 @@ class HorizontalCollectionViewCell: UICollectionViewCell {
 
     //MARK: - Private funcs
     private func setupCustomViews() {
-        posterImage.backgroundColor = .brown
+        posterImage.backgroundColor = .lightGray
         posterImage.contentMode = .scaleToFill
         posterImage.layer.cornerRadius = 10
         ratingContainer.layer.cornerRadius = 8

@@ -106,10 +106,13 @@ extension MoviesTabMainViewController: UICollectionViewDelegate, UICollectionVie
     //MARK: - Cell DidSelect
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let item = apiResult[indexPath.row]
-        let viewModel = DetailViewModel(titleLabel: item.title ?? "",
-                                        releaseDate: item.releaseDate ?? "",
-                                        overView: item.overview ?? "",
-                                        posterImage: item.posterPath ?? "")
+        let detailModel = DetailModel(titleLabel: item.title ?? "",
+                                      releaseDate: item.releaseDate ?? "",
+                                      overView: item.overview ?? "",
+                                      posterImage: item.posterPath ?? "",
+                                      id: item.id ?? 0)
+        let viewModel = DetailViewModel(model: detailModel)
+        viewModel.prepareCastData(castType: .movies)
         let viewController = DetailViewController(nibName: DetailViewController.nameOfClass, bundle: nil)
         viewController.viewModel = viewModel
 
@@ -119,9 +122,9 @@ extension MoviesTabMainViewController: UICollectionViewDelegate, UICollectionVie
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == popularMoviesCollectionView {
-            let flowayout = collectionViewLayout as? UICollectionViewFlowLayout
-            let space: CGFloat = (flowayout?.minimumInteritemSpacing ?? 0.0) + (flowayout?.sectionInset.left ?? 0.0) + (flowayout?.sectionInset.right ?? 0.0)
-            let size: CGFloat = (collectionView.frame.size.width - space)
+//            let flowayout = collectionViewLayout as? UICollectionViewFlowLayout
+//            let space: CGFloat = (flowayout?.minimumInteritemSpacing ?? 0.0) + (flowayout?.sectionInset.left ?? 0.0) + (flowayout?.sectionInset.right ?? 0.0)
+            let size: CGFloat = (collectionView.frame.size.width)
             return CGSize(width: size, height: 100)
         }
         

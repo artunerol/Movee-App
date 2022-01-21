@@ -19,7 +19,7 @@ class NetworkManager {
                                responseObjectType: T.Type,
                                success: @escaping (T) -> Void,
                                failure: @escaping (AFError) -> Void) {
-        let requestURL = StaticStringsList.baseURL + url.rawValue + StaticStringsList.apiKeyParam
+        let requestURL = StaticStringsList.baseURL + url.description + StaticStringsList.apiKeyParam
         let request = AF.request(requestURL,
                                  method: method,
                                  parameters: parameters,

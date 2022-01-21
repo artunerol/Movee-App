@@ -65,7 +65,7 @@
                                                 <constraint firstItem="5nK-Lc-kJk" firstAttribute="leading" secondItem="6F8-Ie-6q6" secondAttribute="trailing" constant="2" id="yny-Mf-WUN"/>
                                             </constraints>
                                         </view>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie || Series Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ay5-xI-IyY">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie || Series Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ay5-xI-IyY">
                                             <rect key="frame" x="24" y="425" width="358" height="33.5"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
                                             <nil key="textColor"/>
@@ -118,8 +118,8 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="XmB-Ua-m2Y" userLabel="castCollectionView" customClass="AutoSizedCollectionView" customModule="Movee_App" customModuleProvider="target">
-                                            <rect key="frame" x="24" y="609.5" width="366" height="208.5"/>
+                                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="XmB-Ua-m2Y" userLabel="castCollectionView" customClass="AutoSizedCollectionView" customModule="Movee_App" customModuleProvider="target">
+                                            <rect key="frame" x="24" y="601.5" width="366" height="216.5"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="GwP-bX-uSF">
                                                 <size key="itemSize" width="128" height="128"/>
@@ -147,7 +147,7 @@
                                         <constraint firstItem="gv5-MN-VDp" firstAttribute="top" secondItem="vCM-Uh-t3V" secondAttribute="bottom" constant="10" id="g9U-UJ-zxn"/>
                                         <constraint firstItem="ApI-yY-NYX" firstAttribute="top" secondItem="Ay5-xI-IyY" secondAttribute="bottom" constant="20" id="glB-eR-PJp"/>
                                         <constraint firstItem="ppf-zQ-6T5" firstAttribute="top" secondItem="jMj-gZ-rvB" secondAttribute="top" id="i0h-88-KZr"/>
-                                        <constraint firstItem="XmB-Ua-m2Y" firstAttribute="top" secondItem="gv5-MN-VDp" secondAttribute="bottom" constant="8" id="ilO-Yr-mth"/>
+                                        <constraint firstItem="XmB-Ua-m2Y" firstAttribute="top" secondItem="gv5-MN-VDp" secondAttribute="bottom" id="ilO-Yr-mth"/>
                                         <constraint firstItem="ApI-yY-NYX" firstAttribute="leading" secondItem="jMj-gZ-rvB" secondAttribute="leading" constant="24" id="k9p-ve-rhU"/>
                                         <constraint firstItem="XmB-Ua-m2Y" firstAttribute="leading" secondItem="jMj-gZ-rvB" secondAttribute="leading" constant="24" id="nVB-23-e1z"/>
                                         <constraint firstItem="Ay5-xI-IyY" firstAttribute="leading" secondItem="jMj-gZ-rvB" secondAttribute="leading" constant="24" id="qrb-3D-A1c"/>

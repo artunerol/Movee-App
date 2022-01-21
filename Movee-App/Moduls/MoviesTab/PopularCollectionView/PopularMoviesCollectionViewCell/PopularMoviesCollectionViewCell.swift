@@ -27,7 +27,7 @@ class PopularMoviesCollectionViewCell: UICollectionViewCell {
         guard let releaseDate = apiResult.releaseDate else { return }
         guard let posterPath = apiResult.posterPath else { return }
 
-        let imageURLString = StaticStringsList.imageBaseURL + imageSize.rawValue + posterPath
+        let imageURLString = StaticStringsList.imageBaseURL + imageSize.description + posterPath
         let imageURL = URL(string: imageURLString)
 
         self.movieImage.kf.setImage(with: imageURL)
@@ -46,6 +46,6 @@ class PopularMoviesCollectionViewCell: UICollectionViewCell {
         cellContainerView.layer.cornerRadius = 10
     
         ratingContainerView.layer.cornerRadius = 10
-        movieImage.layer.cornerRadius = 10
+        movieImage.layer.cornerRadius = 8
     }
 }

@@ -20,25 +20,64 @@ class DetailViewController: UIViewController {
     //MARK: -
     var viewModel: DetailViewModel? = nil
 
+    //MARK: - Life Cycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
         setupViewConfigurations()
     }
 
+    //MARK: - Private Funcs
+
     private func setupView() {
         ratingContainerView.layer.cornerRadius = 10
+        setupCollectionView()
     }
 
     private func setupViewConfigurations() {
         guard let viewModel = viewModel else { return }
 
-        let imageURLString = StaticStringsList.imageBaseURL + ServiceURL.popularMoviesW500Poster.rawValue + viewModel.posterImage
+        let imageURLString = StaticStringsList.imageBaseURL + ServiceURL.popularMoviesW500Poster.description + viewModel.model.posterImage
         guard let imageURL = URL(string: imageURLString) else { return }
 
         posterImage.kf.setImage(with: imageURL)
-        titleLabel.text = viewModel.titleLabel
-        releaseDate.text = viewModel.releaseDate
-        overView.text = viewModel.overView
+        titleLabel.text = viewModel.model.titleLabel
+        releaseDate.text = viewModel.model.releaseDate
+        overView.text = viewModel.model.overView
     }
+
+    private func setupCollectionView() {
+        castCollectionView.delegate = self
+        castCollectionView.dataSource = self
+        registerCollectionView()
+        reloadCollectionViewData()
+    }
+
+    private func registerCollectionView() {
+        castCollectionView.register(UINib(nibName: CastCollectionViewCell.nameOfClass, bundle: nil), forCellWithReuseIdentifier: CastCollectionViewCell.nameOfClass)
+    }
+
+    private func reloadCollectionViewData() {
+        viewModel?.castResultSuccess = { [weak self] in
+            self?.castCollectionView.reloadData()
+        }
+    }
+}
+
+//MARK: - Extension
+extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return viewModel?.castResultArray.count ?? 0
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let item = viewModel?.castResultArray[indexPath.row],
+              let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CastCollectionViewCell.nameOfClass, for: indexPath) as? CastCollectionViewCell else { return UICollectionViewCell() }
+
+        cell.configure(item: item)
+
+        return cell
+    }
+
 }

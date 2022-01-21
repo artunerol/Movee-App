@@ -96,10 +96,13 @@ extension TVSeriesMainTabViewController: UICollectionViewDelegate, UICollectionV
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let item = apiResult[indexPath.row]
-        let viewModel = DetailViewModel(titleLabel: item.name ?? "",
-                                        releaseDate: item.firstAirDate ?? "",
-                                        overView: item.overview ?? "",
-                                        posterImage: item.posterPath ?? "")
+        let detailModel = DetailModel(titleLabel: item.name ?? "",
+                                releaseDate: item.firstAirDate ?? "",
+                                overView: item.overview ?? "",
+                                posterImage: item.posterPath ?? "",
+                                id: item.id ?? 0)
+        let viewModel = DetailViewModel(model: detailModel)
+        viewModel.prepareCastData(castType: .tv)
         let viewController = DetailViewController(nibName: DetailViewController.nameOfClass, bundle: nil)
         viewController.viewModel = viewModel
 
