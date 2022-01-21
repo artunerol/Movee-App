@@ -14,7 +14,7 @@ class MoviesTabMainViewController: UIViewController {
     @IBOutlet private weak var popularMoviesCollectionView: UICollectionView!
     @IBOutlet private weak var horizontolCollectionView: UICollectionView!
     //MARK: - Public Properties
-    var viewModel: MoviesTabMainViewModel? = nil
+    var viewModel: MoviesTabMainViewModel?
     //MARK: - Private Properties
     private var apiResult: [PopularAPIResultResponse] = []
     //MARK: - Lifce Cycle
@@ -80,7 +80,11 @@ extension MoviesTabMainViewController: UICollectionViewDelegate, UICollectionVie
         guard let viewModel = viewModel else { return UICollectionViewCell() }
         
         if collectionView == popularMoviesCollectionView {
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PopularMoviesCollectionViewCell.nameOfClass, for: indexPath) as? PopularMoviesCollectionViewCell else { return UICollectionViewCell() }
+            guard let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: PopularMoviesCollectionViewCell.nameOfClass,
+                for: indexPath
+            ) as? PopularMoviesCollectionViewCell
+            else { return UICollectionViewCell() }
             //Cell Configure Below
             cell.configureCell(apiResult: viewModel.movieResultArray[indexPath.row], imageSize: .popularMoviesW500Poster)
             
@@ -88,13 +92,18 @@ extension MoviesTabMainViewController: UICollectionViewDelegate, UICollectionVie
         }
         
         if collectionView == horizontolCollectionView {
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HorizontalCollectionViewCell.nameOfClass, for: indexPath) as? HorizontalCollectionViewCell else { return UICollectionViewCell() }
+            guard let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: HorizontalCollectionViewCell.nameOfClass,
+                for: indexPath
+            ) as? HorizontalCollectionViewCell
+            else { return UICollectionViewCell() }
 
             let item = viewModel.movieResultArray[indexPath.row]
             let model = CollectionViewCellDataModel(
                 posterPath: item.posterPath ?? "",
                 title: item.title ?? "",
-                rating: item.voteAverage ?? 0)
+                rating: item.voteAverage ?? 0
+            )
 
             cell.configureCell(model: model)
             

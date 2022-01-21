@@ -8,5 +8,6 @@ target 'Movee-App' do
   pod 'CocoaDebug', :configurations => ['Debug']
   pod 'Alamofire', '~> 5.5'
   pod 'Kingfisher', '~> 7.0'
+  pod 'SwiftLint'
 
 end

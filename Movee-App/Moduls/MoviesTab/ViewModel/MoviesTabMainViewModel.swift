@@ -9,7 +9,7 @@ import Foundation
 import Alamofire
 
 class MoviesTabMainViewModel {
-    
+
     var movieResultArray: [PopularAPIResultResponse] = []
     var populerMoviesSuccessClosure: (([PopularAPIResultResponse]) -> Void)?
     var populerMoviesFailedClosure: ((String) -> Void)?
@@ -24,7 +24,7 @@ class MoviesTabMainViewModel {
             success: { [weak self] response in
                 self?.movieResultArray = response.results ?? []
                 self?.populerMoviesSuccessClosure?(response.results ?? [])
-            }, failure: { [weak self] error in
+            }, failure: { [weak self] _ in
                 self?.populerMoviesFailedClosure?("Popüler filmler alınamadı")
             })
     }

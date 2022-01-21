@@ -10,13 +10,13 @@ import Kingfisher
 
 class PopularMoviesCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var cellContainerView: UIView!
-    @IBOutlet weak var movieTitle: UILabel!
-    @IBOutlet weak var movieGenre: UILabel!
-    @IBOutlet weak var movieImage: UIImageView!
-    @IBOutlet weak var releaseDate: UILabel!
-    @IBOutlet weak var ratingContainerView: UIView!
-    @IBOutlet weak var ratingLabel: UILabel!
+    @IBOutlet private weak var cellContainerView: UIView!
+    @IBOutlet private weak var movieTitle: UILabel!
+    @IBOutlet private weak var movieGenre: UILabel!
+    @IBOutlet private weak var movieImage: UIImageView!
+    @IBOutlet private weak var releaseDate: UILabel!
+    @IBOutlet private weak var ratingContainerView: UIView!
+    @IBOutlet private weak var ratingLabel: UILabel!
     
     //MARK: - Public funcs
     

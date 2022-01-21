@@ -13,7 +13,7 @@ class TVSeriesMainTabViewController: UIViewController {
     @IBOutlet private weak var topRatedCollectionView: UICollectionView!
 
     //MARK: - Public Properties
-    var viewModel: TVSeriesViewModel? = nil
+    var viewModel: TVSeriesViewModel?
 
     //MARK: - Private Properties
     private var apiResult: [TopRatedResultResponse] = []
@@ -62,14 +62,18 @@ class TVSeriesMainTabViewController: UIViewController {
 
 extension TVSeriesMainTabViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return apiResult.count
+        apiResult.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let viewModel = viewModel else { return UICollectionViewCell() }
 
         if collectionView == topRatedCollectionView {
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TVSeriesTopRatedCollectionViewCell.nameOfClass, for: indexPath) as? TVSeriesTopRatedCollectionViewCell else { return UICollectionViewCell() }
+            guard let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: TVSeriesTopRatedCollectionViewCell.nameOfClass,
+                for: indexPath
+            ) as? TVSeriesTopRatedCollectionViewCell
+            else { return UICollectionViewCell() }
             //Cell Configure Below
             cell.configureCell(apiResult: viewModel.tvSeriesResultArray[indexPath.row], imageSize: .popularMoviesW500Poster)
 
@@ -77,7 +81,11 @@ extension TVSeriesMainTabViewController: UICollectionViewDelegate, UICollectionV
         }
 
         if collectionView == horizontalCollectionView {
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HorizontalCollectionViewCell.nameOfClass, for: indexPath) as? HorizontalCollectionViewCell else { return UICollectionViewCell() }
+            guard let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: HorizontalCollectionViewCell.nameOfClass,
+                for: indexPath
+            ) as? HorizontalCollectionViewCell
+            else { return UICollectionViewCell() }
 
             let item = viewModel.tvSeriesResultArray[indexPath.row]
             let model = CollectionViewCellDataModel(
@@ -97,13 +105,13 @@ extension TVSeriesMainTabViewController: UICollectionViewDelegate, UICollectionV
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let item = apiResult[indexPath.row]
         let detailModel = DetailModel(titleLabel: item.name ?? "",
-                                releaseDate: item.firstAirDate ?? "",
-                                overView: item.overview ?? "",
-                                posterImage: item.posterPath ?? "",
-                                id: item.id ?? 0)
+                                      releaseDate: item.firstAirDate ?? "",
+                                      overView: item.overview ?? "",
+                                      posterImage: item.posterPath ?? "",
+                                      id: item.id ?? 0)
 
         let viewModel = DetailViewModel(model: detailModel)
-        viewModel.prepareCastData(castType: .tv)
+        viewModel.prepareCastData(castType: .tvSeries)
         let viewController = DetailViewController(nibName: DetailViewController.nameOfClass, bundle: nil)
         viewController.viewModel = viewModel
         navigationController?.pushViewController(viewController, animated: true)
@@ -113,14 +121,14 @@ extension TVSeriesMainTabViewController: UICollectionViewDelegate, UICollectionV
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == topRatedCollectionView {
-            let width: CGFloat = ((collectionView.frame.size.width)/2 - 20)
-            let height: CGFloat = (collectionView.frame.size.height) - 40
+            let width: CGFloat = ((collectionView.frame.size.width) - 22) / 2
+            let height: CGFloat = 310
             return CGSize(width: width, height: height)
         }
 
         if collectionView == horizontalCollectionView {
-            return CGSize(width: 260, height: collectionView.frame.height)
+            return CGSize(width: 294, height: 484)
         }
-        return CGSize(width: 0, height: 0)
+        return .zero
     }
 }

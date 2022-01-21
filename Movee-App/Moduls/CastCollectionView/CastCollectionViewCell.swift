@@ -9,8 +9,8 @@ import UIKit
 import Kingfisher
 
 class CastCollectionViewCell: UICollectionViewCell {
-    @IBOutlet weak var castImage: UIImageView!
-    @IBOutlet weak var castName: UILabel!
+    @IBOutlet private weak var castImage: UIImageView!
+    @IBOutlet private weak var castName: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -20,13 +20,13 @@ class CastCollectionViewCell: UICollectionViewCell {
 
     func configure(item: CastResultResponse) {
         guard let name = item.name else { return }
-        guard let imagePath = item.profilePath else { return }
+        if let imagePath = item.profilePath { // Eğer resmi yoksa default bir profil resmi koy
+            let urlString = StaticStringsList.imageBaseURL + ServiceURL.popularMoviesW500Poster.description + imagePath
+            let castImageURL = URL(string: urlString)
+            self.castImage.kf.setImage(with: castImageURL)
+        }
 
-        let urlString = StaticStringsList.imageBaseURL + ServiceURL.popularMoviesW500Poster.description + imagePath
-        let castImageURL = URL(string: urlString)
-        print("url is \(urlString)")
         self.castName.text = name
-        self.castImage.kf.setImage(with: castImageURL)
     }
 
     private func castImageRound() {
@@ -34,5 +34,4 @@ class CastCollectionViewCell: UICollectionViewCell {
         castImage.contentMode = .scaleAspectFill
         castImage.clipsToBounds = true
     }
-
 }

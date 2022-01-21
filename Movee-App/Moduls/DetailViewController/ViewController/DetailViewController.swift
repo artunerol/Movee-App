@@ -18,8 +18,7 @@ class DetailViewController: UIViewController {
     @IBOutlet private weak var castCollectionView: UICollectionView!
 
     //MARK: -
-    var viewModel: DetailViewModel? = nil
-
+    var viewModel: DetailViewModel?
     //MARK: - Life Cycle
 
     override func viewDidLoad() {
@@ -68,7 +67,7 @@ class DetailViewController: UIViewController {
 //MARK: - Extension
 extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel?.castResultArray.count ?? 0
+        viewModel?.castResultArray.count ?? 0
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

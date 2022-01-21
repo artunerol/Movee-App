@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -74,17 +75,17 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="EnO-vz-g0V" userLabel="tapRatedCollectionView" customClass="AutoSizedCollectionView" customModule="Movee_App" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="665.5" width="411" height="430.5"/>
+                                            <rect key="frame" x="24" y="665.5" width="363" height="430.5"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="430.5" id="LCE-2I-vt5"/>
                                                 <constraint firstAttribute="height" priority="250" constant="430" id="cPi-Ft-ZgV"/>
                                             </constraints>
-                                            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="IQ2-ii-7VO">
+                                            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="20" minimumInteritemSpacing="15" id="IQ2-ii-7VO">
                                                 <size key="itemSize" width="128" height="128"/>
                                                 <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                 <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                <inset key="sectionInset" minX="5" minY="0.0" maxX="5" maxY="0.0"/>
+                                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                             </collectionViewFlowLayout>
                                         </collectionView>
                                     </subviews>
@@ -92,7 +93,7 @@
                                     <constraints>
                                         <constraint firstItem="yOO-Yb-7dM" firstAttribute="leading" secondItem="TwL-8s-Yci" secondAttribute="leading" constant="24" id="2Td-pf-zfI"/>
                                         <constraint firstItem="zN3-1g-fkp" firstAttribute="top" secondItem="bo8-fe-izp" secondAttribute="bottom" constant="20" id="3u5-8d-w2I"/>
-                                        <constraint firstItem="EnO-vz-g0V" firstAttribute="trailing" secondItem="TwL-8s-Yci" secondAttribute="trailing" id="4Dp-LC-2t5"/>
+                                        <constraint firstAttribute="trailing" secondItem="EnO-vz-g0V" secondAttribute="trailing" constant="24" id="4cm-9c-zCx"/>
                                         <constraint firstItem="yOO-Yb-7dM" firstAttribute="top" secondItem="N74-w6-GaP" secondAttribute="bottom" constant="20" id="662-ZY-W3b"/>
                                         <constraint firstAttribute="trailing" secondItem="yOO-Yb-7dM" secondAttribute="trailing" constant="24" id="Bcy-kC-jsg"/>
                                         <constraint firstItem="bo8-fe-izp" firstAttribute="leading" secondItem="TwL-8s-Yci" secondAttribute="leading" id="DJB-Tr-o5j"/>
@@ -103,7 +104,7 @@
                                         <constraint firstItem="zN3-1g-fkp" firstAttribute="leading" secondItem="TwL-8s-Yci" secondAttribute="leading" id="Ogq-aW-Qey"/>
                                         <constraint firstItem="EnO-vz-g0V" firstAttribute="bottom" secondItem="TwL-8s-Yci" secondAttribute="bottom" id="PKS-ac-Z8c"/>
                                         <constraint firstItem="N74-w6-GaP" firstAttribute="leading" secondItem="TwL-8s-Yci" secondAttribute="leading" constant="24" id="Re8-J2-vCd"/>
-                                        <constraint firstItem="EnO-vz-g0V" firstAttribute="leading" secondItem="TwL-8s-Yci" secondAttribute="leading" id="ePm-CC-54J"/>
+                                        <constraint firstItem="EnO-vz-g0V" firstAttribute="leading" secondItem="TwL-8s-Yci" secondAttribute="leading" constant="24" id="ePm-CC-54J"/>
                                         <constraint firstAttribute="trailing" secondItem="zN3-1g-fkp" secondAttribute="trailing" id="saU-g5-zcw"/>
                                         <constraint firstItem="bo8-fe-izp" firstAttribute="trailing" secondItem="TwL-8s-Yci" secondAttribute="trailing" id="xUN-uI-LSO"/>
                                     </constraints>

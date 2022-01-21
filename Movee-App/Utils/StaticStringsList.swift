@@ -47,5 +47,4 @@ enum ServiceURL {
             return "/t/p/w500"
         }
     }
-
 }

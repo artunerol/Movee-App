@@ -9,6 +9,6 @@ import Foundation
 
 extension Int {
     func string() -> String {
-        return String(self)
+        String(self)
     }
 }

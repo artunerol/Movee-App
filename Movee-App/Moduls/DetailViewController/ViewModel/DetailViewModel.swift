@@ -20,7 +20,7 @@ class DetailViewModel {
 
     func prepareCastData(castType: DetailCastType) {
         switch castType {
-        case .tv:
+        case .tvSeries:
             tvCastAPIHandler()
         case .movies:
             movieCastAPIHandler()
@@ -54,7 +54,7 @@ class DetailViewModel {
             success: { [weak self] response in
                 self?.castResultSuccess?()
                 self?.castResultArray = response.cast ?? []
-            }, failure: { error in
+            }, failure: { _ in
                 print("cast alınamadı")
             })
     }
@@ -68,7 +68,7 @@ struct DetailModel {
     var id: Int
 }
 
-enum DetailCastType:String {
-    case tv
+enum DetailCastType: String {
+    case tvSeries
     case movies
 }
