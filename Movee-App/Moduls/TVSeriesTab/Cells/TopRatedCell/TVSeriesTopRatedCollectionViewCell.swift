@@ -21,7 +21,6 @@ class TVSeriesTopRatedCollectionViewCell: UICollectionViewCell {
 
     private func configureCellContainerView() {
         ratingContainerView.layer.cornerRadius = 8
-        image.layer.cornerRadius = 10
     }
 
     func configureCell(apiResult: TopRatedResultResponse, imageSize: ServiceURL) { // conifugring the cell with response due to having multiple sections to configure
