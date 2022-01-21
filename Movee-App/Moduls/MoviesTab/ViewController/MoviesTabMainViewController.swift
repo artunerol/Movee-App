@@ -116,7 +116,7 @@ extension MoviesTabMainViewController: UICollectionViewDelegate, UICollectionVie
         let viewController = DetailViewController(nibName: DetailViewController.nameOfClass, bundle: nil)
         viewController.viewModel = viewModel
 
-        present(viewController, animated: true)
+        navigationController?.pushViewController(viewController, animated: true)
     }
     //MARK: - FloywLayout
     

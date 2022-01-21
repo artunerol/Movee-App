@@ -101,12 +101,12 @@ extension TVSeriesMainTabViewController: UICollectionViewDelegate, UICollectionV
                                 overView: item.overview ?? "",
                                 posterImage: item.posterPath ?? "",
                                 id: item.id ?? 0)
+
         let viewModel = DetailViewModel(model: detailModel)
         viewModel.prepareCastData(castType: .tv)
         let viewController = DetailViewController(nibName: DetailViewController.nameOfClass, bundle: nil)
         viewController.viewModel = viewModel
-
-        present(viewController, animated: true)
+        navigationController?.pushViewController(viewController, animated: true)
     }
 
     //MARK: - Cell Layout

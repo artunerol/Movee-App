@@ -22,9 +22,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.makeKeyAndVisible()
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [weak self] in
-            let tabBarViewController = TabBarBuilder.shared.build()
+            let navigationVC = NavigationControllerBuilder.shared.build()
             
-            self?.window?.rootViewController = tabBarViewController
+            self?.window?.rootViewController = navigationVC
             self?.window?.makeKeyAndVisible()
         }
     }
