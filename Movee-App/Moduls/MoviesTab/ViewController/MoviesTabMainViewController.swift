@@ -10,14 +10,14 @@ import Kingfisher
 
 class MoviesTabMainViewController: UIViewController {
     
-    //MARK: - IBOutlets
+    // MARK: - IBOutlets
     @IBOutlet private weak var popularMoviesCollectionView: UICollectionView!
     @IBOutlet private weak var horizontolCollectionView: UICollectionView!
-    //MARK: - Public Properties
+    // MARK: - Public Properties
     var viewModel: MoviesTabMainViewModel?
     //MARK: - Private Properties
-    private var apiResult: [PopularAPIResultResponse] = []
-    //MARK: - Lifce Cycle
+    private var apiResult: [PopularMoviesAPIResultResponse] = []
+    // MARK: - Lifce Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         handleAPIResult()
@@ -25,7 +25,7 @@ class MoviesTabMainViewController: UIViewController {
         setupCollectionView()
         viewModel?.preparePopulerMovies()
     }
-    //MARK: - API Result Handling
+    // MARK: - API Result Handling
     private func handleAPIResult() {
         viewModel?.populerMoviesSuccessClosure = { [weak self] result in
             self?.apiResult = result
@@ -39,7 +39,7 @@ class MoviesTabMainViewController: UIViewController {
             alert.show(self, sender: nil)
         }
     }
-    //MARK: - Private func
+    // MARK: - Private func
     
     private func setupCollectionView() {
         popularMoviesCollectionView.delegate = self
@@ -55,12 +55,24 @@ class MoviesTabMainViewController: UIViewController {
     }
 
     private func registerCellToCollectionView() {
-        popularMoviesCollectionView.register(UINib(nibName: PopularMoviesCollectionViewCell.nameOfClass, bundle: nil), forCellWithReuseIdentifier: PopularMoviesCollectionViewCell.nameOfClass)
-        horizontolCollectionView.register(UINib(nibName: HorizontalCollectionViewCell.nameOfClass, bundle: nil), forCellWithReuseIdentifier: HorizontalCollectionViewCell.nameOfClass)
+        popularMoviesCollectionView.register(
+            UINib(
+                nibName: PopularMoviesCollectionViewCell.nameOfClass,
+                bundle: nil
+            ),
+            forCellWithReuseIdentifier: PopularMoviesCollectionViewCell.nameOfClass
+        )
+        horizontolCollectionView.register(
+            UINib(
+                nibName: HorizontalCollectionViewCell.nameOfClass,
+                bundle: nil
+            ),
+            forCellWithReuseIdentifier: HorizontalCollectionViewCell.nameOfClass
+        )
     }
 }
 
-//MARK: - Extensions
+// MARK: - Extensions
 extension MoviesTabMainViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         guard let viewModel = viewModel else { return 0 }
@@ -85,7 +97,7 @@ extension MoviesTabMainViewController: UICollectionViewDelegate, UICollectionVie
                 for: indexPath
             ) as? PopularMoviesCollectionViewCell
             else { return UICollectionViewCell() }
-            //Cell Configure Below
+            // Cell Configure Below
             cell.configureCell(apiResult: viewModel.movieResultArray[indexPath.row], imageSize: .popularMoviesW500Poster)
             
             return cell
@@ -112,22 +124,25 @@ extension MoviesTabMainViewController: UICollectionViewDelegate, UICollectionVie
         return UICollectionViewCell()
     }
 
-    //MARK: - Cell DidSelect
+    // MARK: - Cell DidSelect
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let item = apiResult[indexPath.row]
-        let detailModel = DetailModel(titleLabel: item.title ?? "",
-                                      releaseDate: item.releaseDate ?? "",
-                                      overView: item.overview ?? "",
-                                      posterImage: item.posterPath ?? "",
-                                      id: item.id ?? 0)
-        let viewModel = DetailViewModel(model: detailModel)
+        print("movie ID: \(item.id)")
+        let detailModel = DetailModel(
+            titleLabel: item.title ?? "",
+            releaseDate: item.releaseDate ?? "",
+            overView: item.overview ?? "",
+            posterImage: item.posterPath ?? "",
+            id: item.id ?? 0
+        )
+        let viewModel = MovieDetailViewModel(model: detailModel)
         viewModel.prepareCastData(castType: .movies)
-        let viewController = DetailViewController(nibName: DetailViewController.nameOfClass, bundle: nil)
+        let viewController = MovieDetailViewController(nibName: MovieDetailViewController.nameOfClass, bundle: nil)
         viewController.viewModel = viewModel
 
         navigationController?.pushViewController(viewController, animated: true)
     }
-    //MARK: - FloywLayout
+    // MARK: - FloywLayout
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == popularMoviesCollectionView {

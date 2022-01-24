@@ -9,9 +9,10 @@ import Foundation
 import UIKit
 import Alamofire
 
-class DetailViewModel {
+class TVDetailViewModel {
     var model: DetailModel
     var castResultArray: [CastResultResponse] = []
+    var tvDetailResult: TVSeriesDetailResponse?
     var castResultSuccess: (() -> Void)?
 
     init(model: DetailModel) {
@@ -23,12 +24,11 @@ class DetailViewModel {
         case .tvSeries:
             tvCastAPIHandler()
         case .movies:
-            movieCastAPIHandler()
+            break
         }
     }
 
-    //MARK: - Private Funcs
-
+    // MARK: - Private Funcs
     private func tvCastAPIHandler() {
         NetworkManager.shared.request(
             url: .tvCast(model.id.string()),
@@ -40,26 +40,28 @@ class DetailViewModel {
                 self?.castResultSuccess?()
                 self?.castResultArray = response.cast ?? []
             }, failure: { error in
-                print("cast error in detailviewmodel is \(error.errorDescription)")
-            })
+                print("cast error in detailviewmodel is \(String(describing: error.errorDescription))")
+            }
+        )
     }
 
-    private func movieCastAPIHandler() {
+    private func tvDetailAPIHandler() {
         NetworkManager.shared.request(
-            url: .movieCast(model.id.string()),
+            url: .tvDetail(model.id.string()),
             method: .get,
             parameters: nil,
             encoding: URLEncoding.default,
-            responseObjectType: CastResponse.self,
-            success: { [weak self] response in
-                self?.castResultSuccess?()
-                self?.castResultArray = response.cast ?? []
-            }, failure: { _ in
-                print("cast alınamadı")
-            })
+            responseObjectType: TVSeriesDetailResponse.self,
+            success: { [weak self] result in
+                self?.tvDetailResult = result
+            },
+            failure: { error in
+                print("error in tvdetail \(error)")
+            }
+        )
     }
 }
-//MARK: -
+// MARK: -
 struct DetailModel {
     var titleLabel: String
     var releaseDate: String

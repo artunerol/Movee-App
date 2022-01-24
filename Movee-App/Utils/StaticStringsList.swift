@@ -26,11 +26,15 @@ enum ServiceURL {
 
     case movieCast(String)
     case tvCast(String)
+    case tvDetail(String)
+    case movieDetail(String)
 
     
     case popularMoviesOriginalPoster
     case popularMoviesW500Poster
     //  "https://api.themoviedb.org/3/tv/85552?api_key=d9887848cba0ebdfebd5a3088a951f3b&language=en-US&page=1"
+    // mock detailPageTVSeris:  https://api.themoviedb.org/3/tv/85552/credits?api_key=d9887848cba0ebdfebd5a3088a951f3b&language=en-US&page=1
+    
     var description: String {
         switch self {
         case .populerMoviesURL:
@@ -45,6 +49,10 @@ enum ServiceURL {
             return "/t/p/original"
         case .popularMoviesW500Poster:
             return "/t/p/w500"
+        case .tvDetail(let id):
+            return "/3/tv/\(id)"
+        case .movieDetail(let id):
+            return "/3/movie/\(id)"
         }
     }
 }

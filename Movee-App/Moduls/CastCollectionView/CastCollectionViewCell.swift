@@ -14,7 +14,6 @@ class CastCollectionViewCell: UICollectionViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        castImageRound()
         // Initialization code
     }
 
@@ -23,15 +22,9 @@ class CastCollectionViewCell: UICollectionViewCell {
         if let imagePath = item.profilePath { // Eğer resmi yoksa default bir profil resmi koy
             let urlString = StaticStringsList.imageBaseURL + ServiceURL.popularMoviesW500Poster.description + imagePath
             let castImageURL = URL(string: urlString)
-            self.castImage.kf.setImage(with: castImageURL)
+            let processor = RoundCornerImageProcessor(cornerRadius: (castImage.frame.height) / 2)
+            castImage.kf.setImage(with: castImageURL, options: [.processor(processor)])
+            self.castName.text = name
         }
-
-        self.castName.text = name
-    }
-
-    private func castImageRound() {
-        castImage.layer.cornerRadius = 10
-        castImage.contentMode = .scaleAspectFill
-        castImage.clipsToBounds = true
     }
 }

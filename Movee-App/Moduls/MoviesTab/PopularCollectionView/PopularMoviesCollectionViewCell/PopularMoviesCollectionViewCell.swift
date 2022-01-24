@@ -20,7 +20,7 @@ class PopularMoviesCollectionViewCell: UICollectionViewCell {
     
     //MARK: - Public funcs
     
-    func configureCell(apiResult: PopularAPIResultResponse, imageSize: ServiceURL) { // conifugring the cell with response due to having multiple sections to configure
+    func configureCell(apiResult: PopularMoviesAPIResultResponse, imageSize: ServiceURL) { // conifugring the cell with response due to having multiple sections to configure
         configureCellContainerView()
         guard let title = apiResult.title else { return }
         guard let voteAverage = apiResult.voteAverage else { return }
