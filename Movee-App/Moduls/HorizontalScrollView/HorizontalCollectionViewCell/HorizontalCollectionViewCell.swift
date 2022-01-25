@@ -9,7 +9,6 @@ import UIKit
 import Kingfisher
 
 class HorizontalCollectionViewCell: UICollectionViewCell {
-    
     @IBOutlet private weak var posterImage: UIImageView!
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var ratingLabel: UILabel!

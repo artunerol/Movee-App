@@ -10,7 +10,7 @@ import Foundation
 struct CastResponse: Codable {
     let id: Int?
     let cast: [CastResultResponse]?
-    let crew: [CastResultResponse]?
+    let crew: [CrewResultResponse]?
 }
 
 // MARK: - Cast

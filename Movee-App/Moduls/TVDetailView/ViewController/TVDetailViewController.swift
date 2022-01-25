@@ -63,23 +63,20 @@ class TVDetailViewController: UIViewController {
 
     private func setTVDetail() {
         viewModel?.tvDetailSuccess = { [weak self] in
-            DispatchQueue.main.async {
-                guard let self = self,
-                      let viewModel = self.viewModel
-                else { return }
+            guard let viewModel = self?.viewModel
+            else { return }
 
-                let imageURLString = StaticStringsList.imageBaseURL + ServiceURL.popularMoviesW500Poster.description + viewModel.model.posterImage
-                guard let imageURL = URL(string: imageURLString) else { return }
-
-                print("setTVDetail Success")
-                self.posterImage.kf.setImage(with: imageURL)
-                self.ratingLabel.text = viewModel.model.rating
-                self.titleLabel.text = viewModel.model.titleLabel
-                self.releaseDate.text = viewModel.model.releaseDate
-                self.overView.text = viewModel.model.overView
-                self.seasonsLabel.text = (viewModel.tvDetailResult?.numberOfSeasons?.string() ?? "Unavailable") + " seasons"
-                self.durationLabel.text = (viewModel.tvDetailResult?.episodeRunTime?[0].string() ?? "Unavailable") + " mins"
-                self.creatorsLabel.text = viewModel.tvDetailResult?.createdBy?.reduce("") { $0 + (($1.name ?? "Creator Unavailable") + ", ") }
+            let imageURLString = StaticStringsList.imageBaseURL + ServiceURL.popularMoviesW500Poster.description + viewModel.model.posterImage
+            guard let imageURL = URL(string: imageURLString) else { return }
+            DispatchQueue.main.async { [weak self] in
+                self?.posterImage.kf.setImage(with: imageURL)
+                self?.ratingLabel.text = viewModel.model.rating
+                self?.titleLabel.text = viewModel.model.titleLabel
+                self?.releaseDate.text = viewModel.model.releaseDate
+                self?.overView.text = viewModel.model.overView
+                self?.seasonsLabel.text = (viewModel.tvDetailResult?.numberOfSeasons?.string() ?? "Unavailable") + " seasons"
+                self?.durationLabel.text = (viewModel.tvDetailResult?.episodeRunTime?[0].string() ?? "Unavailable") + " mins"
+                self?.creatorsLabel.text = viewModel.tvDetailResult?.createdBy?.reduce("") { $0 + (($1.name ?? "Creator Unavailable") + ", ") }
             }
         }
     }
@@ -99,12 +96,12 @@ extension TVDetailViewController: UICollectionViewDelegate, UICollectionViewData
               )
                 as? CastCollectionViewCell
         else { return UICollectionViewCell() }
-
+        print("cast person is \(item)")
         cell.configure(item: item)
 
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        CGSize(width: 100, height: 100)
+        CGSize(width: 100, height: 150)
     }
 }

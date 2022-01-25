@@ -48,20 +48,23 @@ class TVDetailViewModel {
     }
 
     private func tvDetailAPIHandler() {
-        NetworkManager.shared.request(
-            url: .tvDetail(model.id.string()),
-            method: .get,
-            parameters: nil,
-            encoding: URLEncoding.default,
-            responseObjectType: TVSeriesDetailResponse.self,
-            success: { [weak self] result in
-                self?.tvDetailSuccess?()
-                self?.tvDetailResult = result
-            },
-            failure: { error in
-                print("error in tvdetail \(error)")
-            }
-        )
+        DispatchQueue.main.async { [weak self] in
+            guard let id = self?.model.id.string() else { return }
+            NetworkManager.shared.request(
+                url: .tvDetail(id),
+                method: .get,
+                parameters: nil,
+                encoding: URLEncoding.default,
+                responseObjectType: TVSeriesDetailResponse.self,
+                success: { [weak self] result in
+                    self?.tvDetailSuccess?()
+                    self?.tvDetailResult = result
+                },
+                failure: { error in
+                    print("error in tvdetail \(error)")
+                }
+            )
+        }
     }
 }
 // MARK: -
