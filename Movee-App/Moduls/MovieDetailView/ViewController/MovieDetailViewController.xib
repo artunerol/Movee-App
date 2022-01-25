@@ -99,7 +99,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="releaseDate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uuh-wS-6Kt" userLabel="releaseDate">
                                                     <rect key="frame" x="20" y="0.0" width="82" height="15"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                    <color key="textColor" red="0.031372549020000001" green="0.035294117649999998" blue="0.039215686270000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <color key="textColor" red="0.22352941176470587" green="0.22745098039215686" blue="0.23137254901960785" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -134,7 +134,7 @@
                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="300" id="Jce-LN-HEY"/>
                                             </constraints>
                                             <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="q9D-Is-Fd5">
-                                                <size key="itemSize" width="128" height="128"/>
+                                                <size key="itemSize" width="100" height="100"/>
                                                 <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                 <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                 <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>

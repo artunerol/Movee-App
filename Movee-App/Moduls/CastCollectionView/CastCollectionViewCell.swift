@@ -18,13 +18,16 @@ class CastCollectionViewCell: UICollectionViewCell {
     }
 
     func configure(item: CastResultResponse) {
-        guard let name = item.name else { return }
-        if let imagePath = item.profilePath { // Eğer resmi yoksa default bir profil resmi koy
+        if let imagePath = item.profilePath, let name = item.name { // Eğer resmi yoksa default bir profil resmi koy
             let urlString = StaticStringsList.imageBaseURL + ServiceURL.popularMoviesW500Poster.description + imagePath
             let castImageURL = URL(string: urlString)
-            let processor = RoundCornerImageProcessor(cornerRadius: (castImage.frame.height) / 2)
-            castImage.kf.setImage(with: castImageURL, options: [.processor(processor)])
+            castImage.layer.cornerRadius = castImage.frame.height / 2
+            castImage.kf.setImage(with: castImageURL)
             self.castName.text = name
+        } else {
+            castImage.image = UIImage(systemName: "person.fill")
+            castImage.tintColor = .blue
+            castName.text = "Cast_Name Unavailable"
         }
     }
 }

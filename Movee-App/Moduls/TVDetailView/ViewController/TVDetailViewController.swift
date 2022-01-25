@@ -104,4 +104,7 @@ extension TVDetailViewController: UICollectionViewDelegate, UICollectionViewData
 
         return cell
     }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        CGSize(width: 100, height: 100)
+    }
 }

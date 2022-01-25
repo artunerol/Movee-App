@@ -101,7 +101,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Release Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1fD-fx-JPA" userLabel="releaseDate">
                                                     <rect key="frame" x="19.999999999999986" y="0.0" width="90" height="15"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                    <color key="textColor" red="0.031372549019607843" green="0.035294117647058823" blue="0.039215686274509803" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <color key="textColor" red="0.22352941176470587" green="0.22745098039215686" blue="0.23137254901960785" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>

@@ -95,4 +95,6 @@ extension MovieDetailViewController: UICollectionViewDelegate, UICollectionViewD
 
         return cell
     }
+
+
 }
