@@ -9,7 +9,6 @@ import UIKit
 import Kingfisher
 
 class PopularMoviesCollectionViewCell: UICollectionViewCell {
-    
     @IBOutlet private weak var cellContainerView: UIView!
     @IBOutlet private weak var movieTitle: UILabel!
     @IBOutlet private weak var movieGenre: UILabel!
@@ -18,7 +17,7 @@ class PopularMoviesCollectionViewCell: UICollectionViewCell {
     @IBOutlet private weak var ratingContainerView: UIView!
     @IBOutlet private weak var ratingLabel: UILabel!
     
-    //MARK: - Public funcs
+    // MARK: - Public funcs
     
     func configureCell(apiResult: PopularMoviesAPIResultResponse, imageSize: ServiceURL) { // conifugring the cell with response due to having multiple sections to configure
         configureCellContainerView()
@@ -35,7 +34,7 @@ class PopularMoviesCollectionViewCell: UICollectionViewCell {
         self.ratingLabel.text = String(voteAverage)
         self.releaseDate.text = releaseDate
     }
-    //MARK: - Private Funcs
+    // MARK: - Private Funcs
     
     private func configureCellContainerView() {
         configureSubLayers()

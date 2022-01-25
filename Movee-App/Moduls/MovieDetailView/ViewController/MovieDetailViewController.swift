@@ -8,7 +8,6 @@
 import UIKit
 
 class MovieDetailViewController: UIViewController {
-
     // MARK: - IBOutlets
     @IBOutlet private weak var posterImage: UIImageView!
     @IBOutlet private weak var ratingContainerView: UIView!
@@ -17,7 +16,8 @@ class MovieDetailViewController: UIViewController {
     @IBOutlet private weak var overView: UILabel!
     @IBOutlet private weak var castCollectionView: UICollectionView!
     @IBOutlet private weak var durationLabel: UILabel!
-
+    @IBOutlet private weak var ratingLabel: UILabel!
+    @IBOutlet private weak var productionCompanyLabel: UILabel!
     // MARK: -
     var viewModel: MovieDetailViewModel?
     // MARK: - Life Cycle
@@ -35,15 +35,7 @@ class MovieDetailViewController: UIViewController {
     }
 
     private func setupViewConfigurations() {
-        guard let viewModel = viewModel else { return }
-
-        let imageURLString = StaticStringsList.imageBaseURL + ServiceURL.popularMoviesW500Poster.description + viewModel.model.posterImage
-        guard let imageURL = URL(string: imageURLString) else { return }
-
-        posterImage.kf.setImage(with: imageURL)
-        titleLabel.text = viewModel.model.titleLabel
-        releaseDate.text = viewModel.model.releaseDate
-        overView.text = viewModel.model.overView
+        setMovieDetail()
     }
 
     private func setupCollectionView() {
@@ -63,8 +55,27 @@ class MovieDetailViewController: UIViewController {
             self?.castCollectionView.reloadData()
         }
     }
-}
 
+    private func setMovieDetail() {
+        viewModel?.movieDetailSuccess = { [weak self] in
+            guard let self = self,
+                  let viewModel = self.viewModel,
+                  let movieDetailResult = viewModel.movieDetailResult
+            else { return }
+
+            let imageURLString = StaticStringsList.imageBaseURL + ServiceURL.popularMoviesW500Poster.description + viewModel.model.posterImage
+            guard let imageURL = URL(string: imageURLString) else { return }
+
+            self.posterImage.kf.setImage(with: imageURL)
+            self.titleLabel.text = viewModel.model.titleLabel
+            self.releaseDate.text = viewModel.model.releaseDate
+            self.overView.text = viewModel.model.overView
+            self.ratingLabel.text = viewModel.model.rating
+            self.durationLabel.text = (movieDetailResult.runtime ?? 0).string() + " mins"
+            self.productionCompanyLabel.text = movieDetailResult.productionCompanies?[0].name
+        }
+    }
+}
 // MARK: - Extension
 extension MovieDetailViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

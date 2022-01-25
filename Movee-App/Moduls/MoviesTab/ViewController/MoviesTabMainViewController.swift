@@ -9,13 +9,12 @@ import UIKit
 import Kingfisher
 
 class MoviesTabMainViewController: UIViewController {
-    
     // MARK: - IBOutlets
     @IBOutlet private weak var popularMoviesCollectionView: UICollectionView!
     @IBOutlet private weak var horizontolCollectionView: UICollectionView!
     // MARK: - Public Properties
     var viewModel: MoviesTabMainViewModel?
-    //MARK: - Private Properties
+    // MARK: - Private Properties
     private var apiResult: [PopularMoviesAPIResultResponse] = []
     // MARK: - Lifce Cycle
     override func viewDidLoad() {
@@ -127,13 +126,13 @@ extension MoviesTabMainViewController: UICollectionViewDelegate, UICollectionVie
     // MARK: - Cell DidSelect
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let item = apiResult[indexPath.row]
-        print("movie ID: \(item.id)")
         let detailModel = DetailModel(
             titleLabel: item.title ?? "",
             releaseDate: item.releaseDate ?? "",
             overView: item.overview ?? "",
             posterImage: item.posterPath ?? "",
-            id: item.id ?? 0
+            id: item.id ?? 0,
+            rating: String((item.voteAverage ?? 0))
         )
         let viewModel = MovieDetailViewModel(model: detailModel)
         viewModel.prepareCastData(castType: .movies)

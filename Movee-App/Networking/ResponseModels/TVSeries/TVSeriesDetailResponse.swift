@@ -27,9 +27,9 @@ struct TVSeriesDetailResponse: Codable {
 
 // MARK: - CreatedBy
 struct CreatedBy: Codable {
-    let id: Int
-    let name: String
-    let profilePath: String
+    let id: Int?
+    let name: String?
+    let profilePath: String?
 
     enum CodingKeys: String, CodingKey {
         case id

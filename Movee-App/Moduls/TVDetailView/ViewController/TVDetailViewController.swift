@@ -8,7 +8,7 @@
 import UIKit
 import Kingfisher
 
-class DetailViewController: UIViewController {
+class TVDetailViewController: UIViewController {
     // MARK: - IBOutlets
     @IBOutlet private weak var posterImage: UIImageView!
     @IBOutlet private weak var ratingContainerView: UIView!
@@ -19,6 +19,8 @@ class DetailViewController: UIViewController {
     @IBOutlet private weak var seasonsContainerView: UIView!
     @IBOutlet private weak var seasonsLabel: UILabel!
     @IBOutlet private weak var durationLabel: UILabel!
+    @IBOutlet private weak var creatorsLabel: UILabel!
+    @IBOutlet private weak var ratingLabel: UILabel!
 
     // MARK: -
     var viewModel: TVDetailViewModel?
@@ -38,17 +40,7 @@ class DetailViewController: UIViewController {
     }
 
     private func setupViewConfigurations() {
-        guard let viewModel = viewModel else { return }
-
-        let imageURLString = StaticStringsList.imageBaseURL + ServiceURL.popularMoviesW500Poster.description + viewModel.model.posterImage
-        guard let imageURL = URL(string: imageURLString) else { return }
-
-        posterImage.kf.setImage(with: imageURL)
-        titleLabel.text = viewModel.model.titleLabel
-        releaseDate.text = viewModel.model.releaseDate
-        overView.text = viewModel.model.overView
-        seasonsLabel.text = viewModel.tvDetailResult?.numberOfSeasons?.string() ?? "5" + " seasons"
-        durationLabel.text = viewModel.tvDetailResult?.episodeRunTime?[0].string() ?? "15" + " mins"
+        setTVDetail()
     }
 
     private func setupCollectionView() {
@@ -68,10 +60,33 @@ class DetailViewController: UIViewController {
             self?.castCollectionView.reloadData()
         }
     }
+
+    private func setTVDetail() {
+        viewModel?.tvDetailSuccess = { [weak self] in
+            DispatchQueue.main.async {
+                guard let self = self,
+                      let viewModel = self.viewModel
+                else { return }
+
+                let imageURLString = StaticStringsList.imageBaseURL + ServiceURL.popularMoviesW500Poster.description + viewModel.model.posterImage
+                guard let imageURL = URL(string: imageURLString) else { return }
+
+                print("setTVDetail Success")
+                self.posterImage.kf.setImage(with: imageURL)
+                self.ratingLabel.text = viewModel.model.rating
+                self.titleLabel.text = viewModel.model.titleLabel
+                self.releaseDate.text = viewModel.model.releaseDate
+                self.overView.text = viewModel.model.overView
+                self.seasonsLabel.text = (viewModel.tvDetailResult?.numberOfSeasons?.string() ?? "Unavailable") + " seasons"
+                self.durationLabel.text = (viewModel.tvDetailResult?.episodeRunTime?[0].string() ?? "Unavailable") + " mins"
+                self.creatorsLabel.text = viewModel.tvDetailResult?.createdBy?.reduce("") { $0 + (($1.name ?? "Creator Unavailable") + ", ") }
+            }
+        }
+    }
 }
 
 // MARK: - Extension
-extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension TVDetailViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         viewModel?.castResultArray.count ?? 0
     }

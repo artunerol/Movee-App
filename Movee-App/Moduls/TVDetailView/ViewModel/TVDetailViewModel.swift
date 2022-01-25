@@ -14,15 +14,17 @@ class TVDetailViewModel {
     var castResultArray: [CastResultResponse] = []
     var tvDetailResult: TVSeriesDetailResponse?
     var castResultSuccess: (() -> Void)?
+    var tvDetailSuccess: (() -> Void)?
 
     init(model: DetailModel) {
         self.model = model
     }
 
-    func prepareCastData(castType: DetailCastType) {
+    func prepareData(castType: DetailCastType) {
         switch castType {
         case .tvSeries:
             tvCastAPIHandler()
+            tvDetailAPIHandler()
         case .movies:
             break
         }
@@ -53,6 +55,7 @@ class TVDetailViewModel {
             encoding: URLEncoding.default,
             responseObjectType: TVSeriesDetailResponse.self,
             success: { [weak self] result in
+                self?.tvDetailSuccess?()
                 self?.tvDetailResult = result
             },
             failure: { error in
@@ -68,6 +71,7 @@ struct DetailModel {
     var overView: String
     var posterImage: String
     var id: Int
+    var rating: String
 }
 
 enum DetailCastType: String {

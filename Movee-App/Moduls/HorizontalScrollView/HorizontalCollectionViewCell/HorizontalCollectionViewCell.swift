@@ -29,7 +29,7 @@ class HorizontalCollectionViewCell: UICollectionViewCell {
         self.titleLabel.text = model.title
     }
 
-    //MARK: - Private funcs
+    // MARK: - Private funcs
     private func setupCustomViews() {
         posterImage.backgroundColor = .lightGray
         posterImage.contentMode = .scaleToFill

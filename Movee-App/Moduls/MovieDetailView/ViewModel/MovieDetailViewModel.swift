@@ -11,7 +11,9 @@ import Alamofire
 class MovieDetailViewModel {
     var model: DetailModel
     var castResultArray: [CastResultResponse] = []
+    var movieDetailResult: MovieDetailResponse?
     var castResultSuccess: (() -> Void)?
+    var movieDetailSuccess: (() -> Void)?
 
     init(model: DetailModel) {
         self.model = model
@@ -23,6 +25,7 @@ class MovieDetailViewModel {
             break
         case .movies:
             movieCastAPIHandler()
+            movieDetailAPIHandler()
         }
     }
 
@@ -35,10 +38,27 @@ class MovieDetailViewModel {
             encoding: URLEncoding.default,
             responseObjectType: CastResponse.self,
             success: { [weak self] response in
-                self?.castResultSuccess?()
                 self?.castResultArray = response.cast ?? []
+                self?.castResultSuccess?()
             }, failure: { _ in
                 print("cast alınamadı")
+            }
+        )
+    }
+
+    private func movieDetailAPIHandler() {
+        NetworkManager.shared.request(
+            url: .movieDetail(model.id.string()),
+            method: .get,
+            parameters: nil,
+            encoding: URLEncoding.default,
+            responseObjectType: MovieDetailResponse.self,
+            success: { [weak self] result in
+                self?.movieDetailResult = result
+                self?.movieDetailSuccess?()
+            },
+            failure: { error in
+                print("error in tvdetail \(error)")
             }
         )
     }

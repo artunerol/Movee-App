@@ -8,14 +8,14 @@
 import UIKit
 
 class TVSeriesMainTabViewController: UIViewController {
-    //MARK: - IBOutlet
+    // MARK: - IBOutlet
     @IBOutlet private weak var horizontalCollectionView: UICollectionView!
     @IBOutlet private weak var topRatedCollectionView: UICollectionView!
 
     // MARK: - Public Properties
     var viewModel: TVSeriesViewModel?
 
-    //MARK: - Private Properties
+    // MARK: - Private Properties
     private var apiResult: [TopRatedResultResponse] = []
 
     // MARK: - Life Cycle
@@ -117,18 +117,18 @@ extension TVSeriesMainTabViewController: UICollectionViewDelegate, UICollectionV
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let item = apiResult[indexPath.row]
-        print("tv id: \(item.id)")
         let detailModel = DetailModel(
             titleLabel: item.name ?? "",
             releaseDate: item.firstAirDate ?? "",
             overView: item.overview ?? "",
             posterImage: item.posterPath ?? "",
-            id: item.id ?? 0
+            id: item.id ?? 0,
+            rating: String((item.voteAverage ?? 0))
         )
 
         let viewModel = TVDetailViewModel(model: detailModel)
-        viewModel.prepareCastData(castType: .tvSeries)
-        let viewController = DetailViewController(nibName: DetailViewController.nameOfClass, bundle: nil)
+        viewModel.prepareData(castType: .tvSeries)
+        let viewController = TVDetailViewController(nibName: TVDetailViewController.nameOfClass, bundle: nil)
         viewController.viewModel = viewModel
         navigationController?.pushViewController(viewController, animated: true)
     }

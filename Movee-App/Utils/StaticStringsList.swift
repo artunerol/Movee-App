@@ -8,19 +8,17 @@
 import Foundation
 
 struct StaticStringsList {
-    //MARK: - NetworkManager
+    // MARK: - NetworkManager
     
     static private let myAPIKey = "d9887848cba0ebdfebd5a3088a951f3b"
     static let baseURL = "https://api.themoviedb.org"
     static let imageBaseURL = "https://image.tmdb.org"
 
     static let apiKeyParam = "?api_key=\(myAPIKey)&language=en-US&page=1"
-
 }
 
 enum ServiceURL {
-    //URL = "https://api.themoviedb.org/3/movie/popular?api_key=d9887848cba0ebdfebd5a3088a951f3b&language=en-US&page=1"
-
+    // URL = "https://api.themoviedb.org/3/movie/popular?api_key=d9887848cba0ebdfebd5a3088a951f3b&language=en-US&page=1"
     case populerMoviesURL
     case topRatedTVSeriesURL
 

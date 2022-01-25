@@ -10,6 +10,7 @@ import Foundation
 struct CastResponse: Codable {
     let id: Int?
     let cast: [CastResultResponse]?
+    let crew: [CastResultResponse]?
 }
 
 // MARK: - Cast
@@ -34,5 +35,13 @@ struct CastResultResponse: Codable {
         case character
         case creditID = "credit_id"
         case order
+    }
+}
+
+struct CrewResultResponse: Codable {
+    let job: String?
+
+    enum CodingKeys: String, CodingKey {
+        case job
     }
 }

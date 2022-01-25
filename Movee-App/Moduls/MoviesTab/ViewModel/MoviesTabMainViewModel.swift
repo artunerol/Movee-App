@@ -9,11 +9,10 @@ import Foundation
 import Alamofire
 
 class MoviesTabMainViewModel {
-
     var movieResultArray: [PopularMoviesAPIResultResponse] = []
     var populerMoviesSuccessClosure: (([PopularMoviesAPIResultResponse]) -> Void)?
     var populerMoviesFailedClosure: ((String) -> Void)?
-
+    
     func preparePopulerMovies() {
         NetworkManager.shared.request(
             url: .populerMoviesURL,
@@ -26,6 +25,7 @@ class MoviesTabMainViewModel {
                 self?.populerMoviesSuccessClosure?(response.results ?? [])
             }, failure: { [weak self] _ in
                 self?.populerMoviesFailedClosure?("Popüler filmler alınamadı")
-            })
+            }
+        )
     }
 }
