@@ -9,7 +9,6 @@ import UIKit
 import Kingfisher
 
 class HorizontalCollectionViewCell: UICollectionViewCell {
-    
     @IBOutlet private weak var posterImage: UIImageView!
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var ratingLabel: UILabel!
@@ -29,7 +28,7 @@ class HorizontalCollectionViewCell: UICollectionViewCell {
         self.titleLabel.text = model.title
     }
 
-    //MARK: - Private funcs
+    // MARK: - Private funcs
     private func setupCustomViews() {
         posterImage.backgroundColor = .lightGray
         posterImage.contentMode = .scaleToFill

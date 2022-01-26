@@ -8,7 +8,6 @@
 import UIKit
 
 class AutoSizedCollectionView: UICollectionView {
-
     override var contentSize: CGSize {
         didSet {
             invalidateIntrinsicContentSize()

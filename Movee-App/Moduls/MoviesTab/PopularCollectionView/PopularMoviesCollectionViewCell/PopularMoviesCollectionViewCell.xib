@@ -49,12 +49,6 @@
                                     <constraint firstAttribute="width" constant="15" id="yrl-oc-tQI"/>
                                 </constraints>
                             </imageView>
-                            <label verifyAmbiguity="off" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Movie Genre" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FbF-6j-YqG" userLabel="movieGenre">
-                                <rect key="frame" x="80" y="36.666666666666664" width="87" height="18"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3YZ-tu-LzF" userLabel="ratingContainerView">
                                 <rect key="frame" x="202" y="67" width="45" height="22"/>
                                 <subviews>
@@ -90,18 +84,14 @@
                         <constraints>
                             <constraint firstItem="bRl-kP-aWS" firstAttribute="leading" secondItem="zIL-7l-dH2" secondAttribute="trailing" constant="10" id="7Ki-Eq-93w"/>
                             <constraint firstItem="3af-ai-QjC" firstAttribute="leading" secondItem="zIL-7l-dH2" secondAttribute="trailing" constant="10" id="Aor-Iv-mZK"/>
-                            <constraint firstItem="bRl-kP-aWS" firstAttribute="top" relation="greaterThanOrEqual" secondItem="FbF-6j-YqG" secondAttribute="bottom" constant="6" id="GEf-Dm-mr4"/>
                             <constraint firstItem="3YZ-tu-LzF" firstAttribute="leading" secondItem="JV8-sz-h6m" secondAttribute="trailing" constant="28" id="L3Z-03-NJP"/>
                             <constraint firstItem="3af-ai-QjC" firstAttribute="top" secondItem="SCM-Lw-xSZ" secondAttribute="top" constant="8" id="Uv1-Ab-vyE"/>
                             <constraint firstAttribute="trailing" secondItem="3af-ai-QjC" secondAttribute="trailing" constant="5" id="V68-7N-wxz"/>
-                            <constraint firstItem="FbF-6j-YqG" firstAttribute="top" relation="greaterThanOrEqual" secondItem="3af-ai-QjC" secondAttribute="bottom" constant="1" id="YhY-Mt-loI"/>
                             <constraint firstAttribute="bottom" secondItem="bRl-kP-aWS" secondAttribute="bottom" constant="15" id="bE5-3A-kID"/>
                             <constraint firstAttribute="bottom" secondItem="JV8-sz-h6m" secondAttribute="bottom" constant="15" id="c7z-M5-ajt"/>
-                            <constraint firstItem="FbF-6j-YqG" firstAttribute="leading" secondItem="zIL-7l-dH2" secondAttribute="trailing" constant="10" id="elO-ex-3cc"/>
                             <constraint firstItem="zIL-7l-dH2" firstAttribute="top" secondItem="SCM-Lw-xSZ" secondAttribute="top" id="fFn-i4-ABP"/>
                             <constraint firstItem="zIL-7l-dH2" firstAttribute="leading" secondItem="SCM-Lw-xSZ" secondAttribute="leading" id="iJE-XS-nnD"/>
                             <constraint firstAttribute="bottom" secondItem="zIL-7l-dH2" secondAttribute="bottom" id="ju8-24-vto"/>
-                            <constraint firstItem="FbF-6j-YqG" firstAttribute="top" relation="lessThanOrEqual" secondItem="3af-ai-QjC" secondAttribute="bottom" constant="7" id="k7u-Zk-RwD"/>
                             <constraint firstAttribute="bottom" secondItem="3YZ-tu-LzF" secondAttribute="bottom" constant="11" id="pUF-w1-tQ9"/>
                             <constraint firstItem="JV8-sz-h6m" firstAttribute="leading" secondItem="bRl-kP-aWS" secondAttribute="trailing" constant="5" id="t5z-Mn-La2"/>
                         </constraints>
@@ -118,7 +108,6 @@
             <size key="customSize" width="282" height="123"/>
             <connections>
                 <outlet property="cellContainerView" destination="SCM-Lw-xSZ" id="j69-UB-IYD"/>
-                <outlet property="movieGenre" destination="FbF-6j-YqG" id="VYR-mn-v1Q"/>
                 <outlet property="movieImage" destination="zIL-7l-dH2" id="bKG-ov-9bd"/>
                 <outlet property="movieTitle" destination="3af-ai-QjC" id="Ock-WA-xSl"/>
                 <outlet property="ratingContainerView" destination="3YZ-tu-LzF" id="dqO-FK-u2w"/>

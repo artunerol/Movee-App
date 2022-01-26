@@ -2,7 +2,7 @@ PODS:
   - Alamofire (5.5.0)
   - CocoaDebug (1.7.2)
   - Kingfisher (7.1.2)
-  - SwiftLint (0.45.1)
+  - SwiftLint (0.46.1)
 
 DEPENDENCIES:
   - Alamofire (~> 5.5)
@@ -21,7 +21,7 @@ SPEC CHECKSUMS:
   Alamofire: 1c4fb5369c3fe93d2857c780d8bbe09f06f97e7c
   CocoaDebug: 61cf93ada6ce8f3407507dc01f9b874d91ac1d5c
   Kingfisher: 44ed6a8504763f27bab46163adfac83f5deb240c
-  SwiftLint: 06ac37e4d38c7068e0935bb30cda95f093bec761
+  SwiftLint: aaa29a9f649316095a9079595cb60906bd899353
 
 PODFILE CHECKSUM: e7628198146e82b71058b22650e27a9873245b0d
 

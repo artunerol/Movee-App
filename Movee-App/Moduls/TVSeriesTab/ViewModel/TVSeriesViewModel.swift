@@ -25,8 +25,7 @@ class TVSeriesViewModel {
                 self?.popularTVSeriesSuccessClosure?(response.results ?? [])
             }, failure: { [weak self] error in
                 self?.popularTVSeriesFailedClosure?(error.localizedDescription)
-            })
-
+            }
+        )
     }
-
 }

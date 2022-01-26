@@ -14,24 +14,20 @@ class CastCollectionViewCell: UICollectionViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        castImageRound()
         // Initialization code
     }
 
     func configure(item: CastResultResponse) {
-        guard let name = item.name else { return }
-        if let imagePath = item.profilePath { // Eğer resmi yoksa default bir profil resmi koy
+        if let imagePath = item.profilePath, let name = item.name { // Eğer resmi yoksa default bir profil resmi koy
             let urlString = StaticStringsList.imageBaseURL + ServiceURL.popularMoviesW500Poster.description + imagePath
             let castImageURL = URL(string: urlString)
-            self.castImage.kf.setImage(with: castImageURL)
+            castImage.layer.cornerRadius = castImage.frame.height / 2
+            castImage.kf.setImage(with: castImageURL)
+            self.castName.text = name
+        } else {
+            castImage.image = UIImage(systemName: "person.fill")
+            castImage.tintColor = .blue
+            castName.text = "Cast_Name Unavailable"
         }
-
-        self.castName.text = name
-    }
-
-    private func castImageRound() {
-        castImage.layer.cornerRadius = 10
-        castImage.contentMode = .scaleAspectFill
-        castImage.clipsToBounds = true
     }
 }

@@ -38,5 +38,4 @@ class TVSeriesTopRatedCollectionViewCell: UICollectionViewCell {
         self.title.text = title
         self.ratingLabel.text = String(voteAverage)
     }
-
 }

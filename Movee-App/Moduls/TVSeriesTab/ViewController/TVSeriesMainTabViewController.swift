@@ -8,17 +8,17 @@
 import UIKit
 
 class TVSeriesMainTabViewController: UIViewController {
-    //MARK: - IBOutlet
+    // MARK: - IBOutlet
     @IBOutlet private weak var horizontalCollectionView: UICollectionView!
     @IBOutlet private weak var topRatedCollectionView: UICollectionView!
 
-    //MARK: - Public Properties
+    // MARK: - Public Properties
     var viewModel: TVSeriesViewModel?
 
-    //MARK: - Private Properties
+    // MARK: - Private Properties
     private var apiResult: [TopRatedResultResponse] = []
 
-    //MARK: - Life Cycle
+    // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         handleAPI()
@@ -26,7 +26,7 @@ class TVSeriesMainTabViewController: UIViewController {
 
         viewModel?.preparePopularTVSeries()
     }
-    //MARK: - Private func
+    // MARK: - Private func
 
     private func handleAPI() {
         viewModel?.popularTVSeriesSuccessClosure = { [weak self] result in
@@ -53,12 +53,24 @@ class TVSeriesMainTabViewController: UIViewController {
     }
 
     private func registerCellToCollectionView() {
-        topRatedCollectionView.register(UINib(nibName: TVSeriesTopRatedCollectionViewCell.nameOfClass, bundle: nil), forCellWithReuseIdentifier: TVSeriesTopRatedCollectionViewCell.nameOfClass)
-        horizontalCollectionView.register(UINib(nibName: HorizontalCollectionViewCell.nameOfClass, bundle: nil), forCellWithReuseIdentifier: HorizontalCollectionViewCell.nameOfClass)
+        topRatedCollectionView.register(
+            UINib(
+                nibName: TVSeriesTopRatedCollectionViewCell.nameOfClass,
+                bundle: nil
+            ),
+            forCellWithReuseIdentifier: TVSeriesTopRatedCollectionViewCell.nameOfClass
+        )
+        horizontalCollectionView.register(
+            UINib(
+                nibName: HorizontalCollectionViewCell.nameOfClass,
+                bundle: nil
+            ),
+            forCellWithReuseIdentifier: HorizontalCollectionViewCell.nameOfClass
+        )
     }
 }
 
-//MARK: - Extensions
+// MARK: - Extensions
 
 extension TVSeriesMainTabViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -74,7 +86,7 @@ extension TVSeriesMainTabViewController: UICollectionViewDelegate, UICollectionV
                 for: indexPath
             ) as? TVSeriesTopRatedCollectionViewCell
             else { return UICollectionViewCell() }
-            //Cell Configure Below
+            // Cell Configure Below
             cell.configureCell(apiResult: viewModel.tvSeriesResultArray[indexPath.row], imageSize: .popularMoviesW500Poster)
 
             return cell
@@ -91,7 +103,8 @@ extension TVSeriesMainTabViewController: UICollectionViewDelegate, UICollectionV
             let model = CollectionViewCellDataModel(
                 posterPath: item.posterPath ?? "",
                 title: item.name ?? "",
-                rating: item.voteAverage ?? 0)
+                rating: item.voteAverage ?? 0
+            )
 
             cell.configureCell(model: model)
 
@@ -100,24 +113,27 @@ extension TVSeriesMainTabViewController: UICollectionViewDelegate, UICollectionV
         return UICollectionViewCell()
     }
 
-    //MARK: - Cell Pressed
+    // MARK: - Cell Pressed
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let item = apiResult[indexPath.row]
-        let detailModel = DetailModel(titleLabel: item.name ?? "",
-                                      releaseDate: item.firstAirDate ?? "",
-                                      overView: item.overview ?? "",
-                                      posterImage: item.posterPath ?? "",
-                                      id: item.id ?? 0)
+        let detailModel = DetailModel(
+            titleLabel: item.name ?? "",
+            releaseDate: item.firstAirDate ?? "",
+            overView: item.overview ?? "",
+            posterImage: item.posterPath ?? "",
+            id: item.id ?? 0,
+            rating: String((item.voteAverage ?? 0))
+        )
 
-        let viewModel = DetailViewModel(model: detailModel)
-        viewModel.prepareCastData(castType: .tvSeries)
-        let viewController = DetailViewController(nibName: DetailViewController.nameOfClass, bundle: nil)
+        let viewModel = TVDetailViewModel(model: detailModel)
+        viewModel.prepareData(castType: .tvSeries)
+        let viewController = TVDetailViewController(nibName: TVDetailViewController.nameOfClass, bundle: nil)
         viewController.viewModel = viewModel
         navigationController?.pushViewController(viewController, animated: true)
     }
 
-    //MARK: - Cell Layout
+    // MARK: - Cell Layout
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == topRatedCollectionView {

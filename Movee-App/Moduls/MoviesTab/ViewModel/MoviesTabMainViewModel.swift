@@ -9,23 +9,23 @@ import Foundation
 import Alamofire
 
 class MoviesTabMainViewModel {
-
-    var movieResultArray: [PopularAPIResultResponse] = []
-    var populerMoviesSuccessClosure: (([PopularAPIResultResponse]) -> Void)?
+    var movieResultArray: [PopularMoviesAPIResultResponse] = []
+    var populerMoviesSuccessClosure: (([PopularMoviesAPIResultResponse]) -> Void)?
     var populerMoviesFailedClosure: ((String) -> Void)?
-
+    
     func preparePopulerMovies() {
         NetworkManager.shared.request(
             url: .populerMoviesURL,
             method: .get,
             parameters: nil,
             encoding: URLEncoding.default,
-            responseObjectType: PopularAPIResponse.self,
+            responseObjectType: PopularMoviesAPIResponse.self,
             success: { [weak self] response in
                 self?.movieResultArray = response.results ?? []
                 self?.populerMoviesSuccessClosure?(response.results ?? [])
             }, failure: { [weak self] _ in
                 self?.populerMoviesFailedClosure?("Popüler filmler alınamadı")
-            })
+            }
+        )
     }
 }
