@@ -78,6 +78,7 @@ class MovieDetailViewController: UIViewController {
 }
 // MARK: - Extension
 extension MovieDetailViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    // MARK: - CollectionView
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         viewModel?.castResultArray.count ?? 0
     }
@@ -90,7 +91,6 @@ extension MovieDetailViewController: UICollectionViewDelegate, UICollectionViewD
               )
                 as? CastCollectionViewCell
         else { return UICollectionViewCell() }
-
         cell.configure(item: item)
 
         return cell
@@ -98,5 +98,14 @@ extension MovieDetailViewController: UICollectionViewDelegate, UICollectionViewD
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         CGSize(width: 100, height: 150)
+    }
+    // MARK: - Cell SELECTED
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let item = viewModel?.castResultArray[indexPath.row] else { return }
+        let viewModel = PersonDetailViewModel(id: item.id ?? 0)
+        let viewController = PersonDetailViewController(nibName: PersonDetailViewController.nameOfClass, bundle: nil)
+        viewModel.apiRequest()
+        viewController.viewModel = viewModel
+        navigationController?.pushViewController(viewController, animated: true)
     }
 }

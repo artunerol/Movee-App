@@ -26,6 +26,7 @@ enum ServiceURL {
     case tvCast(String)
     case tvDetail(String)
     case movieDetail(String)
+    case person(Int)
 
     
     case popularMoviesOriginalPoster
@@ -51,6 +52,8 @@ enum ServiceURL {
             return "/3/tv/\(id)"
         case .movieDetail(let id):
             return "/3/movie/\(id)"
+        case .person(let id):
+            return "/3/person/\(id)"
         }
     }
 }
