@@ -37,7 +37,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="428" height="848"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jMj-gZ-rvB" userLabel="containerView">
-                                    <rect key="frame" x="0.0" y="0.0" width="428" height="983"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="428" height="848"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ppf-zQ-6T5" userLabel="posterImage">
                                             <rect key="frame" x="0.0" y="0.0" width="428" height="400"/>
@@ -128,20 +128,6 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="XmB-Ua-m2Y" userLabel="castCollectionView" customClass="AutoSizedCollectionView" customModule="Movee_App" customModuleProvider="target">
-                                            <rect key="frame" x="24" y="683" width="380" height="300"/>
-                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="300" id="DGl-5P-Bk0"/>
-                                                <constraint firstAttribute="height" priority="250" constant="300" id="tSb-8M-vXc"/>
-                                            </constraints>
-                                            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="GwP-bX-uSF">
-                                                <size key="itemSize" width="128" height="128"/>
-                                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                            </collectionViewFlowLayout>
-                                        </collectionView>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hGl-kV-IE3" userLabel="seasonContainerView">
                                             <rect key="frame" x="24" y="561" width="80" height="24"/>
                                             <subviews>
@@ -165,6 +151,7 @@
                                             <rect key="frame" x="24" y="605" width="74.333333333333329" height="24"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="24" id="KTA-7N-x0H"/>
+                                                <constraint firstAttribute="width" constant="74.329999999999998" id="bFK-5I-rRp"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -184,7 +171,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Creators Unavailable" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="omy-Dj-0YZ" userLabel="creatorsNamesLabel">
-                                            <rect key="frame" x="103.33333333333334" y="605" width="300.66666666666663" height="24"/>
+                                            <rect key="frame" x="103.33333333333331" y="605" width="165" height="24"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="24" id="1Sa-mp-Mgk"/>
                                             </constraints>
@@ -192,6 +179,19 @@
                                             <color key="textColor" systemColor="linkColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="XmB-Ua-m2Y" userLabel="castCollectionView" customClass="AutoSizedCollectionView" customModule="Movee_App" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="683" width="428" height="165"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="165" id="WW6-Tp-CJB"/>
+                                            </constraints>
+                                            <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="GwP-bX-uSF">
+                                                <size key="itemSize" width="128" height="128"/>
+                                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                <inset key="sectionInset" minX="24" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                            </collectionViewFlowLayout>
+                                        </collectionView>
                                     </subviews>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
@@ -206,13 +206,13 @@
                                         <constraint firstItem="5eG-CL-1DZ" firstAttribute="top" secondItem="hGl-kV-IE3" secondAttribute="bottom" constant="20" id="KbO-9B-E34"/>
                                         <constraint firstItem="5eG-CL-1DZ" firstAttribute="leading" secondItem="jMj-gZ-rvB" secondAttribute="leading" constant="24" id="LVW-fV-Anw"/>
                                         <constraint firstItem="ppf-zQ-6T5" firstAttribute="top" secondItem="jMj-gZ-rvB" secondAttribute="top" id="M1B-94-n9b"/>
-                                        <constraint firstAttribute="trailing" secondItem="omy-Dj-0YZ" secondAttribute="trailing" constant="24" id="Myu-A4-tOK"/>
                                         <constraint firstItem="gv5-MN-VDp" firstAttribute="leading" secondItem="jMj-gZ-rvB" secondAttribute="leading" constant="24" id="Ojz-OB-v8F"/>
                                         <constraint firstItem="aOK-xX-Bg3" firstAttribute="top" secondItem="Ay5-xI-IyY" secondAttribute="bottom" constant="20" id="TOR-2c-HEZ"/>
                                         <constraint firstAttribute="trailing" secondItem="h2a-fD-AZK" secondAttribute="trailing" constant="24" id="TQu-Q6-dCw"/>
+                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="omy-Dj-0YZ" secondAttribute="trailing" constant="24" id="WDU-Gf-IkP"/>
                                         <constraint firstItem="vCM-Uh-t3V" firstAttribute="top" secondItem="h2a-fD-AZK" secondAttribute="bottom" constant="20" id="WVs-NZ-hbb"/>
                                         <constraint firstItem="ppf-zQ-6T5" firstAttribute="leading" secondItem="jMj-gZ-rvB" secondAttribute="leading" id="XNL-nP-vFF"/>
-                                        <constraint firstAttribute="trailing" secondItem="XmB-Ua-m2Y" secondAttribute="trailing" constant="24" id="ZA0-7h-JrG"/>
+                                        <constraint firstAttribute="trailing" secondItem="XmB-Ua-m2Y" secondAttribute="trailing" id="ZA0-7h-JrG"/>
                                         <constraint firstItem="vgg-TP-6fH" firstAttribute="leading" secondItem="jMj-gZ-rvB" secondAttribute="leading" constant="24" id="byf-Lk-VBE"/>
                                         <constraint firstItem="vCM-Uh-t3V" firstAttribute="leading" secondItem="jMj-gZ-rvB" secondAttribute="leading" constant="24" id="dt0-xX-x6h"/>
                                         <constraint firstItem="gv5-MN-VDp" firstAttribute="top" secondItem="5eG-CL-1DZ" secondAttribute="bottom" priority="250" constant="20" id="g9U-UJ-zxn"/>
@@ -220,9 +220,9 @@
                                         <constraint firstItem="gv5-MN-VDp" firstAttribute="top" secondItem="omy-Dj-0YZ" secondAttribute="bottom" constant="20" id="hMP-Ti-IOZ"/>
                                         <constraint firstItem="XmB-Ua-m2Y" firstAttribute="top" secondItem="gv5-MN-VDp" secondAttribute="bottom" id="ilO-Yr-mth"/>
                                         <constraint firstItem="ApI-yY-NYX" firstAttribute="leading" secondItem="aOK-xX-Bg3" secondAttribute="trailing" constant="20" id="k9p-ve-rhU"/>
-                                        <constraint firstItem="omy-Dj-0YZ" firstAttribute="leading" secondItem="5eG-CL-1DZ" secondAttribute="trailing" constant="5" id="l4c-SA-Qr1"/>
                                         <constraint firstItem="omy-Dj-0YZ" firstAttribute="top" secondItem="hGl-kV-IE3" secondAttribute="bottom" constant="20" id="nCD-5e-KY1"/>
-                                        <constraint firstItem="XmB-Ua-m2Y" firstAttribute="leading" secondItem="jMj-gZ-rvB" secondAttribute="leading" constant="24" id="nVB-23-e1z"/>
+                                        <constraint firstItem="XmB-Ua-m2Y" firstAttribute="leading" secondItem="jMj-gZ-rvB" secondAttribute="leading" id="nVB-23-e1z"/>
+                                        <constraint firstItem="omy-Dj-0YZ" firstAttribute="leading" secondItem="5eG-CL-1DZ" secondAttribute="trailing" constant="5" id="nXX-qr-kL2"/>
                                         <constraint firstItem="aOK-xX-Bg3" firstAttribute="leading" secondItem="vgg-TP-6fH" secondAttribute="trailing" constant="5" id="q3K-p9-WNd"/>
                                         <constraint firstItem="Ay5-xI-IyY" firstAttribute="leading" secondItem="jMj-gZ-rvB" secondAttribute="leading" constant="24" id="qrb-3D-A1c"/>
                                         <constraint firstItem="h2a-fD-AZK" firstAttribute="top" secondItem="aOK-xX-Bg3" secondAttribute="bottom" constant="22" id="rwY-uw-epK"/>
@@ -237,11 +237,12 @@
                             </subviews>
                             <constraints>
                                 <constraint firstItem="jMj-gZ-rvB" firstAttribute="trailing" secondItem="DBX-dP-O2y" secondAttribute="trailing" id="8IO-j7-PJW"/>
-                                <constraint firstItem="jMj-gZ-rvB" firstAttribute="height" secondItem="DBX-dP-O2y" secondAttribute="height" priority="250" id="F7x-vS-maE"/>
+                                <constraint firstItem="jMj-gZ-rvB" firstAttribute="height" relation="greaterThanOrEqual" secondItem="DBX-dP-O2y" secondAttribute="height" id="F7x-vS-maE"/>
                                 <constraint firstItem="jMj-gZ-rvB" firstAttribute="bottom" secondItem="DBX-dP-O2y" secondAttribute="bottom" id="Jfo-Z0-4Ui"/>
                                 <constraint firstItem="jMj-gZ-rvB" firstAttribute="top" secondItem="DBX-dP-O2y" secondAttribute="top" id="Lah-A3-PKX"/>
                                 <constraint firstItem="jMj-gZ-rvB" firstAttribute="leading" secondItem="DBX-dP-O2y" secondAttribute="leading" id="SOE-aH-FVa"/>
                                 <constraint firstItem="jMj-gZ-rvB" firstAttribute="width" secondItem="DBX-dP-O2y" secondAttribute="width" id="Vmd-bb-8xD"/>
+                                <constraint firstItem="jMj-gZ-rvB" firstAttribute="height" secondItem="DBX-dP-O2y" secondAttribute="height" priority="250" id="pbv-AZ-yFY"/>
                             </constraints>
                         </scrollView>
                     </subviews>
@@ -262,7 +263,7 @@
                 <constraint firstItem="oMB-46-0Y6" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="kxf-s4-ehy"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="oMB-46-0Y6" secondAttribute="trailing" id="uzm-lt-LoB"/>
             </constraints>
-            <point key="canvasLocation" x="137.68115942028987" y="73.660714285714278"/>
+            <point key="canvasLocation" x="137.38317757009344" y="73.21814254859612"/>
         </view>
     </objects>
     <resources>

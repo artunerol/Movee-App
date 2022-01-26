@@ -25,6 +25,7 @@ class MovieDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+        viewModel?.prepareCastData()
     }
 
     // MARK: - Private Funcs
@@ -32,10 +33,7 @@ class MovieDetailViewController: UIViewController {
     private func setupView() {
         ratingContainerView.layer.cornerRadius = 12
         setupCollectionView()
-    }
-
-    private func setupViewConfigurations() {
-        setMovieDetail()
+        setupViewBindings()
     }
 
     private func setupCollectionView() {
@@ -51,12 +49,11 @@ class MovieDetailViewController: UIViewController {
 
     private func reloadCollectionViewData() {
         viewModel?.castResultSuccess = { [weak self] in
-            self?.setupViewConfigurations()
             self?.castCollectionView.reloadData()
         }
     }
 
-    private func setMovieDetail() {
+    private func setupViewBindings() {
         viewModel?.movieDetailSuccess = { [weak self] in
             guard let self = self,
                   let viewModel = self.viewModel,
@@ -92,19 +89,19 @@ extension MovieDetailViewController: UICollectionViewDelegate, UICollectionViewD
                 as? CastCollectionViewCell
         else { return UICollectionViewCell() }
         cell.configure(item: item)
+        cell.backgroundColor = .cyan
 
         return cell
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        CGSize(width: 100, height: 150)
+        CGSize(width: 100, height: 200)
     }
     // MARK: - Cell SELECTED
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let item = viewModel?.castResultArray[indexPath.row] else { return }
         let viewModel = PersonDetailViewModel(id: item.id ?? 0)
         let viewController = PersonDetailViewController(nibName: PersonDetailViewController.nameOfClass, bundle: nil)
-        viewModel.apiRequest()
         viewController.viewModel = viewModel
         navigationController?.pushViewController(viewController, animated: true)
     }

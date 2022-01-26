@@ -24,6 +24,8 @@ class PersonDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViewConfigurations()
+
+        viewModel?.apiRequest()
     }
     // MARK: - Private funcs
     private func setupViewConfigurations() {
@@ -55,6 +57,7 @@ class PersonDetailViewController: UIViewController {
         let gesture = UITapGestureRecognizer(target: self, action: #selector(buttonTapped))
         fullBioLabelButton.addGestureRecognizer(gesture)
     }
+
     @objc private func buttonTapped() {
         print("button tapped")
     }

@@ -26,6 +26,16 @@ class TVSeriesMainTabViewController: UIViewController {
 
         viewModel?.preparePopularTVSeries()
     }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        navigationController?.isNavigationBarHidden = true
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.isNavigationBarHidden = false
+    }
+
     // MARK: - Private func
 
     private func handleAPI() {
@@ -127,7 +137,6 @@ extension TVSeriesMainTabViewController: UICollectionViewDelegate, UICollectionV
         )
 
         let viewModel = TVDetailViewModel(model: detailModel)
-        viewModel.prepareData(castType: .tvSeries)
         let viewController = TVDetailViewController(nibName: TVDetailViewController.nameOfClass, bundle: nil)
         viewController.viewModel = viewModel
         navigationController?.pushViewController(viewController, animated: true)
@@ -143,7 +152,7 @@ extension TVSeriesMainTabViewController: UICollectionViewDelegate, UICollectionV
         }
 
         if collectionView == horizontalCollectionView {
-            return CGSize(width: 294, height: 484)
+            return CGSize(width: 260, height: collectionView.frame.height)
         }
         return .zero
     }

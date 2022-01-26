@@ -14,7 +14,6 @@ class NavigationControllerBuilder {
     func build() -> UINavigationController {
         let rootVC = TabBarBuilder.shared.build()
         let navigationVC = UINavigationController(rootViewController: rootVC)
-
         return navigationVC
     }
 }

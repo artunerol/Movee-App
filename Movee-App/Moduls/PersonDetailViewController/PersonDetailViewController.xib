@@ -48,7 +48,7 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bio" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EMN-mF-Aj8" userLabel="bioLabel">
                                             <rect key="frame" x="24" y="469.66666666666663" width="380" height="96"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="96" id="ERX-qd-3gt"/>
+                                                <constraint firstAttribute="height" constant="96" id="eEe-5K-txD"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
