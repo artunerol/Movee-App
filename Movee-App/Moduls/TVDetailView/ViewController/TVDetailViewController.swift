@@ -31,13 +31,13 @@ class TVDetailViewController: UIViewController {
         viewModel?.prepareData()
         setupView()
     }
-
     // MARK: - Private Funcs
 
     private func setupView() {
         ratingContainerView.layer.cornerRadius = 12
         seasonsContainerView.layer.cornerRadius = 12
         setupCollectionView()
+        setupViewConfigurations()
     }
 
     private func setupViewConfigurations() {
@@ -57,7 +57,6 @@ class TVDetailViewController: UIViewController {
 
     private func reloadCollectionViewData() {
         viewModel?.castResultSuccess = { [weak self] in
-            self?.setupViewConfigurations()
             self?.castCollectionView.reloadData()
         }
     }

@@ -133,7 +133,7 @@
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <color key="backgroundColor" systemColor="systemBlueColor"/>
             <constraints>
                 <constraint firstItem="I1f-ef-jW5" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="02f-ga-rhf"/>
                 <constraint firstAttribute="bottom" secondItem="I1f-ef-jW5" secondAttribute="bottom" id="GoM-Gw-QtN"/>

@@ -31,10 +31,10 @@
                                     <rect key="frame" x="0.0" y="0.0" width="411" height="1129"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bo8-fe-izp" userLabel="customHeaderView">
-                                            <rect key="frame" x="0.0" y="0.0" width="411" height="218"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="411" height="251"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TV Series" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R0D-c8-ndq" userLabel="TVSeriesLabel">
-                                                    <rect key="frame" x="24" y="35" width="387" height="42"/>
+                                                    <rect key="frame" x="24" y="68" width="387" height="42"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <nil key="highlightedColor"/>
@@ -44,7 +44,7 @@
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="R0D-c8-ndq" secondAttribute="bottom" constant="141" id="Bp7-IQ-RuR"/>
                                                 <constraint firstItem="R0D-c8-ndq" firstAttribute="leading" secondItem="bo8-fe-izp" secondAttribute="leading" constant="24" id="FhI-Mq-udR"/>
-                                                <constraint firstItem="R0D-c8-ndq" firstAttribute="top" secondItem="bo8-fe-izp" secondAttribute="top" constant="35" id="U14-DO-Q7t"/>
+                                                <constraint firstItem="R0D-c8-ndq" firstAttribute="top" secondItem="bo8-fe-izp" secondAttribute="top" constant="68" id="U14-DO-Q7t"/>
                                                 <constraint firstAttribute="trailing" secondItem="R0D-c8-ndq" secondAttribute="trailing" id="bPI-Hs-yZm"/>
                                             </constraints>
                                         </view>
@@ -130,7 +130,7 @@
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="5j7-06-QqB"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <color key="backgroundColor" systemColor="systemBlueColor"/>
             <constraints>
                 <constraint firstItem="5j7-06-QqB" firstAttribute="trailing" secondItem="vrb-oJ-mBb" secondAttribute="trailing" id="M9H-AZ-nf6"/>
                 <constraint firstItem="5j7-06-QqB" firstAttribute="bottom" secondItem="vrb-oJ-mBb" secondAttribute="bottom" id="Mxv-Iv-mEp"/>

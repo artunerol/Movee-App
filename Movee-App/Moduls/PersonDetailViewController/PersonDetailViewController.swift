@@ -59,6 +59,8 @@ class PersonDetailViewController: UIViewController {
     }
 
     @objc private func buttonTapped() {
-        print("button tapped")
+        bioLabel.numberOfLines = 0
+        bioLabel.isHighlighted = true
+        fullBioLabelButton.isHidden = true
     }
 }

@@ -28,6 +28,10 @@ class MovieDetailViewController: UIViewController {
         viewModel?.prepareCastData()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+
     // MARK: - Private Funcs
 
     private func setupView() {
