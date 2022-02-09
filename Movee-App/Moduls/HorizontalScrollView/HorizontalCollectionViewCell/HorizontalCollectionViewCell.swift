@@ -20,7 +20,7 @@ class HorizontalCollectionViewCell: UICollectionViewCell {
     }
 
     func configureCell(model: CollectionViewCellDataModel) {
-        let imageURLString = StaticStringsList.imageBaseURL + ServiceURL.popularMoviesW500Poster.description + model.posterPath
+        let imageURLString = StaticStringsList.imageBaseURL + ServiceURL.w500Poster.description + model.posterPath
         let imageURL = URL(string: imageURLString)
 
         self.posterImage.kf.setImage(with: imageURL)

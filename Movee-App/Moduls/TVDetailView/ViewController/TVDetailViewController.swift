@@ -66,7 +66,7 @@ class TVDetailViewController: UIViewController {
             guard let viewModel = self?.viewModel
             else { return }
 
-            let imageURLString = StaticStringsList.imageBaseURL + ServiceURL.popularMoviesW500Poster.description + viewModel.model.posterImage
+            let imageURLString = StaticStringsList.imageBaseURL + ServiceURL.w500Poster.description + viewModel.model.posterImage
             guard let imageURL = URL(string: imageURLString) else { return }
             DispatchQueue.main.async { [weak self] in
                 self?.posterImage.kf.setImage(with: imageURL)

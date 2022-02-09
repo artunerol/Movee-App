@@ -64,7 +64,7 @@ class MovieDetailViewController: UIViewController {
                   let movieDetailResult = viewModel.movieDetailResult
             else { return }
 
-            let imageURLString = StaticStringsList.imageBaseURL + ServiceURL.popularMoviesW500Poster.description + viewModel.model.posterImage
+            let imageURLString = StaticStringsList.imageBaseURL + ServiceURL.w500Poster.description + viewModel.model.posterImage
             guard let imageURL = URL(string: imageURLString) else { return }
 
             self.posterImage.kf.setImage(with: imageURL)

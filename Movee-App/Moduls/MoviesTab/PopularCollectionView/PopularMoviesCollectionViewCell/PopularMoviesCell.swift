@@ -8,7 +8,7 @@
 import UIKit
 import Kingfisher
 
-class PopularMoviesCollectionViewCell: UICollectionViewCell {
+class PopularMoviesCell: UICollectionViewCell {
     @IBOutlet private weak var cellContainerView: UIView!
     @IBOutlet private weak var movieTitle: UILabel!
     @IBOutlet private weak var movieImage: UIImageView!
@@ -18,14 +18,14 @@ class PopularMoviesCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Public funcs
     
-    func configureCell(apiResult: PopularMoviesAPIResultResponse, imageSize: ServiceURL) { // conifugring the cell with response due to having multiple sections to configure
+    func configureCell(viewModel: PopularMovieCellViewModel) { // conifugring the cell with response due to having multiple sections to configure
         configureCellContainerView()
-        guard let title = apiResult.title else { return }
-        guard let voteAverage = apiResult.voteAverage else { return }
-        guard let releaseDate = apiResult.releaseDate else { return }
-        guard let posterPath = apiResult.posterPath else { return }
+        guard let title = viewModel.apiResult.title else { return }
+        guard let voteAverage = viewModel.apiResult.voteAverage else { return }
+        guard let releaseDate = viewModel.apiResult.releaseDate else { return }
+        guard let posterPath = viewModel.apiResult.posterPath else { return }
 
-        let imageURLString = StaticStringsList.imageBaseURL + imageSize.description + posterPath
+        let imageURLString = StaticStringsList.imageBaseURL + viewModel.imageSize.description + posterPath
         let imageURL = URL(string: imageURLString)
 
         self.movieImage.kf.setImage(with: imageURL)
@@ -33,6 +33,7 @@ class PopularMoviesCollectionViewCell: UICollectionViewCell {
         self.ratingLabel.text = String(voteAverage)
         self.releaseDate.text = releaseDate
     }
+
     // MARK: - Private Funcs
     
     private func configureCellContainerView() {

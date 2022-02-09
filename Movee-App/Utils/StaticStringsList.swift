@@ -27,10 +27,11 @@ enum ServiceURL {
     case tvDetail(String)
     case movieDetail(String)
     case person(Int)
+    case search(String)
 
     
-    case popularMoviesOriginalPoster
-    case popularMoviesW500Poster
+    case originalPoster
+    case w500Poster
     //  "https://api.themoviedb.org/3/tv/85552?api_key=d9887848cba0ebdfebd5a3088a951f3b&language=en-US&page=1"
     // mock detailPageTVSeris:  https://api.themoviedb.org/3/tv/85552/credits?api_key=d9887848cba0ebdfebd5a3088a951f3b&language=en-US&page=1
     
@@ -44,9 +45,9 @@ enum ServiceURL {
             return "/3/movie/\(id)/credits"
         case .tvCast(let id):
             return "/3/tv/\(id)/credits"
-        case .popularMoviesOriginalPoster:
+        case .originalPoster:
             return "/t/p/original"
-        case .popularMoviesW500Poster:
+        case .w500Poster:
             return "/t/p/w500"
         case .tvDetail(let id):
             return "/3/tv/\(id)"
@@ -54,6 +55,8 @@ enum ServiceURL {
             return "/3/movie/\(id)"
         case .person(let id):
             return "/3/person/\(id)"
+        case .search(let keyword):
+            return "/3/search/multi" + StaticStringsList.apiKeyParam + "&query=\(keyword.removeSpaces().lowercased())&include_adult=false"
         }
     }
 }

@@ -23,8 +23,13 @@ class TabBarBuilder {
         let tvSeriesViewModel = TVSeriesViewModel()
         tvSeriesViewController.viewModel = tvSeriesViewModel
         tvSeriesViewController.tabBarItem.image = UIImage(named: "tabBarTVSeries")
+
+        let searchViewController = SearchViewController(nibName: SearchViewController.nameOfClass, bundle: nil)
+        let searchViewModel = SearchViewModel()
+        searchViewController.viewModel = searchViewModel
+        searchViewController.tabBarItem.image = UIImage(named: "searchBarIcon")
         
-        tabBar.viewControllers = [movieViewController, tvSeriesViewController]
+        tabBar.viewControllers = [movieViewController, tvSeriesViewController, searchViewController]
         return tabBar
     }
 }

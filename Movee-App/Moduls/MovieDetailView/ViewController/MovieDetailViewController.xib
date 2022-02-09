@@ -129,7 +129,7 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Production Company: " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mh0-1g-zBS">
                                             <rect key="frame" x="24" y="571" width="169.5" height="24"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="24" id="Om7-ty-E4n"/>
+                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="24" id="Om7-ty-E4n"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -149,7 +149,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Production Company Unavailable" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Hu-rd-VNl" userLabel="productionCompanyLabel">
-                                            <rect key="frame" x="198.5" y="571" width="191.5" height="41"/>
+                                            <rect key="frame" x="198.5" y="571" width="171.5" height="41"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="24" id="tg3-qc-TIT"/>
                                             </constraints>
@@ -205,7 +205,7 @@
                                         <constraint firstItem="8jA-Oc-JFt" firstAttribute="leading" secondItem="2Gl-V5-glj" secondAttribute="leading" id="kzt-WL-TrS"/>
                                         <constraint firstItem="zWV-ee-MkD" firstAttribute="top" secondItem="6Hu-rd-VNl" secondAttribute="bottom" constant="20" id="m3l-66-l60"/>
                                         <constraint firstItem="lim-RO-c7a" firstAttribute="top" secondItem="oQm-OY-4WX" secondAttribute="bottom" constant="-15" id="mm1-LF-2bF"/>
-                                        <constraint firstAttribute="trailing" secondItem="6Hu-rd-VNl" secondAttribute="trailing" constant="24" id="vG4-dY-vVJ"/>
+                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="6Hu-rd-VNl" secondAttribute="trailing" constant="24" id="vG4-dY-vVJ"/>
                                         <constraint firstItem="nK8-pX-0G7" firstAttribute="top" secondItem="dqX-8W-vr9" secondAttribute="bottom" constant="20" id="vRm-aU-KFk"/>
                                         <constraint firstItem="6Hu-rd-VNl" firstAttribute="leading" secondItem="mh0-1g-zBS" secondAttribute="trailing" constant="5" id="zyH-xG-Gc5"/>
                                     </constraints>

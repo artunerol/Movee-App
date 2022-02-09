@@ -37,7 +37,7 @@ class PersonDetailViewController: UIViewController {
         viewModel?.personDetailSuccess = { [weak self] in
             guard let self = self, let viewModel = self.viewModel else { return }
             if let profilePath = viewModel.personDetail?.profilePath {
-                let imageURLString = StaticStringsList.imageBaseURL + ServiceURL.popularMoviesW500Poster.description + profilePath
+                let imageURLString = StaticStringsList.imageBaseURL + ServiceURL.w500Poster.description + profilePath
                 guard let imageURL = URL(string: imageURLString) else { return }
                 self.personImageView.kf.setImage(with: imageURL)
             } else {

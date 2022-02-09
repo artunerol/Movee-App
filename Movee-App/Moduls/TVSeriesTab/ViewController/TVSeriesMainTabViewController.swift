@@ -96,7 +96,7 @@ extension TVSeriesMainTabViewController: UICollectionViewDelegate, UICollectionV
             ) as? TVSeriesTopRatedCollectionViewCell
             else { return UICollectionViewCell() }
             // Cell Configure Below
-            cell.configureCell(apiResult: viewModel.tvSeriesResultArray[indexPath.row], imageSize: .popularMoviesW500Poster)
+            cell.configureCell(apiResult: viewModel.tvSeriesResultArray[indexPath.row], imageSize: .w500Poster)
 
             return cell
         }

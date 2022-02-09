@@ -67,10 +67,10 @@ class MoviesTabMainViewController: UIViewController {
     private func registerCellToCollectionView() {
         popularMoviesCollectionView.register(
             UINib(
-                nibName: PopularMoviesCollectionViewCell.nameOfClass,
+                nibName: PopularMoviesCell.nameOfClass,
                 bundle: nil
             ),
-            forCellWithReuseIdentifier: PopularMoviesCollectionViewCell.nameOfClass
+            forCellWithReuseIdentifier: PopularMoviesCell.nameOfClass
         )
         horizontolCollectionView.register(
             UINib(
@@ -100,15 +100,16 @@ extension MoviesTabMainViewController: UICollectionViewDelegate, UICollectionVie
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let viewModel = viewModel else { return UICollectionViewCell() }
+        let cellViewModel = PopularMovieCellViewModel(apiResult: viewModel.movieResultArray[indexPath.row], imageSize: .w500Poster)
         
         if collectionView == popularMoviesCollectionView {
             guard let cell = collectionView.dequeueReusableCell(
-                withReuseIdentifier: PopularMoviesCollectionViewCell.nameOfClass,
+                withReuseIdentifier: PopularMoviesCell.nameOfClass,
                 for: indexPath
-            ) as? PopularMoviesCollectionViewCell
+            ) as? PopularMoviesCell
             else { return UICollectionViewCell() }
             // Cell Configure Below
-            cell.configureCell(apiResult: viewModel.movieResultArray[indexPath.row], imageSize: .popularMoviesW500Poster)
+            cell.configureCell(viewModel: cellViewModel)
             
             return cell
         }
