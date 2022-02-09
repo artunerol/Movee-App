@@ -24,6 +24,17 @@ class MoviesTabMainViewController: UIViewController {
         setupCollectionView()
         viewModel?.preparePopulerMovies()
     }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.navigationController?.isNavigationBarHidden = true
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationController?.isNavigationBarHidden = false
+    }
+
     // MARK: - API Result Handling
     private func handleAPIResult() {
         viewModel?.populerMoviesSuccessClosure = { [weak self] result in
@@ -135,7 +146,6 @@ extension MoviesTabMainViewController: UICollectionViewDelegate, UICollectionVie
             rating: String((item.voteAverage ?? 0))
         )
         let viewModel = MovieDetailViewModel(model: detailModel)
-        viewModel.prepareCastData(castType: .movies)
         let viewController = MovieDetailViewController(nibName: MovieDetailViewController.nameOfClass, bundle: nil)
         viewController.viewModel = viewModel
 
@@ -145,8 +155,6 @@ extension MoviesTabMainViewController: UICollectionViewDelegate, UICollectionVie
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == popularMoviesCollectionView {
-//            let flowayout = collectionViewLayout as? UICollectionViewFlowLayout
-//            let space: CGFloat = (flowayout?.minimumInteritemSpacing ?? 0.0) + (flowayout?.sectionInset.left ?? 0.0) + (flowayout?.sectionInset.right ?? 0.0)
             let size: CGFloat = (collectionView.frame.size.width)
             return CGSize(width: size, height: 100)
         }

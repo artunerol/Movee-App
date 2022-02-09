@@ -19,14 +19,9 @@ class MovieDetailViewModel {
         self.model = model
     }
 
-    func prepareCastData(castType: DetailCastType) {
-        switch castType {
-        case .tvSeries:
-            break
-        case .movies:
-            movieCastAPIHandler()
-            movieDetailAPIHandler()
-        }
+    func prepareCastData() {
+        movieCastAPIHandler()
+        movieDetailAPIHandler()
     }
 
     // MARK: - Private Funcs

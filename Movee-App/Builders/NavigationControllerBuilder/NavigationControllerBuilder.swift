@@ -14,7 +14,8 @@ class NavigationControllerBuilder {
     func build() -> UINavigationController {
         let rootVC = TabBarBuilder.shared.build()
         let navigationVC = UINavigationController(rootViewController: rootVC)
-
+        navigationVC.navigationBar.backIndicatorImage = UIImage(named: "arrowBack")
+        navigationVC.navigationBar.backIndicatorTransitionMaskImage = UIImage(named: "arrowBack")
         return navigationVC
     }
 }

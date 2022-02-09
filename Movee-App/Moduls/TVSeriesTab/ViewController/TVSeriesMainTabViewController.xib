@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -28,13 +28,13 @@
                             <rect key="frame" x="0.0" y="0.0" width="411" height="1096"/>
                             <subviews>
                                 <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="TwL-8s-Yci" userLabel="containerView">
-                                    <rect key="frame" x="0.0" y="0.0" width="411" height="1096"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="411" height="1129"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bo8-fe-izp" userLabel="customHeaderView">
-                                            <rect key="frame" x="0.0" y="0.0" width="411" height="77"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="411" height="251"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TV Series" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R0D-c8-ndq" userLabel="MoviesLabel">
-                                                    <rect key="frame" x="24" y="35" width="387" height="42"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TV Series" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R0D-c8-ndq" userLabel="TVSeriesLabel">
+                                                    <rect key="frame" x="24" y="68" width="387" height="42"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <nil key="highlightedColor"/>
@@ -42,14 +42,14 @@
                                             </subviews>
                                             <color key="backgroundColor" systemColor="systemBlueColor"/>
                                             <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="R0D-c8-ndq" secondAttribute="bottom" constant="141" id="Bp7-IQ-RuR"/>
                                                 <constraint firstItem="R0D-c8-ndq" firstAttribute="leading" secondItem="bo8-fe-izp" secondAttribute="leading" constant="24" id="FhI-Mq-udR"/>
-                                                <constraint firstAttribute="bottom" secondItem="R0D-c8-ndq" secondAttribute="bottom" id="PGN-Qm-amA"/>
-                                                <constraint firstItem="R0D-c8-ndq" firstAttribute="top" secondItem="bo8-fe-izp" secondAttribute="top" constant="35" id="U14-DO-Q7t"/>
+                                                <constraint firstItem="R0D-c8-ndq" firstAttribute="top" secondItem="bo8-fe-izp" secondAttribute="top" constant="68" id="U14-DO-Q7t"/>
                                                 <constraint firstAttribute="trailing" secondItem="R0D-c8-ndq" secondAttribute="trailing" id="bPI-Hs-yZm"/>
                                             </constraints>
                                         </view>
                                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="zN3-1g-fkp" userLabel="horizontalCollectionView">
-                                            <rect key="frame" x="0.0" y="97" width="411" height="484"/>
+                                            <rect key="frame" x="0.0" y="130" width="411" height="484"/>
                                             <color key="backgroundColor" red="0.87283848919999996" green="0.87283848919999996" blue="0.87283848919999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="484" id="k7q-Ah-ILz"/>
@@ -62,20 +62,20 @@
                                             </collectionViewFlowLayout>
                                         </collectionView>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N74-w6-GaP" userLabel="seperator">
-                                            <rect key="frame" x="24" y="601" width="363" height="1"/>
+                                            <rect key="frame" x="24" y="634" width="363" height="1"/>
                                             <color key="backgroundColor" red="0.78290389429999996" green="0.78290389429999996" blue="0.78290389429999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="1" id="XDr-e3-bTg"/>
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Top Rated" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yOO-Yb-7dM">
-                                            <rect key="frame" x="24" y="622" width="363" height="33.5"/>
+                                            <rect key="frame" x="24" y="655" width="363" height="33.5"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="EnO-vz-g0V" userLabel="tapRatedCollectionView" customClass="AutoSizedCollectionView" customModule="Movee_App" customModuleProvider="target">
-                                            <rect key="frame" x="24" y="665.5" width="363" height="430.5"/>
+                                            <rect key="frame" x="24" y="698.5" width="363" height="430.5"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="430.5" id="LCE-2I-vt5"/>
@@ -92,7 +92,7 @@
                                     <color key="backgroundColor" red="0.92158097029999997" green="0.92154634000000002" blue="0.9215698242" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <constraints>
                                         <constraint firstItem="yOO-Yb-7dM" firstAttribute="leading" secondItem="TwL-8s-Yci" secondAttribute="leading" constant="24" id="2Td-pf-zfI"/>
-                                        <constraint firstItem="zN3-1g-fkp" firstAttribute="top" secondItem="bo8-fe-izp" secondAttribute="bottom" constant="20" id="3u5-8d-w2I"/>
+                                        <constraint firstItem="zN3-1g-fkp" firstAttribute="top" secondItem="TwL-8s-Yci" secondAttribute="top" constant="130" id="3u5-8d-w2I"/>
                                         <constraint firstAttribute="trailing" secondItem="EnO-vz-g0V" secondAttribute="trailing" constant="24" id="4cm-9c-zCx"/>
                                         <constraint firstItem="yOO-Yb-7dM" firstAttribute="top" secondItem="N74-w6-GaP" secondAttribute="bottom" constant="20" id="662-ZY-W3b"/>
                                         <constraint firstAttribute="trailing" secondItem="yOO-Yb-7dM" secondAttribute="trailing" constant="24" id="Bcy-kC-jsg"/>
@@ -130,7 +130,7 @@
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="5j7-06-QqB"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <color key="backgroundColor" systemColor="systemBlueColor"/>
             <constraints>
                 <constraint firstItem="5j7-06-QqB" firstAttribute="trailing" secondItem="vrb-oJ-mBb" secondAttribute="trailing" id="M9H-AZ-nf6"/>
                 <constraint firstItem="5j7-06-QqB" firstAttribute="bottom" secondItem="vrb-oJ-mBb" secondAttribute="bottom" id="Mxv-Iv-mEp"/>

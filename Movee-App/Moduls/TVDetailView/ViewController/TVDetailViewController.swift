@@ -28,15 +28,16 @@ class TVDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel?.prepareData()
         setupView()
     }
-
     // MARK: - Private Funcs
 
     private func setupView() {
         ratingContainerView.layer.cornerRadius = 12
         seasonsContainerView.layer.cornerRadius = 12
         setupCollectionView()
+        setupViewConfigurations()
     }
 
     private func setupViewConfigurations() {
@@ -56,7 +57,6 @@ class TVDetailViewController: UIViewController {
 
     private func reloadCollectionViewData() {
         viewModel?.castResultSuccess = { [weak self] in
-            self?.setupViewConfigurations()
             self?.castCollectionView.reloadData()
         }
     }
@@ -96,12 +96,19 @@ extension TVDetailViewController: UICollectionViewDelegate, UICollectionViewData
               )
                 as? CastCollectionViewCell
         else { return UICollectionViewCell() }
-        print("cast person is \(item)")
         cell.configure(item: item)
 
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         CGSize(width: 100, height: 150)
+    }
+    // MARK: - Cell SELECTED
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let item = viewModel?.castResultArray[indexPath.row] else { return }
+        let viewModel = PersonDetailViewModel(id: item.id ?? 0)
+        let viewController = PersonDetailViewController(nibName: PersonDetailViewController.nameOfClass, bundle: nil)
+        viewController.viewModel = viewModel
+        navigationController?.pushViewController(viewController, animated: true)
     }
 }

@@ -20,14 +20,9 @@ class TVDetailViewModel {
         self.model = model
     }
 
-    func prepareData(castType: DetailCastType) {
-        switch castType {
-        case .tvSeries:
-            tvCastAPIHandler()
-            tvDetailAPIHandler()
-        case .movies:
-            break
-        }
+    func prepareData() {
+        tvCastAPIHandler()
+        tvDetailAPIHandler()
     }
 
     // MARK: - Private Funcs
@@ -75,9 +70,4 @@ struct DetailModel {
     var posterImage: String
     var id: Int
     var rating: String
-}
-
-enum DetailCastType: String {
-    case tvSeries
-    case movies
 }

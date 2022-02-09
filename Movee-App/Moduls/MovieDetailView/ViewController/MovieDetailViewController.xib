@@ -35,7 +35,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Gl-V5-glj" userLabel="containerView">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="966"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="830.5"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oQm-OY-4WX" userLabel="posterImage">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="400"/>
@@ -73,7 +73,7 @@
                                                 <constraint firstItem="b4e-wA-Phu" firstAttribute="top" secondItem="lim-RO-c7a" secondAttribute="top" constant="5" id="y2e-Q5-TqV"/>
                                             </constraints>
                                         </view>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie || Series Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CBD-2r-db3">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Movie || Series Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CBD-2r-db3">
                                             <rect key="frame" x="24" y="419" width="358" height="33.5"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
                                             <nil key="textColor"/>
@@ -121,25 +121,11 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cast" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zWV-ee-MkD">
-                                            <rect key="frame" x="24" y="632" width="366" height="34"/>
+                                            <rect key="frame" x="24" y="632" width="366" height="33.5"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="8jA-Oc-JFt" userLabel="castCollectionView" customClass="AutoSizedCollectionView" customModule="Movee_App" customModuleProvider="target">
-                                            <rect key="frame" x="24" y="666" width="366" height="300"/>
-                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" priority="250" constant="300" id="JZn-cg-I4r"/>
-                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="300" id="Jce-LN-HEY"/>
-                                            </constraints>
-                                            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="q9D-Is-Fd5">
-                                                <size key="itemSize" width="100" height="100"/>
-                                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                            </collectionViewFlowLayout>
-                                        </collectionView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Production Company: " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mh0-1g-zBS">
                                             <rect key="frame" x="24" y="571" width="169.5" height="24"/>
                                             <constraints>
@@ -171,10 +157,23 @@
                                             <color key="textColor" systemColor="linkColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="8jA-Oc-JFt" userLabel="castCollectionView" customClass="AutoSizedCollectionView" customModule="Movee_App" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="670.5" width="414" height="160"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="160" id="BQy-EA-1yT"/>
+                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" priority="250" constant="150" id="tqa-gX-gBM"/>
+                                            </constraints>
+                                            <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="q9D-Is-Fd5">
+                                                <size key="itemSize" width="100" height="100"/>
+                                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                <inset key="sectionInset" minX="24" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                            </collectionViewFlowLayout>
+                                        </collectionView>
                                     </subviews>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
-                                        <constraint firstItem="zWV-ee-MkD" firstAttribute="top" secondItem="mh0-1g-zBS" secondAttribute="bottom" priority="250" constant="20" id="2AO-2f-fyq"/>
                                         <constraint firstAttribute="trailing" secondItem="CBD-2r-db3" secondAttribute="trailing" constant="32" id="3Q9-x8-z8L"/>
                                         <constraint firstItem="7Y5-2U-K1i" firstAttribute="top" secondItem="CBD-2r-db3" secondAttribute="bottom" constant="20" id="4dU-dC-7Av"/>
                                         <constraint firstItem="zWV-ee-MkD" firstAttribute="leading" secondItem="2Gl-V5-glj" secondAttribute="leading" constant="24" id="7Rd-Yd-VDL"/>
@@ -183,12 +182,12 @@
                                         <constraint firstAttribute="trailing" secondItem="dqX-8W-vr9" secondAttribute="trailing" constant="24" id="CfX-05-m0d"/>
                                         <constraint firstItem="6Hu-rd-VNl" firstAttribute="top" secondItem="nK8-pX-0G7" secondAttribute="bottom" constant="20" id="DIL-Dv-RcM"/>
                                         <constraint firstItem="CBD-2r-db3" firstAttribute="leading" secondItem="2Gl-V5-glj" secondAttribute="leading" constant="24" id="Ggu-E6-GS7"/>
-                                        <constraint firstItem="8jA-Oc-JFt" firstAttribute="top" secondItem="zWV-ee-MkD" secondAttribute="bottom" id="JHy-3y-1jy"/>
+                                        <constraint firstItem="8jA-Oc-JFt" firstAttribute="top" secondItem="zWV-ee-MkD" secondAttribute="bottom" constant="5" id="JHy-3y-1jy"/>
                                         <constraint firstAttribute="trailing" secondItem="nK8-pX-0G7" secondAttribute="trailing" constant="24" id="N1t-Zm-W9E"/>
                                         <constraint firstItem="dqX-8W-vr9" firstAttribute="leading" secondItem="2Gl-V5-glj" secondAttribute="leading" constant="24" id="QaY-2j-dAC"/>
                                         <constraint firstItem="du1-b2-n1H" firstAttribute="leading" secondItem="xa6-V1-dbF" secondAttribute="trailing" constant="5" id="RaP-XZ-z8i"/>
                                         <constraint firstItem="oQm-OY-4WX" firstAttribute="top" secondItem="2Gl-V5-glj" secondAttribute="top" id="T28-4C-oIc"/>
-                                        <constraint firstAttribute="trailing" secondItem="8jA-Oc-JFt" secondAttribute="trailing" constant="24" id="Uof-Ch-QPm"/>
+                                        <constraint firstAttribute="trailing" secondItem="8jA-Oc-JFt" secondAttribute="trailing" id="Uof-Ch-QPm"/>
                                         <constraint firstItem="dqX-8W-vr9" firstAttribute="top" secondItem="du1-b2-n1H" secondAttribute="bottom" constant="22" id="V7N-eD-CLj"/>
                                         <constraint firstItem="7Y5-2U-K1i" firstAttribute="leading" secondItem="du1-b2-n1H" secondAttribute="trailing" constant="20" id="XXq-ju-GM5"/>
                                         <constraint firstItem="dqX-8W-vr9" firstAttribute="top" secondItem="7Y5-2U-K1i" secondAttribute="bottom" constant="22" id="Xfz-DO-elM"/>
@@ -203,7 +202,7 @@
                                         <constraint firstAttribute="bottom" secondItem="8jA-Oc-JFt" secondAttribute="bottom" id="hEG-Up-OJp"/>
                                         <constraint firstItem="nK8-pX-0G7" firstAttribute="leading" secondItem="2Gl-V5-glj" secondAttribute="leading" constant="24" id="hzq-Lh-vTC"/>
                                         <constraint firstAttribute="trailing" secondItem="zWV-ee-MkD" secondAttribute="trailing" constant="24" id="ipN-OF-0uT"/>
-                                        <constraint firstItem="8jA-Oc-JFt" firstAttribute="leading" secondItem="2Gl-V5-glj" secondAttribute="leading" constant="24" id="kzt-WL-TrS"/>
+                                        <constraint firstItem="8jA-Oc-JFt" firstAttribute="leading" secondItem="2Gl-V5-glj" secondAttribute="leading" id="kzt-WL-TrS"/>
                                         <constraint firstItem="zWV-ee-MkD" firstAttribute="top" secondItem="6Hu-rd-VNl" secondAttribute="bottom" constant="20" id="m3l-66-l60"/>
                                         <constraint firstItem="lim-RO-c7a" firstAttribute="top" secondItem="oQm-OY-4WX" secondAttribute="bottom" constant="-15" id="mm1-LF-2bF"/>
                                         <constraint firstAttribute="trailing" secondItem="6Hu-rd-VNl" secondAttribute="trailing" constant="24" id="vG4-dY-vVJ"/>
@@ -215,7 +214,7 @@
                             <constraints>
                                 <constraint firstItem="2Gl-V5-glj" firstAttribute="top" secondItem="Jh5-MH-Lgw" secondAttribute="top" id="J0M-NP-cFt"/>
                                 <constraint firstItem="2Gl-V5-glj" firstAttribute="trailing" secondItem="Jh5-MH-Lgw" secondAttribute="trailing" id="NkI-dZ-pYI"/>
-                                <constraint firstItem="2Gl-V5-glj" firstAttribute="height" secondItem="Jh5-MH-Lgw" secondAttribute="height" priority="250" id="XNF-70-CBt"/>
+                                <constraint firstItem="2Gl-V5-glj" firstAttribute="height" relation="greaterThanOrEqual" secondItem="Jh5-MH-Lgw" secondAttribute="height" id="XNF-70-CBt"/>
                                 <constraint firstItem="2Gl-V5-glj" firstAttribute="width" secondItem="Jh5-MH-Lgw" secondAttribute="width" id="bZo-5P-DW3"/>
                                 <constraint firstItem="2Gl-V5-glj" firstAttribute="bottom" secondItem="Jh5-MH-Lgw" secondAttribute="bottom" id="tiw-1h-Oi4"/>
                                 <constraint firstItem="2Gl-V5-glj" firstAttribute="leading" secondItem="Jh5-MH-Lgw" secondAttribute="leading" id="uEW-wp-Ytr"/>
