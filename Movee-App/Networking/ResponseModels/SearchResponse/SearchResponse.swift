@@ -36,6 +36,7 @@ enum MediaType: String, Codable {
     case tvision = "tv"
     case movie
     case person
+    case defaultType
 
     var description: String {
         switch self {
@@ -45,6 +46,8 @@ enum MediaType: String, Codable {
             return "Person"
         case .tvision:
             return "TV Series"
+        case .defaultType:
+            return ""
         }
     }
 }

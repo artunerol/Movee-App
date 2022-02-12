@@ -10,6 +10,7 @@ import UIKit
 class SearchViewController: UIViewController {
     @IBOutlet private weak var moveeSearchBar: UISearchBar!
     @IBOutlet private weak var searchResultCollectionView: UICollectionView!
+    @IBOutlet private weak var emptyView: EmptyView!
 
     // MARK: - Public Properties
     var viewModel: SearchViewModel?
@@ -26,11 +27,12 @@ class SearchViewController: UIViewController {
     // MARK: - Private funcs
 
     private func setupViews() {
-        setupTableView()
+        setupCollectionView()
         setupSearchBar()
+        emptyView.isHidden = true
     }
 
-    private func setupTableView() {
+    private func setupCollectionView() {
         searchResultCollectionView.delegate = self
         searchResultCollectionView.dataSource = self
         searchResultCollectionView.register(
@@ -45,6 +47,7 @@ class SearchViewController: UIViewController {
 
     private func setupSearchBar() {
         moveeSearchBar.delegate = self
+        moveeSearchBar.moveeSearchBar()
     }
 }
 
@@ -60,10 +63,13 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
         guard let cell = collectionView.dequeueReusableCell(
             withReuseIdentifier: SearchCollectionViewCell.nameOfClass,
             for: indexPath
-        ) as? SearchCollectionViewCell else {
-            return UICollectionViewCell()
-        }
-        cell.configureCell(apiResult: viewModel.searchResultArray[indexPath.row])
+        ) as? SearchCollectionViewCell else { return UICollectionViewCell() }
+        
+        let configureModel = viewModel.searchResultArray[indexPath.row]
+        viewModel.fetchSubData(id: configureModel.id ?? 0, type: configureModel.mediaType ?? MediaType.defaultType)
+
+        cell.configureCell(for: configureModel)
+        //cell.configureCell(for: viewModel.castResultArray[indexPath.row])
         return cell
     }
 
@@ -79,8 +85,15 @@ extension SearchViewController: UISearchBarDelegate {
         if !searchText.isEmpty {
             viewModel.search(keyword: searchText)
             viewModel.searchSuccessClosure = { [weak self] result in
-                self?.apiResultArray = result
-                self?.searchResultCollectionView.reloadData()
+                if !result.isEmpty {
+                    self?.emptyView.isHidden = true
+                    self?.searchResultCollectionView.isHidden = false
+                    self?.apiResultArray = result
+                    self?.searchResultCollectionView.reloadData()
+                } else {
+                    self?.emptyView.isHidden = false
+                    self?.searchResultCollectionView.isHidden = true
+                }
             }
         } else {
             apiResultArray?.removeAll()

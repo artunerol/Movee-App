@@ -16,17 +16,34 @@ class SearchCollectionViewCell: UICollectionViewCell {
     @IBOutlet private weak var typeLabel: UILabel!
     @IBOutlet private weak var containerView: UIView!
 
-    func configureCell(apiResult: SearchResultAPIResponse) {
+    func configureCell<T: Codable>(for apiResult: T) {
         setupContainerView()
-        guard let title = apiResult.title else { return }
-        guard let posterPath = apiResult.posterPath else { return }
+        if let apiResult = apiResult as? SearchResultAPIResponse {
+            setupCellWithSearch(with: apiResult)
+        }
+        if let apiResult = apiResult as? [CastResponse] {
+            
+        }
+    }
+
+    private func setupContainerView() {
+        containerView.layer.cornerRadius = 8
+        containerView.clipsToBounds = true
+        containerView.layer.masksToBounds = true
+    }
+
+    private func setupCellWithSearch(with apiResult: SearchResultAPIResponse) {
         guard let typeLabel = apiResult.mediaType?.description else { return }
         guard let mediaType = apiResult.mediaType else { return }
+        let title = (apiResult.title ?? "") + (apiResult.name ?? "")
 
-        let imageURLString = StaticStringsList.imageBaseURL + ServiceURL.w500Poster.description + posterPath
+        let imageURLString = StaticStringsList.imageBaseURL +
+        ServiceURL.w500Poster.description +
+        (apiResult.profilePath ?? "") +
+        (apiResult.posterPath ?? "")
         let imageURL = URL(string: imageURLString)
 
-        self.posterImage.kf.setImage(with: imageURL)
+        posterImage.kf.setImage(with: imageURL)
         self.titleLabel.text = title
         self.typeLabel.text = typeLabel
 
@@ -37,12 +54,12 @@ class SearchCollectionViewCell: UICollectionViewCell {
             typeImage.image = UIImage(named: "personIcon")
         case .tvision:
             typeImage.image = UIImage(named: "tvSeriesIcon")
+        case .defaultType:
+            break
         }
     }
 
-    private func setupContainerView() {
-        containerView.layer.cornerRadius = 8
-        containerView.clipsToBounds = true
-        containerView.layer.masksToBounds = true
+    private func setupCellWithCast(with apiResult: CastResultResponse) {
+        subLabel.text = (apiResult.name ?? "") + ", "
     }
 }

@@ -8,10 +8,14 @@
 import Foundation
 import Alamofire
 
-class NetworkManager {
-    typealias OnSuccess<T: Codable> = ((T?) -> Void)?
+protocol NetworkManagerProtocol: AnyObject {
+    func get<T: Codable>(url: ServiceURL, type: T.Type, response: @escaping ((T) -> Void))
+}
 
+class NetworkManager {
     static let shared = NetworkManager()
+
+    // MARK: - Private funcs
     
     func request<T: Decodable>(url: ServiceURL,
                                method: HTTPMethod,
@@ -38,5 +42,33 @@ class NetworkManager {
                     failure(error)
                 }
             }
+    }
+
+   private func convenienceGetRequest<T: Codable>(url: ServiceURL, type: T.Type, success: ((T) -> Void)?) {
+        NetworkManager.shared.request(
+            url: url,
+            method: .get,
+            parameters: nil,
+            encoding: URLEncoding.default,
+            responseObjectType: type.self,
+            success: { responseSuccess in
+                success?(responseSuccess)
+            },
+            failure: { _ in
+                print("getRequestShort Error")
+            }
+        )
+    }
+}
+
+// MARK: - Extensions
+
+extension NetworkManager: NetworkManagerProtocol {
+    func get<T>(url: ServiceURL, type: T.Type, response: @escaping ((T) -> Void)) where T: Decodable, T: Encodable {
+        convenienceGetRequest(
+            url: url,
+            type: type,
+            success: response
+        )
     }
 }

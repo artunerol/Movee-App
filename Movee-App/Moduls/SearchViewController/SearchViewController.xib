@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchViewController" customModule="Movee_App" customModuleProvider="target">
             <connections>
+                <outlet property="emptyView" destination="Wwt-EB-07y" id="BF7-Ft-fp4"/>
                 <outlet property="moveeSearchBar" destination="CUC-A2-3WO" id="Ec3-g9-fDa"/>
                 <outlet property="searchResultCollectionView" destination="03H-Rf-8hW" id="Iyr-e9-rz0"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -28,7 +29,15 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wch-er-TPq" userLabel="ContainerView">
                     <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2IG-vf-EUZ">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wwt-EB-07y" userLabel="emptyView" customClass="EmptyView" customModule="Movee_App" customModuleProvider="target">
+                            <rect key="frame" x="97.5" y="270" width="219" height="180"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="219" id="dOQ-rP-J1q"/>
+                                <constraint firstAttribute="height" constant="180" id="kFp-UQ-92Y"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2IG-vf-EUZ" userLabel="headerView">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="250"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CwW-VY-gzz">
@@ -50,7 +59,7 @@
                             <textInputTraits key="textInputTraits"/>
                         </searchBar>
                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="03H-Rf-8hW">
-                            <rect key="frame" x="0.0" y="168" width="414" height="684"/>
+                            <rect key="frame" x="0.0" y="168" width="414" height="680"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="IW4-3y-U4d">
                                 <size key="itemSize" width="5" height="100"/>
@@ -63,14 +72,16 @@
                     <color key="backgroundColor" red="0.92158097029999997" green="0.92154634000000002" blue="0.9215698242" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <constraints>
                         <constraint firstItem="03H-Rf-8hW" firstAttribute="leading" secondItem="wch-er-TPq" secondAttribute="leading" id="21S-t4-qCf"/>
+                        <constraint firstItem="Wwt-EB-07y" firstAttribute="top" secondItem="2IG-vf-EUZ" secondAttribute="bottom" constant="20" id="2x1-mH-BLx"/>
                         <constraint firstAttribute="trailing" secondItem="2IG-vf-EUZ" secondAttribute="trailing" id="6Gr-T9-Fjo"/>
                         <constraint firstAttribute="trailing" secondItem="CUC-A2-3WO" secondAttribute="trailing" constant="24" id="8Ou-2L-ZNv"/>
                         <constraint firstAttribute="trailing" secondItem="03H-Rf-8hW" secondAttribute="trailing" id="AFi-w0-uwa"/>
                         <constraint firstItem="03H-Rf-8hW" firstAttribute="top" secondItem="CUC-A2-3WO" secondAttribute="bottom" constant="24" id="FTh-rL-NbW"/>
                         <constraint firstItem="CUC-A2-3WO" firstAttribute="leading" secondItem="wch-er-TPq" secondAttribute="leading" constant="24" id="FdL-ST-v8I"/>
+                        <constraint firstItem="Wwt-EB-07y" firstAttribute="centerX" secondItem="wch-er-TPq" secondAttribute="centerX" id="mYr-ua-QB5"/>
                         <constraint firstItem="CUC-A2-3WO" firstAttribute="top" secondItem="CwW-VY-gzz" secondAttribute="bottom" constant="20" id="rJs-nt-hAV"/>
                         <constraint firstItem="2IG-vf-EUZ" firstAttribute="leading" secondItem="wch-er-TPq" secondAttribute="leading" id="sq7-wp-QxC"/>
-                        <constraint firstAttribute="bottom" secondItem="03H-Rf-8hW" secondAttribute="bottom" id="tNU-e4-fIe"/>
+                        <constraint firstAttribute="bottom" secondItem="03H-Rf-8hW" secondAttribute="bottom" constant="4" id="tNU-e4-fIe"/>
                     </constraints>
                 </view>
             </subviews>

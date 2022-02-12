@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CastResponse: Codable {
+class CastResponse: Codable {
     let id: Int?
     let cast: [CastResultResponse]?
     let crew: [CrewResultResponse]?
