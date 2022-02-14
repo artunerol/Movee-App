@@ -12,6 +12,7 @@ class MoviesTabMainViewController: UIViewController {
     // MARK: - IBOutlets
     @IBOutlet private weak var popularMoviesCollectionView: UICollectionView!
     @IBOutlet private weak var horizontolCollectionView: UICollectionView!
+    @IBOutlet private weak var mapViewButton: UIView!
     // MARK: - Public Properties
     var viewModel: MoviesTabMainViewModel?
     // MARK: - Private Properties
@@ -20,8 +21,9 @@ class MoviesTabMainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         handleAPIResult()
-        
-        setupCollectionView()
+
+        setupViews()
+        configureViews()
         viewModel?.preparePopulerMovies()
     }
 
@@ -50,8 +52,18 @@ class MoviesTabMainViewController: UIViewController {
         }
     }
     // MARK: - Private func
+
+    private func configureViews() {
+        addGestureToMapViewButton()
+    }
+
+    private func setupViews() {
+        setupCollectionView()
+        mapViewButton.layer.cornerRadius = mapViewButton.frame.height / 2
+    }
     
     private func setupCollectionView() {
+        registerCellToCollectionView()
         popularMoviesCollectionView.delegate = self
         popularMoviesCollectionView.dataSource = self
         horizontolCollectionView.delegate = self
@@ -60,8 +72,6 @@ class MoviesTabMainViewController: UIViewController {
         horizontolCollectionView.backgroundColor = .clear
         horizontolCollectionView.showsHorizontalScrollIndicator = false
         popularMoviesCollectionView.showsVerticalScrollIndicator = false
-    
-        registerCellToCollectionView()
     }
 
     private func registerCellToCollectionView() {
@@ -79,6 +89,18 @@ class MoviesTabMainViewController: UIViewController {
             ),
             forCellWithReuseIdentifier: HorizontalCollectionViewCell.nameOfClass
         )
+    }
+
+    private func addGestureToMapViewButton() {
+        let gestureRecognizer = UITapGestureRecognizer()
+        gestureRecognizer.addTarget(self, action: #selector(buttonTapped))
+        mapViewButton.addGestureRecognizer(gestureRecognizer)
+    }
+
+    // MARK: - OBj Funcs
+
+    @objc private func buttonTapped() {
+        navigationController?.pushViewController(MapViewController(), animated: true)
     }
 }
 

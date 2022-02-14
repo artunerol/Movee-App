@@ -39,11 +39,32 @@
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NUe-Uv-5WA">
+                                                    <rect key="frame" x="352" y="71.5" width="35" height="35"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkPointIcon" translatesAutoresizingMaskIntoConstraints="NO" id="SVJ-Ae-KNv">
+                                                            <rect key="frame" x="10.5" y="8" width="14" height="19"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="19" id="19G-Df-RCO"/>
+                                                                <constraint firstAttribute="width" constant="14" id="WTz-7p-KKd"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <constraints>
+                                                        <constraint firstItem="SVJ-Ae-KNv" firstAttribute="centerY" secondItem="NUe-Uv-5WA" secondAttribute="centerY" id="Hcf-7P-gxb"/>
+                                                        <constraint firstItem="SVJ-Ae-KNv" firstAttribute="centerX" secondItem="NUe-Uv-5WA" secondAttribute="centerX" id="hxT-NF-bKO"/>
+                                                        <constraint firstAttribute="width" constant="35" id="igb-lb-Kry"/>
+                                                        <constraint firstAttribute="height" constant="35" id="nSq-zC-Mx4"/>
+                                                    </constraints>
+                                                </view>
                                             </subviews>
                                             <color key="backgroundColor" systemColor="systemBlueColor"/>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="R0D-c8-ndq" secondAttribute="bottom" constant="141" id="Bp7-IQ-RuR"/>
                                                 <constraint firstItem="R0D-c8-ndq" firstAttribute="leading" secondItem="bo8-fe-izp" secondAttribute="leading" constant="24" id="FhI-Mq-udR"/>
+                                                <constraint firstItem="NUe-Uv-5WA" firstAttribute="centerY" secondItem="R0D-c8-ndq" secondAttribute="centerY" id="G2Y-gm-Mmm"/>
+                                                <constraint firstAttribute="trailing" secondItem="NUe-Uv-5WA" secondAttribute="trailing" constant="24" id="LhH-qY-9fp"/>
                                                 <constraint firstItem="R0D-c8-ndq" firstAttribute="top" secondItem="bo8-fe-izp" secondAttribute="top" constant="68" id="U14-DO-Q7t"/>
                                                 <constraint firstAttribute="trailing" secondItem="R0D-c8-ndq" secondAttribute="trailing" id="bPI-Hs-yZm"/>
                                             </constraints>
@@ -142,6 +163,7 @@
         </view>
     </objects>
     <resources>
+        <image name="checkPointIcon" width="17" height="21"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

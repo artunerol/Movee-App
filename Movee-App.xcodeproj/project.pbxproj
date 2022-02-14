@@ -45,6 +45,12 @@
 		6C8E0476279AAEB100A37184 /* CastCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C8E0474279AAEB100A37184 /* CastCollectionViewCell.xib */; };
 		6C8E0478279AC07300A37184 /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8E0477279AC07300A37184 /* Int+Extension.swift */; };
 		6C8E047C279AD57D00A37184 /* NavigationControllerBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8E047B279AD57D00A37184 /* NavigationControllerBuilder.swift */; };
+		6CA5B71927B92B0F0025183B /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA5B71727B92B0F0025183B /* MapViewController.swift */; };
+		6CA5B71A27B92B0F0025183B /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6CA5B71827B92B0F0025183B /* MapViewController.xib */; };
+		6CA5B72027B958A60025183B /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA5B71E27B958A60025183B /* ProfileViewController.swift */; };
+		6CA5B72127B958A60025183B /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6CA5B71F27B958A60025183B /* ProfileViewController.xib */; };
+		6CA5B72527B95E3A0025183B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA5B72327B95E3A0025183B /* LoginViewController.swift */; };
+		6CA5B72627B95E3A0025183B /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6CA5B72427B95E3A0025183B /* LoginViewController.xib */; };
 		6CB4F67B27947AE20031C1D0 /* HorizontalCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB4F67927947AE20031C1D0 /* HorizontalCollectionViewCell.swift */; };
 		6CB4F67C27947AE20031C1D0 /* HorizontalCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6CB4F67A27947AE20031C1D0 /* HorizontalCollectionViewCell.xib */; };
 		6CB4F67F2795AD0C0031C1D0 /* TabBarBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB4F67E2795AD0C0031C1D0 /* TabBarBuilder.swift */; };
@@ -104,6 +110,12 @@
 		6C8E0474279AAEB100A37184 /* CastCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CastCollectionViewCell.xib; sourceTree = "<group>"; };
 		6C8E0477279AC07300A37184 /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
 		6C8E047B279AD57D00A37184 /* NavigationControllerBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationControllerBuilder.swift; sourceTree = "<group>"; };
+		6CA5B71727B92B0F0025183B /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		6CA5B71827B92B0F0025183B /* MapViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
+		6CA5B71E27B958A60025183B /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		6CA5B71F27B958A60025183B /* ProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
+		6CA5B72327B95E3A0025183B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		6CA5B72427B95E3A0025183B /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		6CB4F67927947AE20031C1D0 /* HorizontalCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalCollectionViewCell.swift; sourceTree = "<group>"; };
 		6CB4F67A27947AE20031C1D0 /* HorizontalCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HorizontalCollectionViewCell.xib; sourceTree = "<group>"; };
 		6CB4F67E2795AD0C0031C1D0 /* TabBarBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarBuilder.swift; sourceTree = "<group>"; };
@@ -167,6 +179,9 @@
 		68BC08C127883534005DE2BA /* Moduls */ = {
 			isa = PBXGroup;
 			children = (
+				6CA5B72227B95E270025183B /* LoginViewController */,
+				6CA5B71D27B958930025183B /* ProfileViewController */,
+				6CA5B71627B92AF10025183B /* MapViewControlller */,
 				6C41A6D427B3CC31004F316E /* EmptyView */,
 				6C40B9EC27B119D500C6F8F0 /* SearchViewController */,
 				6C40B9E227B1148F00C6F8F0 /* SearchCollectionViewCell */,
@@ -421,6 +436,33 @@
 			path = Builders;
 			sourceTree = "<group>";
 		};
+		6CA5B71627B92AF10025183B /* MapViewControlller */ = {
+			isa = PBXGroup;
+			children = (
+				6CA5B71727B92B0F0025183B /* MapViewController.swift */,
+				6CA5B71827B92B0F0025183B /* MapViewController.xib */,
+			);
+			path = MapViewControlller;
+			sourceTree = "<group>";
+		};
+		6CA5B71D27B958930025183B /* ProfileViewController */ = {
+			isa = PBXGroup;
+			children = (
+				6CA5B71E27B958A60025183B /* ProfileViewController.swift */,
+				6CA5B71F27B958A60025183B /* ProfileViewController.xib */,
+			);
+			path = ProfileViewController;
+			sourceTree = "<group>";
+		};
+		6CA5B72227B95E270025183B /* LoginViewController */ = {
+			isa = PBXGroup;
+			children = (
+				6CA5B72327B95E3A0025183B /* LoginViewController.swift */,
+				6CA5B72427B95E3A0025183B /* LoginViewController.xib */,
+			);
+			path = LoginViewController;
+			sourceTree = "<group>";
+		};
 		6CB4F67827947A8B0031C1D0 /* HorizontalCollectionViewCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -625,11 +667,14 @@
 				6C8E0463279970F000A37184 /* TVDetailViewController.xib in Resources */,
 				6C40B9F027B119F400C6F8F0 /* SearchViewController.xib in Resources */,
 				6C8E0476279AAEB100A37184 /* CastCollectionViewCell.xib in Resources */,
+				6CA5B72627B95E3A0025183B /* LoginViewController.xib in Resources */,
 				68BC08C52788358B005DE2BA /* MoviesTabMainViewController.xib in Resources */,
 				6C8E044D2797EFF400A37184 /* TVSeriesMainTabViewController.xib in Resources */,
+				6CA5B72127B958A60025183B /* ProfileViewController.xib in Resources */,
 				6C41A6D827B3CF23004F316E /* EmptyView.xib in Resources */,
 				6C8E04562797F47D00A37184 /* TVSeriesTopRatedCollectionViewCell.xib in Resources */,
 				6C40B9F827B1473700C6F8F0 /* SearchCollectionViewCell.xib in Resources */,
+				6CA5B71A27B92B0F0025183B /* MapViewController.xib in Resources */,
 				83BA21612785954B009F22FF /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -718,6 +763,7 @@
 				6C8E0462279970F000A37184 /* TVDetailViewController.swift in Sources */,
 				6C8E04552797F47D00A37184 /* TVSeriesTopRatedCollectionViewCell.swift in Sources */,
 				6C4D176627A3DCBB00EC8338 /* GenreResponse.swift in Sources */,
+				6CA5B72027B958A60025183B /* ProfileViewController.swift in Sources */,
 				83BA215827859543009F22FF /* AppDelegate.swift in Sources */,
 				6C40B9F727B1473700C6F8F0 /* SearchCollectionViewCell.swift in Sources */,
 				83BA215A27859543009F22FF /* SceneDelegate.swift in Sources */,
@@ -732,6 +778,8 @@
 				6C8E0475279AAEB100A37184 /* CastCollectionViewCell.swift in Sources */,
 				8352F8322785E7D700A24BF7 /* StaticStringsList.swift in Sources */,
 				6CE65C4C27A0097F003047C2 /* MovieDetailResponse.swift in Sources */,
+				6CA5B71927B92B0F0025183B /* MapViewController.swift in Sources */,
+				6CA5B72527B95E3A0025183B /* LoginViewController.swift in Sources */,
 				6C8E0471279AAC1400A37184 /* CastResponse.swift in Sources */,
 				6C8E047C279AD57D00A37184 /* NavigationControllerBuilder.swift in Sources */,
 				6CE65C4F27A12925003047C2 /* PersonResponse.swift in Sources */,
@@ -873,6 +921,7 @@
 				DEVELOPMENT_TEAM = 579DA4NVH6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Movee-App/Info.plist";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Allow Movee to get your location to use for MoveeMap";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = SplashScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -901,6 +950,7 @@
 				DEVELOPMENT_TEAM = 579DA4NVH6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Movee-App/Info.plist";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Allow Movee to get your location to use for MoveeMap";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = SplashScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

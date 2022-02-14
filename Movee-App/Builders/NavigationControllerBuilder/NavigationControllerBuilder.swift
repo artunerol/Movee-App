@@ -16,6 +16,7 @@ class NavigationControllerBuilder {
         let navigationVC = UINavigationController(rootViewController: rootVC)
         navigationVC.navigationBar.backIndicatorImage = UIImage(named: "arrowBack")
         navigationVC.navigationBar.backIndicatorTransitionMaskImage = UIImage(named: "arrowBack")
+        navigationVC.navigationBar.tintColor = .white
         return navigationVC
     }
 }

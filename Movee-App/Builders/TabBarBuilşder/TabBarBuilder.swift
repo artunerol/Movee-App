@@ -28,8 +28,11 @@ class TabBarBuilder {
         let searchViewModel = SearchViewModel()
         searchViewController.viewModel = searchViewModel
         searchViewController.tabBarItem.image = UIImage(named: "searchBarIcon")
-        
-        tabBar.viewControllers = [movieViewController, tvSeriesViewController, searchViewController]
+
+        let profileViewController = ProfileViewController(nibName: ProfileViewController.nameOfClass, bundle: nil)
+        profileViewController.tabBarItem.image = UIImage(named: "iconsTabbarProfil")
+
+        tabBar.viewControllers = [movieViewController, tvSeriesViewController, searchViewController, profileViewController]
         return tabBar
     }
 }

@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MoviesTabMainViewController" customModule="Movee_App" customModuleProvider="target">
             <connections>
                 <outlet property="horizontolCollectionView" destination="cRd-Ei-7v7" id="qug-c3-Muo"/>
+                <outlet property="mapViewButton" destination="l4g-5C-JOg" id="4yb-Ji-f7z"/>
                 <outlet property="popularMoviesCollectionView" destination="iYU-9s-NGv" id="i2a-uy-B5e"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -46,6 +47,25 @@
                                                 <constraint firstItem="FSF-CE-q86" firstAttribute="leading" secondItem="iEz-sg-gRn" secondAttribute="leading" constant="24" id="gT9-NT-kak"/>
                                                 <constraint firstAttribute="bottom" secondItem="FSF-CE-q86" secondAttribute="bottom" constant="141" id="wXW-u7-0Q3"/>
                                                 <constraint firstAttribute="trailing" secondItem="FSF-CE-q86" secondAttribute="trailing" constant="24" id="zJF-Bp-7iF"/>
+                                            </constraints>
+                                        </view>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l4g-5C-JOg">
+                                            <rect key="frame" x="460" y="71.5" width="35" height="35"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkPointIcon" translatesAutoresizingMaskIntoConstraints="NO" id="fvd-AD-3KM">
+                                                    <rect key="frame" x="10.5" y="8" width="14" height="19"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="19" id="VCZ-C8-Fvm"/>
+                                                        <constraint firstAttribute="width" constant="14" id="smg-kL-9RN"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="35" id="eOK-Ft-FsJ"/>
+                                                <constraint firstAttribute="height" constant="35" id="j1z-sZ-A1G"/>
+                                                <constraint firstItem="fvd-AD-3KM" firstAttribute="centerY" secondItem="l4g-5C-JOg" secondAttribute="centerY" id="nHg-tU-ksc"/>
+                                                <constraint firstItem="fvd-AD-3KM" firstAttribute="centerX" secondItem="l4g-5C-JOg" secondAttribute="centerX" id="xs3-yY-IKf"/>
                                             </constraints>
                                         </view>
                                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" contentInsetAdjustmentBehavior="never" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="iYU-9s-NGv" userLabel="PopularMoviesCollectionView" customClass="AutoSizedCollectionView" customModule="Movee_App" customModuleProvider="target">
@@ -91,6 +111,7 @@
                                     </subviews>
                                     <color key="backgroundColor" red="0.87283848919999996" green="0.87283848919999996" blue="0.87283848919999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="l4g-5C-JOg" secondAttribute="trailing" constant="24" id="2Ep-BR-c7S"/>
                                         <constraint firstItem="iEz-sg-gRn" firstAttribute="leading" secondItem="Lmp-Jf-YCv" secondAttribute="leading" id="40d-Ox-7ey"/>
                                         <constraint firstItem="jh6-Ay-P0Y" firstAttribute="leading" secondItem="Lmp-Jf-YCv" secondAttribute="leading" constant="24" id="41v-cf-3uy"/>
                                         <constraint firstItem="cRd-Ei-7v7" firstAttribute="leading" secondItem="Lmp-Jf-YCv" secondAttribute="leading" id="AV4-Dp-aap"/>
@@ -106,6 +127,7 @@
                                         <constraint firstItem="iEz-sg-gRn" firstAttribute="top" secondItem="Lmp-Jf-YCv" secondAttribute="top" id="YVh-3e-lno"/>
                                         <constraint firstAttribute="trailing" secondItem="PMe-jz-SoX" secondAttribute="trailing" constant="24" id="cSd-Ji-fg2"/>
                                         <constraint firstAttribute="trailing" secondItem="iEz-sg-gRn" secondAttribute="trailing" id="hXS-yy-M0W"/>
+                                        <constraint firstItem="l4g-5C-JOg" firstAttribute="centerY" secondItem="FSF-CE-q86" secondAttribute="centerY" id="pJZ-En-aOG"/>
                                         <constraint firstItem="iYU-9s-NGv" firstAttribute="top" secondItem="PMe-jz-SoX" secondAttribute="bottom" constant="56" id="r6y-qk-2Tf"/>
                                     </constraints>
                                 </view>
@@ -145,6 +167,7 @@
         </view>
     </objects>
     <resources>
+        <image name="checkPointIcon" width="17" height="21"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

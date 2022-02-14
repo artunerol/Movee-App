@@ -257,7 +257,7 @@
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <color key="backgroundColor" systemColor="systemBlueColor"/>
             <constraints>
                 <constraint firstItem="oMB-46-0Y6" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="M4X-Fi-DKH"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="oMB-46-0Y6" secondAttribute="bottom" id="jkI-za-Ux3"/>
