@@ -15,6 +15,7 @@ struct StaticStringsList {
     static let imageBaseURL = "https://image.tmdb.org"
 
     static let apiKeyParam = "?api_key=\(myAPIKey)&language=en-US&page=1"
+    static let apiKeyParamForToken = "?api_key=d9887848cba0ebdfebd5a3088a951f3b"
 }
 
 enum ServiceURL {
@@ -28,8 +29,9 @@ enum ServiceURL {
     case movieDetail(String)
     case person(Int)
     case search(String)
+    case requestToken
+    case loginRequest
 
-    
     case originalPoster
     case w500Poster
     //  "https://api.themoviedb.org/3/tv/85552?api_key=d9887848cba0ebdfebd5a3088a951f3b&language=en-US&page=1"
@@ -38,25 +40,29 @@ enum ServiceURL {
     var description: String {
         switch self {
         case .populerMoviesURL:
-            return  "/3/movie/popular"
+            return  "/3/movie/popular" + StaticStringsList.apiKeyParam
         case .topRatedTVSeriesURL:
-            return "/3/tv/popular"
+            return "/3/tv/popular" + StaticStringsList.apiKeyParam
         case .movieCast(let id):
-            return "/3/movie/\(id)/credits"
+            return "/3/movie/\(id)/credits" + StaticStringsList.apiKeyParam
         case .tvCast(let id):
-            return "/3/tv/\(id)/credits"
+            return "/3/tv/\(id)/credits" + StaticStringsList.apiKeyParam
         case .originalPoster:
-            return "/t/p/original"
+            return "/t/p/original" + StaticStringsList.apiKeyParam
         case .w500Poster:
-            return "/t/p/w500"
+            return "/t/p/w500" + StaticStringsList.apiKeyParam
         case .tvDetail(let id):
-            return "/3/tv/\(id)"
+            return "/3/tv/\(id)" + StaticStringsList.apiKeyParam
         case .movieDetail(let id):
-            return "/3/movie/\(id)"
+            return "/3/movie/\(id)" + StaticStringsList.apiKeyParam
         case .person(let id):
-            return "/3/person/\(id)"
+            return "/3/person/\(id)" + StaticStringsList.apiKeyParam
         case .search(let keyword):
             return "/3/search/multi" + StaticStringsList.apiKeyParam + "&query=\(keyword.removeSpaces().lowercased())&include_adult=false"
+        case .loginRequest:
+            return "/3/authentication/token/validate_with_login" + StaticStringsList.apiKeyParamForToken
+        case .requestToken:
+            return "/3/authentication/token/new" + StaticStringsList.apiKeyParamForToken
         }
     }
 }

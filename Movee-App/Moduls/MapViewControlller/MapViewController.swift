@@ -56,6 +56,8 @@ class MapViewController: UIViewController {
     }
 }
 
+// MARK: - Extensions
+
 extension MapViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.first {

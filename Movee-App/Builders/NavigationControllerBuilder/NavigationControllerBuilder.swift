@@ -12,7 +12,15 @@ class NavigationControllerBuilder {
     static let shared = NavigationControllerBuilder()
 
     func build() -> UINavigationController {
-        let rootVC = TabBarBuilder.shared.build()
+        var rootVC = UIViewController()
+        if UserDefaults.standard.bool(forKey: "isLoggedIn") {
+            rootVC = TabBarBuilder.shared.build()
+        } else {
+            let viewModel = LoginViewModel()
+            let loginVC = LoginViewController(nibName: LoginViewController.nameOfClass, bundle: nil)
+            loginVC.viewModel = viewModel
+            rootVC = loginVC
+        }
         let navigationVC = UINavigationController(rootViewController: rootVC)
         navigationVC.navigationBar.backIndicatorImage = UIImage(named: "arrowBack")
         navigationVC.navigationBar.backIndicatorTransitionMaskImage = UIImage(named: "arrowBack")

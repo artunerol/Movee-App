@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TVSeriesMainTabViewController" customModule="Movee_App" customModuleProvider="target">
             <connections>
                 <outlet property="horizontalCollectionView" destination="zN3-1g-fkp" id="j1h-1K-Qj4"/>
+                <outlet property="mapButton" destination="NUe-Uv-5WA" id="QI8-c0-2gL"/>
                 <outlet property="topRatedCollectionView" destination="EnO-vz-g0V" id="xe4-Be-gOQ"/>
                 <outlet property="view" destination="YHz-o9-BU5" id="KDF-Le-8Xb"/>
             </connections>

@@ -11,6 +11,7 @@ class TVSeriesMainTabViewController: UIViewController {
     // MARK: - IBOutlet
     @IBOutlet private weak var horizontalCollectionView: UICollectionView!
     @IBOutlet private weak var topRatedCollectionView: UICollectionView!
+    @IBOutlet private weak var mapButton: UIView!
 
     // MARK: - Public Properties
     var viewModel: TVSeriesViewModel?
@@ -22,7 +23,8 @@ class TVSeriesMainTabViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         handleAPI()
-        setupCollectionView()
+        setupView()
+        configureView()
 
         viewModel?.preparePopularTVSeries()
     }
@@ -46,6 +48,15 @@ class TVSeriesMainTabViewController: UIViewController {
         viewModel?.popularTVSeriesFailedClosure = { error in
             print("error is \(error)")
         }
+    }
+
+    private func setupView() {
+        setupCollectionView()
+        mapButton.layer.cornerRadius = mapButton.frame.height / 2
+    }
+
+    private func configureView() {
+        addGestureToMapViewButton()
     }
 
     private func setupCollectionView() {
@@ -76,6 +87,18 @@ class TVSeriesMainTabViewController: UIViewController {
             ),
             forCellWithReuseIdentifier: HorizontalCollectionViewCell.nameOfClass
         )
+    }
+
+    private func addGestureToMapViewButton() {
+        let gestureRecognizer = UITapGestureRecognizer()
+        gestureRecognizer.addTarget(self, action: #selector(buttonTapped))
+        mapButton.addGestureRecognizer(gestureRecognizer)
+    }
+
+    // MARK: - OBj Funcs
+
+    @objc private func buttonTapped() {
+        navigationController?.pushViewController(MapViewController(), animated: true)
     }
 }
 
